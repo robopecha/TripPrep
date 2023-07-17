@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const itemSchema = new Schema({
-  content: String,
+  content: { type: String },
   list: { type: Schema.Types.ObjectId, ref: "List" }
   // if on pack list: public boolean
 });

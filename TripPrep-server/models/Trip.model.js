@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const tripSchema = new Schema({
-  destination: String,
-  country: String,
-  season: String,
-  date: Date,
+  destination: { type: String },
+  country: { type: String, required: true },
+  season: { type: String, required: true },
+  startDate: { type: Date },
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
-  public: Boolean
+  public: { type: Boolean, default: false }
   // owner will be added later on
 });
 
