@@ -9,9 +9,9 @@ const List = require("../models/List.model");
 const postNewTrip = (req, res, next) => {
   const { destination, country, season, startDate } = req.body;
 
-  Trip.create({ destination, country, season, startDate, lists })
+  Trip.create({ destination, country, season, startDate, lists, user })     // add user_id and list_ids
     .then((response) => res.json(response))
-    .catch((err) => res.json(err));
+    .catch((err) => res.json(err));                                         // create lists in here?
 };
 
 const getAllTrips = (req, res, next) => {

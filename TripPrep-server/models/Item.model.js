@@ -3,8 +3,8 @@ const { Schema, model } = mongoose;
 
 const itemSchema = new Schema({
   content: { type: String },
-  list: { type: Schema.Types.ObjectId, ref: "List" }
-  // if on pack list: public boolean
+  list: { type: Schema.Types.ObjectId, ref: "List" },
+  public: { type: Boolean, default: true }
 });
 
 module.exports = model("Item", itemSchema);

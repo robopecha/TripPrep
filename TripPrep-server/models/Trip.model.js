@@ -7,8 +7,8 @@ const tripSchema = new Schema({
   season: { type: String, required: true },
   startDate: { type: Date },
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
-  public: { type: Boolean, default: false }
-  // owner will be added later on
+  public: { type: Boolean, default: false },
+  user: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
 module.exports = model("Trip", tripSchema);
