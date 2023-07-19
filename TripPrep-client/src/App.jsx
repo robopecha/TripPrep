@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import NewTripPage from "./pages/NewTripPage";
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
-        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
+        <Route exact path="/new-trip" element={<NewTripPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );
