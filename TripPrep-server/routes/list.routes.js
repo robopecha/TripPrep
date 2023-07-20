@@ -2,7 +2,7 @@ const router = require('express').Router();
 const listController = require("../controllers/list.controller");
 
 
-router.post("/lists", listController.postNewList);   
+router.post("/lists", listController.postNewList);
 
 router.get("/lists", listController.getAllLists);
 

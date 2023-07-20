@@ -7,6 +7,8 @@ import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import NewTripPage from "./pages/NewTripPage";
+import TripsPage from "./pages/TripsPage"
+import TripsDetailsPage from "./pages/TripsDetailsPage"
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/new-trip" element={<NewTripPage />} />
+        <Route path="/new-trip" element={<NewTripPage />} />
+        <Route path="/trips" element={<TripsPage />} />
+        <Route path="/trips/:id" element={<TripsDetailsPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

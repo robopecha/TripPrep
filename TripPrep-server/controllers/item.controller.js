@@ -7,9 +7,9 @@ const List = require("../models/List.model");
 
 
 const postNewItem = (req, res, next) => {
-  const { content } = req.body;
+  const { content, listID } = req.body;
 
-  Item.create({ content, list })               // add list_id
+  Item.create({ content, list: listID })
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
 };

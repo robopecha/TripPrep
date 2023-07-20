@@ -14,7 +14,7 @@ function TripPage() {
 
     axios
       .get(
-      `${API_URL}/api/projects`,
+      `${API_URL}/api/trips`,
       { headers: { Authorization: `Bearer ${storedToken}` } }
     )
       .then((response) => setTrips(response.data))

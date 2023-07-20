@@ -6,10 +6,10 @@ const List = require("../models/List.model");
 const Item = require("../models/Item.model");
 
 
-const postNewList = (req, res, next) => {              // here or in trip create?
-  const { listType } = req.body;
+const postNewList = (req, res, next) => {
+  const { listType, tripID } = req.body;
 
-  List.create({ listType, trip, items: [] })           // add trip_id and item_ids
+  List.create({ listType, trip: tripID, items: [] })
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
 };

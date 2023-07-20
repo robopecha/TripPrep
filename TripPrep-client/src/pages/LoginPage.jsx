@@ -1,11 +1,9 @@
-// src/pages/LoginPage.jsx
-
 import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "http://127.0.0.1:5005";
 
 
 function LoginPage(props) {
@@ -20,7 +18,6 @@ function LoginPage(props) {
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +37,7 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
+    <div>
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
@@ -59,7 +56,8 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
-
+        <br />
+        <br />
         <button type="submit">Login</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }

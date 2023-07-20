@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
@@ -8,17 +9,19 @@ function AddTrip(props) {
   const [country, setCountry] = useState("");
   const [season, setSeason] = useState("");
   const [startDate, setStartDate] = useState("");
-
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { destination, country, season, startDate };
 
     const storedToken = localStorage.getItem('authToken');
 
+    console.log("tokennnn", storedToken)
+    const requestBody = { destination, country, season, startDate, userID: user._id };
+
     axios
       .post(
-        `${API_URL}/api/projects`,
+        `${API_URL}/api/trips`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -27,7 +30,7 @@ function AddTrip(props) {
         setCountry("");
         setSeason("");
         setStartDate("");
-        props.refreshTrips();
+        //props.refreshTrips();
       })
       .catch((error) => console.log(error));
   };
@@ -35,10 +38,9 @@ function AddTrip(props) {
 
   return (
     <div>
-      <h3>Add Trip</h3>
 
       <form onSubmit={handleSubmit}>
-        
+
         <label>Destination:</label>
         <input
           type="text"
@@ -63,14 +65,15 @@ function AddTrip(props) {
           onChange={(e) => setSeason(e.target.value)}
         />
 
-        <label>Start Date:</label>
+        <label>Start date:</label>
         <input
-          type="text"
+          type="date"
           name="startDate"
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
         />
-
+        <br />
+        <br />
         <button type="submit">Submit</button>
       </form>
     </div>
