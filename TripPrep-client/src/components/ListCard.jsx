@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
 
-function ListCard({ list }) {
-  const { toDo, toBuy, toPack } = list;
+function ListCard() {
 
   return (
     <>
-      <Link to={`/trips/:id/lists/todo`}>
+      <Link to={`/trips/:id/lists/do`}>
         <h5> To Do </h5>
       </Link>
 
-      <Link to={`/trips/:id/lists/tobuy`}>
+      <Link to={`/trips/:id/lists/buy`}>
         <h5> To Buy </h5>
       </Link>
 
-      <Link to={`/trips/:id/lists/topack`}>
+      <Link to={`/trips/:id/lists/pack`}>
         <h5> To Pack </h5>
       </Link>
     </>

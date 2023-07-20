@@ -17,7 +17,15 @@ const postNewTrip = (req, res, next) => {
       toPack: [],
       trip: createdTrip._id
     })
+
+  .then((createdList) => {
+    console.log("createdList", createdList);
+    console.log("created trip", createdTrip);
+    createdTrip.lists.push(createdList);
+    return createdTrip.save();
   })
+})
+
     .catch((err) => res.json(err));
 };
 

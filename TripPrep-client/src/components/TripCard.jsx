@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function TripCard ( { destination, country, season } ) {
+function TripCard ( { destination, country, season, _id } ) {
 
   return (
       <Link to={`/trips/${_id}`}>

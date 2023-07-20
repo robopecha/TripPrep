@@ -8,21 +8,30 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import NewTripPage from "./pages/NewTripPage";
 import TripsPage from "./pages/TripsPage"
-import TripsDetailsPage from "./pages/TripsDetailsPage"
+import TripDetailsPage from "./pages/TripDetailsPage"
+import { TripContextProvider } from "./context/trip.context";
+// import ListDoPage from "./pages/ListDoPage"
+// import ListBuyPage from "./pages/ListBuyPage"
+// import ListPackPage from "./pages/ListPackPage"
 
 function App() {
   return (
     <div className="App">
       <Navbar />
 
+        <TripContextProvider>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/new-trip" element={<NewTripPage />} />
-        <Route path="/trips" element={<TripsPage />} />
-        <Route path="/trips/:id" element={<TripsDetailsPage />} />
+          <Route path="/trips" element={<TripsPage />} />
+          <Route path="/trips/:tripID" element={<TripDetailsPage />} />
+        {/* <Route path="/trips/:id/lists/do" element={<ListDoPage />} />
+        <Route path="/trips/:id/lists/buy" element={<ListBuyPage />} />
+      <Route path="/trips/:id/lists/pack" element={<ListPackPage />} /> */}
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      </TripContextProvider>
     </div>
   );
 }
