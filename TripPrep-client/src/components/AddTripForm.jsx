@@ -16,7 +16,6 @@ function AddTrip(props) {
 
     const storedToken = localStorage.getItem('authToken');
 
-    console.log("tokennnn", storedToken)
     const requestBody = { destination, country, season, startDate, userID: user._id };
 
     axios
@@ -30,7 +29,6 @@ function AddTrip(props) {
         setCountry("");
         setSeason("");
         setStartDate("");
-        //props.refreshTrips();
       })
       .catch((error) => console.log(error));
   };

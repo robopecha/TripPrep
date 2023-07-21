@@ -4,13 +4,19 @@ const mongoURI = process.env.MONGO_URI;
 const axios = require("axios");
 const Item = require("../models/Item.model");
 const List = require("../models/List.model");
+const Trip = require("../models/Trip.model");
 
 
 const postNewItem = (req, res, next) => {
-  const { content, listID } = req.body;
+  const { content, tripID, listType } = req.body;
 
-  Item.create({ content, list: listID })
-    .then((response) => res.json(response))
+  Item.create({ content, trip: tripID, listType })
+    .then((createdItem) => {
+      const theTrip = Trip.findById(tripID);
+      const theList = List.findById(theTrip.lists);
+      theList.listType.push(createdItem);
+      return theList.save();
+    })
     .catch((err) => res.json(err));
 };
 

@@ -10,10 +10,7 @@ export const TripContextProvider = (props) => {
 
   const [trips, setTrips] = useState([]);
 
-  console.log("something is happening")
-
- useEffect(() => {
-    console.log("the function is running!!!")
+  useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     axios
       .get(
@@ -27,9 +24,9 @@ export const TripContextProvider = (props) => {
   }, []);
 
 
- return (
+  return (
    <TripContext.Provider value={{trips}}>
      {props.children}
    </TripContext.Provider>
- );
+  );
 };

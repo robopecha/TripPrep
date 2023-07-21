@@ -1,7 +1,9 @@
 function ItemCard ( { content } ) {
 
   return (
-    <h5>{content}</h5>
+    <div>
+      <h5>{content}</h5>
+    </div>
   );
 }
 

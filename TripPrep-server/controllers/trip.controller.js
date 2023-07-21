@@ -12,15 +12,13 @@ const postNewTrip = (req, res, next) => {
   Trip.create({ destination, country, season, startDate, lists: [], user: userID })
   .then((createdTrip) => {
     List.create({
-      toDo: [],
-      toBuy: [],
-      toPack: [],
+      todo: [],
+      tobuy: [],
+      topack: [],
       trip: createdTrip._id
     })
 
   .then((createdList) => {
-    console.log("createdList", createdList);
-    console.log("created trip", createdTrip);
     createdTrip.lists.push(createdList);
     return createdTrip.save();
   })

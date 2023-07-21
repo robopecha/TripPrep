@@ -3,10 +3,10 @@ const { Schema, model } = mongoose;
 
 const itemSchema = new Schema({
   content: { type: String },
-  list: { type: Schema.Types.ObjectId, ref: "List" },
+  trip: { type: Schema.Types.ObjectId, ref: "Trip" },
   public: { type: Boolean, default: true },
   packed: { type: Boolean, default: false },
-  listType: { type: String, enum: ['To Do', 'To Buy', 'To Pack'] }
+  listType: { type: String, enum: ['todo', 'tobuy', 'topack'] }
 });
 
 module.exports = model("Item", itemSchema);
