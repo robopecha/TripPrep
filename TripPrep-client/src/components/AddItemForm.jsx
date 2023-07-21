@@ -5,14 +5,16 @@ const API_URL = "http://localhost:5005";
 
 function AddItem(props) {
   const [content, setContent] = useState("");
-  const {tripID} = useParams()
+  const {tripID} = useParams();
+
+  const listType = props.listType
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
 
-    const requestBody = { content, tripID, listType: "todo" };
+    const requestBody = { content, tripID, listType };
 
     axios
       .post(
@@ -22,6 +24,7 @@ function AddItem(props) {
       )
       .then((response) => {
         setContent("");
+        props.refreshItems();
       })
       .catch((error) => console.log(error));
   };

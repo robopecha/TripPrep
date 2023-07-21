@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 function ListCard(props) {
-  console.log('props here!', props);
+  
   return (
     <>
       <Link to={`/trips/${props._id}/lists/todo`}>

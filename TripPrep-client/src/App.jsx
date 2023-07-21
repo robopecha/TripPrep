@@ -11,8 +11,8 @@ import TripsPage from "./pages/TripsPage";
 import TripDetailsPage from "./pages/TripDetailsPage"
 import { TripContextProvider } from "./context/trip.context";
 import ListDoPage from "./pages/ListDoPage";
-// import ListBuyPage from "./pages/ListBuyPage";
-// import ListPackPage from "./pages/ListPackPage";
+import ListBuyPage from "./pages/ListBuyPage";
+import ListPackPage from "./pages/ListPackPage";
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
           <Route path="/trips" element={<TripsPage />} />
           <Route path="/trips/:tripID" element={<TripDetailsPage />} />
           <Route path="/trips/:tripID/lists/todo" element={<ListDoPage />} />
-          {/* <Route path="/trips/:tripID/lists/tobuy" element={<ListBuyPage />} />
-          <Route path="/trips/:tripID/lists/topack" element={<ListPackPage />} /> */}
+          <Route path="/trips/:tripID/lists/tobuy" element={<ListBuyPage />} />
+          <Route path="/trips/:tripID/lists/topack" element={<ListPackPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
