@@ -2,19 +2,21 @@ import { Link } from "react-router-dom";
 
 
 function ListCard(props) {
-  
+
   return (
     <>
       <Link to={`/trips/${props._id}/lists/todo`}>
-        <h5> To Do </h5>
+        <button> To Do </button>
       </Link>
-
+      <br />
+      <br />
       <Link to={`/trips/${props._id}/lists/tobuy`}>
-        <h5> To Buy </h5>
+      <button> To Buy </button>
       </Link>
-
+      <br />
+      <br />
       <Link to={`/trips/${props._id}/lists/topack`}>
-        <h5> To Pack </h5>
+      <button> To Pack </button>
       </Link>
     </>
   )

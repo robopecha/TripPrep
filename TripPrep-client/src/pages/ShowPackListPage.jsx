@@ -1,5 +1,4 @@
 import ItemCard from "../components/ItemCard";
-import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -8,7 +7,7 @@ const API_URL = "http://localhost:5005";
 
 const listType = "topack";
 
-function ListPackPage() {
+function ShowPackListPage() {
   const {tripID} = useParams();
   const [items, setItems] = useState([]);
 
@@ -30,17 +29,15 @@ function ListPackPage() {
 
   return (
     <div>
-      <h3>To Pack</h3>
-      <Link to={`/trips/${tripID}/lists/packmode`}><button>Pack Mode</button></Link>
+      <h3>look at this pack list!</h3>
       { items && items.map((item) => {
         if (tripID === item.trip && item.listType === 'topack') {
           return <ItemCard key={item._id} {...item} />
-        }
+        }                                                                 // button to copy to new trip
         return null;
       })}
-      <AddItemForm refreshItems={getAllItems} listType={listType} />
     </div>
   );
 }
 
-export default ListPackPage;
+export default ShowPackListPage;

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useContext} from "react";
 import TripContext from "../context/trip.context"
 
-function TripDetailsPage() {
+function MyTripDetailsPage() {
   const {trips} = useContext(TripContext);
   const {tripID} = useParams();
 
@@ -15,5 +15,5 @@ function TripDetailsPage() {
     </>
   );
 }
-
-export default TripDetailsPage;
+                                                     // show all attributes of trip and add edit option and image upload option
+export default MyTripDetailsPage;

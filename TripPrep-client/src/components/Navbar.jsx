@@ -7,17 +7,20 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/"><button>Home</button></Link>
+      <Link to="/alltrips"><button>Home</button></Link>
 
       <Link to="/search"><button>Search</button></Link>
 
       {isLoggedIn && (
         <>
-          <Link to="/trips"><button>Trips</button></Link>
+          <Link to="/trips"><button>My Trips</button></Link>
 
           <Link to="/messages"><button>Messages</button></Link>
 
           <Link to="/profile"><button>Profile</button></Link>
+
+          <button onClick={logOutUser}>Logout</button>
+          <span>{user && user.name}</span>
         </>
       )}
 

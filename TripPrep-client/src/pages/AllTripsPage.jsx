@@ -1,16 +1,15 @@
 import AllTripsCard from "../components/AllTripsCard";
 import TripContext from "../context/trip.context"
+import { Link } from "react-router-dom";
 import { useContext } from "react";
-import SearchForm from "../components/SearchForm";
 
 
-function SearchPage() {
+function AllTripsPage() {
   const {trips} = useContext(TripContext);
-
-  <SearchForm />
   return (
     <div>
-      <h3>Search results</h3>
+      <h3>All Trips</h3>
+      <Link to={`/new-trip`}><button>Add a Trip</button></Link>
       {trips && trips.map((trip) =>
         <AllTripsCard key={trip._id} {...trip} />
       )}
@@ -18,4 +17,4 @@ function SearchPage() {
   );
 }
 
-export default SearchPage;
+export default AllTripsPage;

@@ -12,10 +12,12 @@ const postNewItem = (req, res, next) => {
 
   Item.create({ content, trip: tripID, listType })
     .then((createdItem) => {
-      const theTrip = Trip.findById(tripID);
-      const theList = List.findById(theTrip.lists);
-      theList.listType.push(createdItem);
-      return theList.save();
+      List.findOne({ trip: tripID })
+        .then((list) => {
+          list[listType].push(createdItem._id);
+          list.save()
+        })
+        .catch((err) => res.json(err));
     })
     .catch((err) => res.json(err));
 };
