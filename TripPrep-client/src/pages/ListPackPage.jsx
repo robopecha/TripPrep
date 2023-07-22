@@ -2,7 +2,7 @@ import ItemCard from "../components/ItemCard";
 import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -31,6 +31,7 @@ function ListPackPage() {
   return (
     <div>
       <h3>To Pack</h3>
+      <Link to={`/trips/${tripID}/lists/packmode`}>Pack Mode</Link>
       { items && items.map((item) => {
         if (tripID === item.trip && item.listType === 'topack') {
           return <ItemCard key={item._id} {...item} />

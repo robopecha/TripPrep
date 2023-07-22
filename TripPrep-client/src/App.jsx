@@ -13,6 +13,8 @@ import { TripContextProvider } from "./context/trip.context";
 import ListDoPage from "./pages/ListDoPage";
 import ListBuyPage from "./pages/ListBuyPage";
 import ListPackPage from "./pages/ListPackPage";
+import PackModePage from "./pages/PackModePage";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/trips/:tripID/lists/todo" element={<ListDoPage />} />
           <Route path="/trips/:tripID/lists/tobuy" element={<ListBuyPage />} />
           <Route path="/trips/:tripID/lists/topack" element={<ListPackPage />} />
+          <Route path="/trips/:tripID/lists/packmode" element={<PackModePage />} />
+          <Route path="/success" element={<SuccessPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
