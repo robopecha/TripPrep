@@ -2,9 +2,13 @@
 
 // username
 
-// public trips
+// (public trips for other users)
 
-// contact button for other users
+// (contact button for other users)
 
-// edit profile for yourself
+// (edit profile button for yourself)
 // logout button for yourself
+
+
+// dark light mode
+// color themes

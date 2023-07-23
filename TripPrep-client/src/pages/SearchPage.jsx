@@ -8,6 +8,7 @@ function SearchPage() {
   const {trips} = useContext(TripContext);
 
   <SearchForm />
+
   return (
     <div>
       <h3>Search results</h3>

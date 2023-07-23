@@ -6,6 +6,4 @@
 // edit password
 
 // settings:
-  // dark light mode
-  // color themes
-  // let other users contact me
+// let other users contact me
