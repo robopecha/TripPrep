@@ -6,7 +6,7 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="text-orange-500">
+    <nav className="flex justify-between pb-8">
       <Link to="/alltrips"><button>Home</button></Link>
 
       <Link to="/search"><button>Search</button></Link>
@@ -15,15 +15,14 @@ function Navbar() {
         <>
           <Link to="/trips"><button>My Trips</button></Link>
 
-          <Link to="/profile"><button>Profile</button></Link>
+          <Link to="/profile"><button>{user.name}</button></Link>
 
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
+          <button onClick={logOutUser}>Log out</button>
         </>
       )}
 
       {!isLoggedIn && (
-          <Link to="/login"> <button>Login</button> </Link>
+          <Link to="/login"> <button>Log in</button> </Link>
       )}
 
     </nav>

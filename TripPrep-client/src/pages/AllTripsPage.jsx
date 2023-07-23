@@ -10,9 +10,11 @@ function AllTripsPage() {
     <div>
       <h3>All Trips</h3>
       <Link to={`/new-trip`}><button>Add a Trip</button></Link>
-      {trips && trips.map((trip) =>
-        <AllTripsCard key={trip._id} {...trip} />
-      )}
+      <div className="grid grid-cols-4 gap-10">
+        {trips && trips.map((trip) =>
+          <AllTripsCard key={trip._id} {...trip} />
+        )}
+      </div>
     </div>
   );
 }

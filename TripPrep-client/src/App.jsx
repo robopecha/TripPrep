@@ -21,7 +21,7 @@ import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-ocr">
       <Navbar />
       <TripContextProvider>
         <Routes>
