@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function AllTripsCard ( { destination, country, season, _id } ) {
+function AllTripsCard ( { destination, country, season, _id, user } ) {
 
   return (                                      // add image to this card
       <Link to={`/trips/${_id}/packlist`}>

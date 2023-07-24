@@ -8,7 +8,8 @@ const tripSchema = new Schema({
   startDate: { type: Date },
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
   public: { type: Boolean, default: false },
-  user: { type: Schema.Types.ObjectId, ref: "User" }
+  user: { type: Schema.Types.ObjectId, ref: "User" },
+  image: { type: String, default: 'https://images.media-allrecipes.com/images/75131.jpg' },
 });
 
 module.exports = model("Trip", tripSchema);

@@ -46,6 +46,7 @@ function LoginPage(props) {
           type="email"
           name="email"
           value={email}
+          className="border border-black rounded-sm w-60 h-9"
           onChange={handleEmail}
         />
 
@@ -54,6 +55,7 @@ function LoginPage(props) {
           type="password"
           name="password"
           value={password}
+          className="border border-black rounded-sm w-60 h-9"
           onChange={handlePassword}
         />
         <br />

@@ -21,6 +21,9 @@ app.use("/api", isAuthenticated, listRouter);
 const itemRouter = require("./routes/item.routes");
 app.use("/api", isAuthenticated, itemRouter);
 
+const searchRouter = require("./routes/search.routes");
+app.use("/api", isAuthenticated, searchRouter);
+
 const authRouter = require("./routes/auth.routes");
 app.use("/auth", authRouter);
 
