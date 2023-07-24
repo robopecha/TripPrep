@@ -30,7 +30,7 @@ function ListPackPage() {
 
   return (
     <div>
-      <h3>Packing!</h3>
+      <h3 className="text-4xl my-6">Packing!</h3>
 
       { items && items.map((item) => {
         if (tripID === item.trip && item.listType === 'topack') {

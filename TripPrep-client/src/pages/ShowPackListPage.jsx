@@ -29,7 +29,7 @@ function ShowPackListPage() {
 
   return (
     <div>
-      <h3>look at this pack list!</h3>
+      <h3 className="text-2xl my-6">Look at this packing list!</h3>
       { items && items.map((item) => {
         if (tripID === item.trip && item.listType === 'topack') {
           return <ItemCard key={item._id} {...item} />

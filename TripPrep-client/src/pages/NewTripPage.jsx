@@ -4,10 +4,10 @@ import AddTripForm from "../components/AddTripForm";
 function NewTripPage() {
 
   return (
-    <>
-     <h3>Add a new trip</h3>
+    <div className="text-center">
+     <h3 className="text-4xl my-6">Add a new trip</h3>
      <AddTripForm />
-    </>
+    </div>
   );
 }
 

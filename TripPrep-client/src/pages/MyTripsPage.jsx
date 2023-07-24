@@ -10,13 +10,15 @@ function MyTripsPage() {
   const {trips} = useContext(TripContext);
   return (
     <div>
-      <h3>My Trips</h3>
-      <Link to={`/new-trip`}><button>Add a Trip</button></Link>
-      {trips && trips.map((trip) => {
-        if (trip.user === user._id) {
-          return <TripCard key={trip._id} {...trip} />;
-        }
-      })}
+      <h3 className="text-4xl my-6">My Trips</h3>
+      <Link to={`/new-trip`}><button className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Add a Trip</button></Link>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        {trips && trips.map((trip) => {
+          if (trip.user === user._id) {
+            return <TripCard key={trip._id} {...trip} />;
+          }
+        })}
+      </div>
     </div>
   );
 }

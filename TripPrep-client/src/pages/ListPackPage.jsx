@@ -29,16 +29,20 @@ function ListPackPage() {
   }, []);
 
   return (
-    <div>
-      <h3>To Pack</h3>
-      <Link to={`/trips/${tripID}/lists/packmode`}><button>Pack Mode</button></Link>
-      { items && items.map((item) => {
-        if (tripID === item.trip && item.listType === 'topack') {
-          return <ItemCard key={item._id} {...item} />
-        }
-        return null;
-      })}
-      <AddItemForm refreshItems={getAllItems} listType={listType} />
+    <div className="flex flex-col items-center">
+      <h3 className="text-4xl my-6 text-center mt-10">To Pack</h3>
+      <Link to={`/trips/${tripID}/lists/packmode`}><button className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black p-1 transition ease-in-out duration-200">Pack Mode</button></Link>
+      <div className="md:ml-40 mt-4">
+        <div>
+          { items && items.map((item) => {
+            if (tripID === item.trip && item.listType === 'topack') {
+              return <ItemCard key={item._id} {...item} />
+            }
+            return null;
+          })}
+        </div>
+        <AddItemForm refreshItems={getAllItems} listType={listType} />
+      </div>
     </div>
   );
 }

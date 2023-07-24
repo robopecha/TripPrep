@@ -8,9 +8,9 @@ function AllTripsPage() {
   const {trips} = useContext(TripContext);
   return (
     <div>
-      <h3>All Trips</h3>
-      <Link to={`/new-trip`}><button>Add a Trip</button></Link>
-      <div className="grid grid-cols-4 gap-10">
+      <h3 className="text-4xl my-6">All Trips</h3>
+      <Link to={`/new-trip`}><button className="bg-blue-500 p-1 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Add a Trip</button></Link>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {trips && trips.map((trip) =>
           <AllTripsCard key={trip._id} {...trip} />
         )}

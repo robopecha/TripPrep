@@ -43,40 +43,51 @@ function AddTrip(props) {
 
       <form onSubmit={handleSubmit}>
 
-        <label>Destination:</label>
-        <input
-          type="text"
-          name="destination"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)}
-        />
+        <div className="mb-5">
+          <label>Destination:</label>
+          <input
+            type="text"
+            name="destination"
+            value={destination}
+            className="border border-black rounded-sm"
+            onChange={(e) => setDestination(e.target.value)}
+          />
+        </div>
 
-        <label>Country:</label>
-        <input
-          type="text"
-          name="country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
+        <div className="mb-5">
+          <label>Country:</label>
+          <input
+            type="text"
+            name="country"
+            value={country}
+            className="border border-black rounded-sm"
+            onChange={(e) => setCountry(e.target.value)}
+          />
+        </div>
 
-        <label>Season:</label>
-        <input
-          type="text"
-          name="season"
-          value={season}
-          onChange={(e) => setSeason(e.target.value)}
-        />
+        <div className="mb-5">
+          <label>Season:</label>
+          <input
+            type="text"
+            name="season"
+            value={season}
+            className="border border-black rounded-sm"
+            onChange={(e) => setSeason(e.target.value)}
+          />
+        </div>
 
-        <label>Start date:</label>
-        <input
-          type="date"
-          name="startDate"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
-        <br />
-        <br />
-        <button type="submit">Submit</button>
+        <div className="mb-15">
+          <label>Start date:</label>
+          <input
+            type="date"
+            name="startDate"
+            value={startDate}
+            className="border border-black rounded-sm"
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
+
+        <button type="submit" className="bg-blue-500 mt-8 p-1 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Submit</button>
       </form>
     </div>
   );

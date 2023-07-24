@@ -4,9 +4,11 @@ function TripCard ( { destination, country, season, _id } ) {
 
   return (
       <Link to={`/trips/${_id}`}>
-        <h3>{country}</h3>
-        <h5>{destination}</h5>
-        <h5>{season}</h5>
+        <div className="rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200 bg-yellow-400 text-center">
+          <h3>{country}</h3>
+          <h5>{destination}</h5>
+          <h5>{season}</h5>
+        </div>
       </Link>
   );
 }

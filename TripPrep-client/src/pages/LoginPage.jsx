@@ -38,7 +38,7 @@ function LoginPage(props) {
 
   return (
     <div>
-      <h1>Log in</h1>
+      <h1 className="text-4xl my-6">Log in</h1>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -58,12 +58,12 @@ function LoginPage(props) {
         />
         <br />
         <br />
-        <button type="submit">Log in</button>
+        <button type="submit" className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Log in</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"} > Sign Up</Link>
     </div>
   )
 }

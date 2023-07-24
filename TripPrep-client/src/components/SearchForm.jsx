@@ -20,7 +20,7 @@ const SearchForm = ({ handleSearch }) => {
         value={searchQuery}
         onChange={handleChange}
       />
-      <button type="submit">Search</button>
+      <button type="submit" className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Search</button>
     </form>
   );
 };

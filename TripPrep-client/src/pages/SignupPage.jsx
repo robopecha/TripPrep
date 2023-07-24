@@ -36,7 +36,7 @@ function SignupPage(props) {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1 className="text-4xl my-6">Sign Up</h1>
 
       <label>Username:</label>
         <input
@@ -65,7 +65,7 @@ function SignupPage(props) {
 
         <br />
         <br />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Sign Up</button>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }

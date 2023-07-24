@@ -15,7 +15,8 @@ const postNewItem = (req, res, next) => {
       List.findOne({ trip: tripID })
         .then((list) => {
           list[listType].push(createdItem._id);
-          list.save()
+          list.save();
+          res.send("Hello World");
         })
         .catch((err) => res.json(err));
     })
