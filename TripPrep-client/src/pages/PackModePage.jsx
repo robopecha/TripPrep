@@ -1,4 +1,4 @@
-import ItemCard from "../components/ItemCard";
+import PackCard from "../components/PackCard";
 import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -8,7 +8,7 @@ const API_URL = "http://localhost:5005";
 
 const listType = "topack";
 
-function ListPackPage() {
+function PackModePage() {
   const {tripID} = useParams();
   const [items, setItems] = useState([]);
 
@@ -29,12 +29,12 @@ function ListPackPage() {
   }, []);
 
   return (
-    <div>
-      <h3 className="text-4xl my-6">Packing!</h3>
+    <div className="flex flex-col items-center">
+      <h3 className="text-4xl my-8">Packing!</h3>
 
       { items && items.map((item) => {
         if (tripID === item.trip && item.listType === 'topack') {
-          return <ItemCard key={item._id} {...item} />
+          return <PackCard key={item._id} {...item} />
         }
         return null;
       })}
@@ -43,4 +43,4 @@ function ListPackPage() {
   );
 }
 
-export default ListPackPage;
+export default PackModePage;

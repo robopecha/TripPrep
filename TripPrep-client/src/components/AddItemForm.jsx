@@ -37,10 +37,10 @@ function AddItem(props) {
           type="text"
           name="content"
           value={content}
-          className="border border-black rounded-sm w-8/10 h-10 text-sm"
+          className="border border-black rounded-sm w-64 h-10 text-sm"
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit" className="bg-blue-500 py-2 px-3 rounded-sm ml-1">+</button>
+        <button type="submit" className="bg-blue-500 py-2 px-6 rounded-sm ml-1 hover:bg-blue-600 hover:text-gray-100">+</button>
       </form>
     </div>
   );
