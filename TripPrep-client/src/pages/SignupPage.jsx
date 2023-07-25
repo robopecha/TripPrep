@@ -35,46 +35,50 @@ function SignupPage(props) {
 
 
   return (
-    <div>
+    <div className="text-center">
       <h1 className="text-4xl my-6">Sign Up</h1>
 
-      <label>Username:</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          className="border border-black rounded-sm w-60 h-9"
-          onChange={handleName}
-        />
-
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          className="border border-black rounded-sm w-60 h-9"
-          onChange={handleEmail}
-        />
+        <div className="mb-5">
+          <label>Username:</label>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={handleName}
+          />
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          className="border border-black rounded-sm w-60 h-9"
-          onChange={handlePassword}
-        />
+        <div className="mb-5">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={handleEmail}
+          />
+        </div>
 
-        <br />
-        <br />
-        <button type="submit" className="bg-blue-500 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Sign Up</button>
+        <div className="mb-5">
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={handlePassword}
+          />
+        </div>
+
+        <button type="submit" className="bg-blue-500 mb-10 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Sign Up</button>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
-      <p>Already have an account?</p>
-      <Link to={"/login"}> Log in</Link>
+      <p className="my-3">Already have an account?</p>
+      <Link to={"/login"} className="bg-blue-500 mb-10 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200"> Log in</Link>
     </div>
   )
 }

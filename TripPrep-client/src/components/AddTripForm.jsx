@@ -49,7 +49,7 @@ function AddTrip(props) {
             type="text"
             name="destination"
             value={destination}
-            className="border border-black rounded-sm"
+            className="border border-black rounded-sm w-80 h-10"
             onChange={(e) => setDestination(e.target.value)}
           />
         </div>
@@ -60,7 +60,7 @@ function AddTrip(props) {
             type="text"
             name="country"
             value={country}
-            className="border border-black rounded-sm"
+            className="border border-black rounded-sm w-80 h-10"
             onChange={(e) => setCountry(e.target.value)}
           />
         </div>
@@ -71,7 +71,7 @@ function AddTrip(props) {
             type="text"
             name="season"
             value={season}
-            className="border border-black rounded-sm"
+            className="border border-black rounded-sm w-80 h-10"
             onChange={(e) => setSeason(e.target.value)}
           />
         </div>
@@ -82,12 +82,12 @@ function AddTrip(props) {
             type="date"
             name="startDate"
             value={startDate}
-            className="border border-black rounded-sm"
+            className="border border-black rounded-sm w-80 h-10"
             onChange={(e) => setStartDate(e.target.value)}
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 mt-8 p-1 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Submit</button>
+        <button type="submit" className="bg-blue-500 mt-8 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Submit</button>
       </form>
     </div>
   );
