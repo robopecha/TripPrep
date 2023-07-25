@@ -30,17 +30,17 @@ function AddItem(props) {
 
 
   return (
-    <div className="">
+    <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit}>
 
         <input
           type="text"
           name="content"
           value={content}
-          className="border border-black rounded-sm w-60 h-9"
+          className="border border-black rounded-sm w-8/10 h-10 text-sm"
           onChange={(e) => setContent(e.target.value)}
         />
-        <button type="submit" className="bg-blue-500 ml-3 p-1 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Add to list</button>
+        <button type="submit" className="bg-blue-500 py-2 px-3 rounded-sm ml-1">+</button>
       </form>
     </div>
   );

@@ -31,7 +31,7 @@ function ListDoPage() {
   return (
     <div className="flex flex-col items-center">
       <h3 className="text-4xl my-6 text-center mt-10">To Do</h3>
-      <div className="md:ml-40 mt-4">
+      <div className="mt-4">
         <div>
           { items && items.map((item) => {
             if (tripID === item.trip && item.listType === 'todo') {
