@@ -3,7 +3,8 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-function ItemCard({ item, refreshItems }) {
+
+function PackModeCard({ item, refreshItems }) {
   const [itemDone, setItemDone] = useState(item.done);
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -25,15 +26,12 @@ function ItemCard({ item, refreshItems }) {
     setItemDone(!itemDone);
   }
 
-
   return (
-    <div className="border border-black rounded-sm mb-3 p-2 overflow-scroll bg-white hover:bg-gray-100 w-80" onClick={toggleClick}>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={item.done ? 'w-6 inline ml-1 visible' : 'w-7 inline ml-1 invisible'}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-      </svg>
-      <h5 className={item.done ? "inline ml-3 opacity-40 text-sm" : "inline ml-3 text-sm"}>{item.content}</h5>
+    <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-green-500 w-80 bg-green-400" : "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
+      <h5 className="text-lg">{item.content}</h5>
     </div>
   );
+
 }
 
-export default ItemCard;
+export default PackModeCard;

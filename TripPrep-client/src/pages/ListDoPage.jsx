@@ -35,7 +35,7 @@ function ListDoPage() {
         <div>
           { items && items.map((item) => {
             if (tripID === item.trip && item.listType === 'todo') {
-              return <ItemCard key={item._id} {...item} />
+              return <ItemCard key={item._id} item={item} refreshItems={getAllItems}/>
             }
             return null;
           })}

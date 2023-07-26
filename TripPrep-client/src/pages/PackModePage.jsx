@@ -1,4 +1,4 @@
-import PackCard from "../components/PackCard";
+import PackModeCard from "../components/PackModeCard";
 import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -31,14 +31,12 @@ function PackModePage() {
   return (
     <div className="flex flex-col items-center">
       <h3 className="text-4xl my-8">Packing!</h3>
-
-      { items && items.map((item) => {
-        if (tripID === item.trip && item.listType === 'topack') {
-          return <PackCard key={item._id} {...item} />
-        }
-        return null;
-      })}
-
+        { items && items.map((item) => {
+          if (tripID === item.trip && item.listType === 'topack') {
+            return <PackModeCard key={item._id} item={item} refreshItems={getAllItems}/>
+          }
+          return null;
+        })}
     </div>
   );
 }
