@@ -1,9 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full py-3 flex justify-around items-center bg-red-500 text-lg rounded-sm mb-0">
@@ -18,19 +23,28 @@ function Navbar() {
       {isLoggedIn && (
         <>
           <NavLink to="/trips" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
-          <span>My Trips</span>
+            <span>My Trips</span>
           </NavLink>
 
-          <NavLink to="/profile" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>{user.name}</NavLink>
-
-          <button onClick={logOutUser} className="hover:text-yellow-300 transition ease-in-out duration-100">Log out</button>
+          <div className="relative">
+            <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer"}>{user.name}</span>
+            {isDropdownOpen && (
+              <ul className="absolute top-8 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
+                <li>
+                  <Link to="/settings" className="hover:text-black text-yellow-300 transition ease-in-out duration-100">Settings</Link>
+                </li>
+                <li>
+                  <button onClick={logOutUser} className="hover:text-black text-yellow-300 transition ease-in-out duration-100">Log out</button>
+                </li>
+              </ul>
+            )}
+          </div>
         </>
       )}
 
       {!isLoggedIn && (
           <NavLink to="/login" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>Log in</NavLink>
       )}
-
     </nav>
   );
 }

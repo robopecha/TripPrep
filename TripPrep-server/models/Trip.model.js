@@ -10,7 +10,7 @@ const tripSchema = new Schema({
   packed: { type: Boolean, default: false },
   public: { type: Boolean, default: false },
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  image: { type: String, default: 'https://images.media-allrecipes.com/images/75131.jpg' },
+  image: { type: String },
 });
 
 module.exports = model("Trip", tripSchema);

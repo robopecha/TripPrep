@@ -69,7 +69,7 @@ function ItemCard({ item, refreshItems }) {
         </div>
       </div>
       <div className="flex justify-end">
-        {showColorPicker && (<GithubPicker onChange={(e) => setColor(e.hex)} colors={['#FFC1D0', '#C4E8FF', '#FFF6A4', '#B7FFBA', '#EDCDFF', "#FFF"]} triangle={'top-right'} width={'165px'} />)}
+        {showColorPicker && (<GithubPicker onChange={(e) => setColor(e.hex)} colors={['#FFC1D0', '#C4E8FF', '#FFF6A4', '#B7FFBA', '#EDCDFF', "#FFF"]} triangle={'top-right'} width={'165px'} className="-mt-2"/>)}
       </div>
     </>
   );

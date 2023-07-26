@@ -7,11 +7,7 @@ function MyTripDetailsPage() {
   const {trips} = useContext(TripContext);
   const {tripID} = useParams();
 
-  console.log('trips', trips);
-
   const theTrip = trips.filter(trip => trip._id === tripID)
-
-  console.log('thetrip', theTrip);
 
   return (
     <>

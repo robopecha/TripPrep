@@ -50,7 +50,7 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser();
-    navigate('/alltrips');
+    navigate('/');
   }
 
   useEffect(() => {

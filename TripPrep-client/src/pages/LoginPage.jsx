@@ -28,7 +28,7 @@ function LoginPage(props) {
         console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate('/alltrips');
+        navigate('/');
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -62,7 +62,7 @@ function LoginPage(props) {
             onChange={handlePassword}
           />
         </div>
-        
+
         <button type="submit" className="bg-blue-500 mb-10 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Log in</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }

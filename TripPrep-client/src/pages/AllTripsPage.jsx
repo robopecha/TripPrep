@@ -20,3 +20,6 @@ function AllTripsPage() {
 }
 
 export default AllTripsPage;
+
+
+// trip.packed === true && trip.public === true
