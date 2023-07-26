@@ -7,6 +7,7 @@ const tripSchema = new Schema({
   season: { type: String, required: true },
   startDate: { type: Date },
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
+  packed: { type: Boolean, default: false },
   public: { type: Boolean, default: false },
   user: { type: Schema.Types.ObjectId, ref: "User" },
   image: { type: String, default: 'https://images.media-allrecipes.com/images/75131.jpg' },
