@@ -36,7 +36,7 @@ function App() {
           <Route path="/trips/:tripID/lists/tobuy" element={<ListBuyPage />} />
           <Route path="/trips/:tripID/lists/topack" element={<ListPackPage />} />
           <Route path="/trips/:tripID/lists/packmode" element={<PackModePage />} />
-          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/trips/:tripID/lists/success" element={<SuccessPage />} />
           <Route path="/search" element={<SearchPage />} />
           {/* <Route path="/settings" element={<SettingsPage />} /> */}
           <Route path="/signup" element={<SignupPage />} />

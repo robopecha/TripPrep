@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import TripContext from "../context/trip.context"
 
 const API_URL = "http://localhost:5005";
 
 
 function PackModeCard({ item, refreshItems }) {
+  const {tripID} = useParams();
+  const {trips} = useContext(TripContext);
+  const [items, setItems] = useState([]);
+
+  const theTrip = trips.filter(trip => trip._id === tripID)
+  const [tripPacked, setTripPacked] = useState(theTrip.packed);
+
   const [itemDone, setItemDone] = useState(item.done);
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -24,6 +34,30 @@ function PackModeCard({ item, refreshItems }) {
 
   const toggleClick = () => {
     setItemDone(!itemDone);
+
+
+    useEffect(() => {
+      const storedToken = localStorage.getItem('authToken');
+      const requestBody = { packed: tripPacked };
+      axios
+        .put(
+          `${API_URL}/api/trips/${tripID}`,
+          requestBody,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        )
+        .then((response) => {
+          console.log(response);
+
+        }).then(() => refreshItems());
+
+    }, [tripPacked]);
+
+
+    
+
+
+
+
   }
 
   return (

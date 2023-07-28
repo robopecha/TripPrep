@@ -9,8 +9,7 @@ const tripSchema = new Schema({
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
   packed: { type: Boolean, default: false },
   public: { type: Boolean, default: false },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
-  image: { type: String },
+  user: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
 module.exports = model("Trip", tripSchema);
