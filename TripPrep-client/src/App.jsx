@@ -27,20 +27,20 @@ function App() {
       <TripContextProvider>
         <Routes>
           <Route path="/" element={<AllTripsPage />} />
-          <Route path="/new-trip" element={<NewTripPage />} />
           <Route path="/trips/:tripID/packlist" element={<ShowPackListPage />} />
-          <Route path="/trips" element={<MyTripsPage />} />
-          <Route path="/trips/:tripID" element={<MyTripDetailsPage />} />
-          <Route path="/trips/:tripID/edit" element={<MyTripEditPage />} />
-          <Route path="/trips/:tripID/lists/todo" element={<ListDoPage />} />
-          <Route path="/trips/:tripID/lists/tobuy" element={<ListBuyPage />} />
-          <Route path="/trips/:tripID/lists/topack" element={<ListPackPage />} />
-          <Route path="/trips/:tripID/lists/packmode" element={<PackModePage />} />
-          <Route path="/trips/:tripID/lists/success" element={<SuccessPage />} />
           <Route path="/search" element={<SearchPage />} />
-          {/* <Route path="/settings" element={<SettingsPage />} /> */}
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/new-trip" element={<IsPrivate><NewTripPage /></IsPrivate>} />
+          <Route path="/trips" element={<IsPrivate><MyTripsPage /></IsPrivate>} />
+          <Route path="/trips/:tripID" element={<IsPrivate><MyTripDetailsPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/edit" element={<IsPrivate><MyTripEditPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/todo" element={<IsPrivate><ListDoPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/tobuy" element={<IsPrivate><ListBuyPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/topack" element={<IsPrivate><ListPackPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/packmode" element={<IsPrivate><PackModePage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/success" element={<IsPrivate><SuccessPage /></IsPrivate>} />
+          {/* <Route path="/settings" element={<IsPrivate><SettingsPage /></IsPrivate>} /> */}
+          <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
+          <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
         </Routes>
       </TripContextProvider>
     </div>

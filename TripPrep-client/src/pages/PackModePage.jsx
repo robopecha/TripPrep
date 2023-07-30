@@ -34,12 +34,7 @@ function PackModePage() {
   }, []);
 
 
-
-
-
-  //const listItems = items.filter(item => tripID === item.trip && item.listType === 'topack');
-
-  //listItems.filter(item => item.done === true).length === listItems.length ? setTripPacked(true) : setTripPacked(false);
+  // setTripPacked(items.every(item => item.done === true));
 
 
   return (
