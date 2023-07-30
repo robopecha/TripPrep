@@ -1,7 +1,7 @@
-import ItemCard from "../components/ItemCard";
+import ShowPackCard from "../components/ShowPackCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
 
@@ -28,14 +28,18 @@ function ShowPackListPage() {
   }, []);
 
   return (
-    <div>
-      <h3 className="text-2xl my-6">Look at this packing list!</h3>
-      { items && items.map((item) => {
-        if (tripID === item.trip && item.listType === 'topack') {
-          return <ItemCard key={item._id} {...item} />
-        }                                                                 // button to copy to new trip
-        return null;
-      })}
+    <div className="flex flex-col items-center">
+      <div className="flex justify-around">
+        <h3 className="text-2xl my-6 text-center mt-10">Look at this pack list!</h3>
+      </div>
+        <div>
+          { items && items.map((item) => {
+            if (tripID === item.trip && item.listType === 'topack') {
+              return <ShowPackCard key={item._id} item={item} refreshItems={getAllItems} />
+            }
+            return null;
+          })}
+        </div>
     </div>
   );
 }
