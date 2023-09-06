@@ -16,14 +16,14 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full flex justify-between items-center bg-red-500 text-lg py-2">
       <NavLink to="/" >
         <div className="flex flex-row items-center justify-center">
-          <div className="ml-4 text-2xl bg-yellow-400 rounded-full w-10 h-10 flex justify-center items-center">
+          <div className="ml-3 text-2xl bg-yellow-400 rounded-full w-10 h-10 flex justify-center items-center">
             <RiSuitcaseLine />
           </div>
           <span className="text-xl ml-2">TripPrep</span>
         </div>
       </NavLink>
 
-      <div className="sm:hidden mr-4 cursor-pointer text-2xl">
+      <div className="sm:hidden mr-3 cursor-pointer text-2xl">
         <RxHamburgerMenu />
       </div>
 
@@ -39,9 +39,9 @@ function Navbar() {
             </NavLink>
 
             <div className="relative">
-              <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer mr-4" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer mr-4"}>{user.name}</span>
+              <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer mr-3" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer mr-3"}>{user.name}</span>
               {isDropdownOpen && (
-                <ul className="absolute top-12 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
+                <ul className="absolute top-9 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
                   <li>
                     <Link to="/settings" className="hover:text-black text-yellow-300 transition ease-in-out duration-100">Settings</Link>
                   </li>
@@ -55,7 +55,7 @@ function Navbar() {
         )}
 
         {!isLoggedIn && (
-            <NavLink to="/login" className={({ isActive }) => isActive ? "text-white mr-4" : "hover:text-yellow-300 transition ease-in-out duration-100 mr-4"}>Log in</NavLink>
+            <NavLink to="/login" className={({ isActive }) => isActive ? "text-white mr-3" : "hover:text-yellow-300 transition ease-in-out duration-100 mr-3"}>Log in</NavLink>
         )}
       </div>
     </nav>
