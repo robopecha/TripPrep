@@ -67,13 +67,13 @@ function Navbar() {
         </NavLink>
 
         <NavLink to="/search" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
-        <AiOutlineSearch />
+          <AiOutlineSearch />
         </NavLink>
 
         {isLoggedIn && (
           <>
             <NavLink to="/trips" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
-              <PiSuitcase />
+              <PiSuitcase className="text-[2.1rem]" />
             </NavLink>
 
             <div className="relative">
