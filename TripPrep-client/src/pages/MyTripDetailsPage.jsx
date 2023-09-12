@@ -17,7 +17,7 @@ function MyTripDetailsPage() {
      <ListCard {...theTrip[0]}/>
      <h3 className="text-2xl my-6 text-center">{theTrip[0]?.season}</h3>
      <h3 className="text-xl mt-10 text-center">starting on:</h3>
-     <h3 className="text-2xl mt-3 text-center">{theTrip[0]?.startDate.slice(8, 10)}-{theTrip[0]?.startDate.slice(5, 7)}-{theTrip[0]?.startDate.slice(0, 4)}</h3>
+     <h3 className="text-2xl mt-3 text-center">{theTrip[0]?.startDate.slice(5, 7)}-{theTrip[0]?.startDate.slice(8, 10)}-{theTrip[0]?.startDate.slice(0, 4)}</h3>
     </>
   );
 }
