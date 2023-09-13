@@ -26,7 +26,7 @@ function Navbar() {
             </div>
           </NavLink>
 
-          <NavLink to="/about">
+          <NavLink to="/about" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
             <AiOutlineInfoCircle className="md:hidden text-2xl mr-3"/>
           </NavLink>
 
@@ -47,19 +47,9 @@ function Navbar() {
                 <span>My Trips</span>
               </NavLink>
 
-              <div className="relative">
-                <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer"}>{user.name}</span>
-                {isDropdownOpen && (
-                  <ul className="absolute top-9 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
-                    <li>
-                      <Link to="/settings" className="hover:text-black text-yellow-300 transition ease-in-out duration-100">Settings</Link>
-                    </li>
-                    <li>
-                      <button onClick={logOutUser} className="hover:text-black text-yellow-300 transition ease-in-out duration-100">Log out</button>
-                    </li>
-                  </ul>
-                )}
-              </div>
+              <NavLink to="/settings" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
+                <span>{user.name}</span>
+              </NavLink>
             </>
           )}
 
@@ -87,19 +77,9 @@ function Navbar() {
               <PiSuitcase className="text-[2.1rem]" />
             </NavLink>
 
-            <div className="relative">
-              <AiOutlineUser onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer"} />
-              {isDropdownOpen && (
-                <ul className="absolute bottom-9 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
-                  <li>
-                    <Link to="/settings" className="hover:text-black text-yellow-300 transition ease-in-out duration-100 text-xl">Settings</Link>
-                  </li>
-                  <li>
-                    <button onClick={logOutUser} className="hover:text-black text-yellow-300 transition ease-in-out duration-100 text-xl">Log out</button>
-                  </li>
-                </ul>
-              )}
-            </div>
+            <NavLink to="/settings" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
+              <AiOutlineUser />
+            </NavLink>
           </>
         )}
 
