@@ -18,6 +18,7 @@ import ListPackPage from "./pages/ListPackPage";
 import PackModePage from "./pages/PackModePage";
 import SuccessPage from "./pages/SuccessPage";
 import SearchPage from "./pages/SearchPage";
+// import AboutPage from "./pages/AboutPage";
 //import SettingsPage from "./pages/SettingsPage";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <TripContextProvider>
         <Routes>
           <Route path="/" element={<AllTripsPage />} />
+          {/* <Route path="/about" element={<AboutPage />} /> */}
           <Route path="/trips/:tripID/packlist" element={<ShowPackListPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/new-trip" element={<IsPrivate><NewTripPage /></IsPrivate>} />

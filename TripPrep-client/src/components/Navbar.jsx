@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
-import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlineInfoCircle } from 'react-icons/ai';
 import { PiSuitcase } from 'react-icons/pi';
 
 
@@ -16,16 +16,27 @@ function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full flex justify-between items-center bg-red-500 text-lg py-3">
-        <NavLink to="/" >
-          <div className="flex flex-row items-center justify-center">
-            <div className="ml-3 text-3xl bg-yellow-400 rounded-full w-10 h-10 flex justify-center items-center">
-              <PiSuitcase />
-            </div>
-            <span className="text-xl ml-2">TripPrep</span>
-          </div>
-        </NavLink>
 
-        <div className="hidden sm:flex justify-between gap-12">
+          <NavLink to="/">
+            <div className="flex flex-row items-center">
+              <div className="ml-3 text-3xl bg-yellow-400 rounded-full w-10 h-10 flex justify-center items-center">
+                <PiSuitcase />
+              </div>
+              <span className="text-xl ml-2">TripPrep</span>
+            </div>
+          </NavLink>
+
+          <NavLink to="/about">
+            <AiOutlineInfoCircle className="md:hidden text-2xl mr-3"/>
+          </NavLink>
+
+
+        <div className="hidden md:flex justify-between gap-12 mx-3">
+
+          <NavLink to="/about" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
+            <span>About</span>
+          </NavLink>
+
           <NavLink to="/search" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
             <span>Search</span>
           </NavLink>
@@ -37,7 +48,7 @@ function Navbar() {
               </NavLink>
 
               <div className="relative">
-                <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer mr-3" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer mr-3"}>{user.name}</span>
+                <span onClick={toggleDropdown} className={isDropdownOpen ? "text-white cursor-pointer" : "hover:text-yellow-300 transition ease-in-out duration-100 cursor-pointer"}>{user.name}</span>
                 {isDropdownOpen && (
                   <ul className="absolute top-9 right-0 bg-white text-black py-2 px-4 rounded-sm shadow">
                     <li>
@@ -60,7 +71,7 @@ function Navbar() {
 
 
 
-      <nav className="sm:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-red-500 text-3xl py-4">
+      <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-red-500 text-3xl py-4">
 
         <NavLink to="/" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
           <AiOutlineHome />
