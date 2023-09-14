@@ -67,13 +67,16 @@ function AddTrip(props) {
 
         <div className="mb-5">
           <label>Season:</label>
-          <input
-            type="text"
-            name="season"
+          <select
             value={season}
-            className="border border-black rounded-sm w-80 h-10"
             onChange={(e) => setSeason(e.target.value)}
-          />
+            className="border border-black rounded-sm w-80 h-10">
+              <option hidden selected>- pick one -</option>
+              <option value="spring">spring</option>
+              <option value="summer">summer</option>
+              <option value="autumn">autumn</option>
+              <option value="winter">winter</option>
+          </select>
         </div>
 
         <div className="mb-15">

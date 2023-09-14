@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlineInfoCircle } from 'react-icons/ai';
@@ -6,12 +6,7 @@ import { PiSuitcase } from 'react-icons/pi';
 
 
 function Navbar() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   return (
     <>

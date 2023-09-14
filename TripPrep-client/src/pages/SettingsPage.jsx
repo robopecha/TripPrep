@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 function SettingsPage() {
-  const { user, logOutUser } = useContext(AuthContext);
+  const { logOutUser } = useContext(AuthContext);
 
   return (
     <>

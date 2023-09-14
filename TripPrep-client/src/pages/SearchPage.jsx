@@ -58,7 +58,7 @@ const SearchPage = () => {
       <div className="mt-10">
         <SearchForm handleSearch={handleSearch} />
       </div>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {filteredTrips.map(trip => trip.user === user._id ? <TripCard key={trip._id} {...trip} /> : <AllTripsCard key={trip._id} {...trip} />)}
       </div>
     </div>
