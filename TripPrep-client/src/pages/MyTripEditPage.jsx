@@ -1,93 +1,101 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
-
 function MyTripEditPage(props) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [destination, setDestination] = useState("");
+  const [country, setCountry] = useState("");
+  const [season, setSeason] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const { user } = useContext(AuthContext);
 
-  const { projectId } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem('authToken');
-
-    axios
-      .get(
-        `${API_URL}/api/projects/${projectId}`,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then((response) => {
-        const oneProject = response.data;
-        setTitle(oneProject.title);
-        setDescription(oneProject.description);
-      })
-      .catch((error) => console.log(error));
-
-  }, [projectId]);
-
-
-  const handleFormSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, description };
+    navigate('/trips');
 
     const storedToken = localStorage.getItem('authToken');
 
+    const requestBody = { destination, country, season, startDate, userID: user._id };
+
     axios
-      .put(
-        `${API_URL}/api/projects/${projectId}`,
+      .post(
+        `${API_URL}/api/trips`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
-        navigate(`/projects/${projectId}`)
-      });
-  };
-
-
-  const deleteProject = () => {
-
-    const storedToken = localStorage.getItem('authToken');
-
-    axios
-      .delete(
-        `${API_URL}/api/projects/${projectId}`,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then(() => navigate("/projects"))
-      .catch((err) => console.log(err));
+        setDestination("");
+        setCountry("");
+        setSeason("");
+        setStartDate("");
+      })
+      .catch((error) => console.log(error));
   };
 
 
   return (
-    <div className="EditProjectPage">
-      <h3>Edit the Project</h3>
+    <div className="text-center">
+      <h3 className="text-4xl mt-6 mb-12">Edit my trip</h3>
+      <form onSubmit={handleSubmit}>
 
-      <form onSubmit={handleFormSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <div className="mb-5">
+          <label>Destination:</label>
+          <input
+            type="text"
+            name="destination"
+            value={destination}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={(e) => setDestination(e.target.value)}
+          />
+        </div>
 
-        <label>Description:</label>
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <div className="mb-5">
+          <label>Country:</label>
+          <input
+            type="text"
+            name="country"
+            value={country}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={(e) => setCountry(e.target.value)}
+          />
+        </div>
 
-        <button type="submit">Update Project</button>
+        <div className="mb-5">
+          <label>Season:</label>
+          <select
+            value={season}
+            onChange={(e) => setSeason(e.target.value)}
+            className="border border-black rounded-sm w-80 h-10">
+              <option hidden selected>- pick one -</option>
+              <option value="spring">spring</option>
+              <option value="summer">summer</option>
+              <option value="autumn">autumn</option>
+              <option value="winter">winter</option>
+          </select>
+        </div>
+
+        <div className="mb-15">
+          <label>Start date:</label>
+          <input
+            type="date"
+            name="startDate"
+            value={startDate}
+            className="border border-black rounded-sm w-80 h-10"
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
+
+        <button type="submit" className="bg-blue-500 mt-8 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Submit</button>
       </form>
-
-      <button onClick={deleteProject}>Delete Project</button>
     </div>
   );
 }
+
+// add delete button
 
 export default MyTripEditPage;

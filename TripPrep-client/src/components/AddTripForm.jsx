@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
-function AddTrip(props) {
+function AddTripForm(props) {
   const [destination, setDestination] = useState("");
   const [country, setCountry] = useState("");
   const [season, setSeason] = useState("");
@@ -96,4 +96,4 @@ function AddTrip(props) {
   );
 }
 
-export default AddTrip;
+export default AddTripForm;
