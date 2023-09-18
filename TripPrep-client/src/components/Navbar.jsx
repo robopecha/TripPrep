@@ -72,7 +72,7 @@ function Navbar() {
               <PiSuitcase className="text-[2.1rem]" />
             </NavLink>
 
-            <NavLink to="/settings" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
+            <NavLink to={`/${user._id}/settings`} className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
               <AiOutlineUser />
             </NavLink>
           </>

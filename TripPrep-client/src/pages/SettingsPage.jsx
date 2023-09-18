@@ -8,7 +8,7 @@ function SettingsPage() {
   return (
     <>
       <h3 className="text-4xl my-6">Settings</h3>
-      <button onClick={logOutUser} className="hover:bg-red-500 hover:text-white text-red-500 border-2 border-red-500 transition ease-in-out duration-100 p-2">Log out</button>
+      <button onClick={logOutUser} className="ml-0.5 hover:bg-red-500 hover:text-white text-red-500 border-2 border-red-500 transition ease-in-out duration-100 p-2">Log out</button>
     </>
   );
 }
