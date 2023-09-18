@@ -39,7 +39,7 @@ function App() {
           <Route path="/trips/:tripID/lists/topack" element={<IsPrivate><ListPackPage /></IsPrivate>} />
           <Route path="/trips/:tripID/lists/packmode" element={<IsPrivate><PackModePage /></IsPrivate>} />
           <Route path="/trips/:tripID/lists/success" element={<IsPrivate><SuccessPage /></IsPrivate>} />
-          <Route path="/settings" element={<IsPrivate><SettingsPage /></IsPrivate>} />
+          <Route path="/:userID/settings" element={<IsPrivate><SettingsPage /></IsPrivate>} />
           <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
           <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
         </Routes>

@@ -42,7 +42,7 @@ function Navbar() {
                 <span>My Trips</span>
               </NavLink>
 
-              <NavLink to="/settings" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
+              <NavLink to={`/${user._id}/settings`} className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
                 <span>{user.name}</span>
               </NavLink>
             </>
