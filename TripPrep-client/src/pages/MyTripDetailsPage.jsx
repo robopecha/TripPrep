@@ -1,7 +1,7 @@
 import ListCard from "../components/ListCard";
 import { useParams, Link } from "react-router-dom";
 import { useContext} from "react";
-import TripContext from "../context/trip.context"
+import TripContext from "../context/trip.context";
 
 
 function MyTripDetailsPage() {
@@ -9,7 +9,6 @@ function MyTripDetailsPage() {
   const {tripID} = useParams();
 
   const theTrip = trips.filter(trip => trip._id === tripID);
-  console.log('this is it: ', theTrip);
 
   return (
     <div className="flex flex-col items-center">

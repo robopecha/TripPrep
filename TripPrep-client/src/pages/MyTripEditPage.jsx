@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import TripContext from "../context/trip.context";
 
 const API_URL = "http://localhost:5005";
 
@@ -10,9 +11,15 @@ function MyTripEditPage() {
   const [country, setCountry] = useState("");
   const [season, setSeason] = useState("");
   const [startDate, setStartDate] = useState("");
+  
   const { user } = useContext(AuthContext);
+  const {trips} = useContext(TripContext);
+  const {tripID} = useParams();
+
+  const theTrip = trips.filter(trip => trip._id === tripID);
 
   const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
