@@ -2,6 +2,7 @@ import ListCard from "../components/ListCard";
 import { useParams, Link } from "react-router-dom";
 import { useContext} from "react";
 import TripContext from "../context/trip.context";
+// import { formatDate } from './date-helpers.js';     <- check this out!  <time dateTime="2024-01-01T00:00:00.000Z"> {formatDate(message.published)} </time>
 
 
 function MyTripDetailsPage() {
