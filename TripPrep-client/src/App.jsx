@@ -22,7 +22,7 @@ import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
-    <div className="App font-ocr">
+    <div className="font-ocr">
       <Navbar />
       <TripContextProvider>
         <Routes>

@@ -8,14 +8,14 @@ const API_URL = "http://localhost:5005";
 function AddTripForm() {
   const [destination, setDestination] = useState("");
   const [country, setCountry] = useState("");
-  const [season, setSeason] = useState("");
+  const [season, setSeason] = useState('');
   const [startDate, setStartDate] = useState("");
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     navigate('/trips');
 
     const storedToken = localStorage.getItem('authToken');
@@ -46,32 +46,35 @@ function AddTripForm() {
         <div className="mb-5">
           <label>Destination:</label>
           <input
+            required
             type="text"
             name="destination"
             value={destination}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setDestination(e.target.value)}
+            onChange={event => setDestination(event.target.value)}
           />
         </div>
 
         <div className="mb-5">
           <label>Country:</label>
           <input
+            required
             type="text"
             name="country"
             value={country}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={event => setCountry(event.target.value)}
           />
         </div>
 
         <div className="mb-5">
           <label>Season:</label>
           <select
+            required
             value={season}
-            onChange={(e) => setSeason(e.target.value)}
+            onChange={event => setSeason(event.target.value)}
             className="border border-black rounded-sm w-80 h-10">
-              <option hidden selected>- pick one -</option>
+              <option value=''>— select season —</option>
               <option value="spring">spring</option>
               <option value="summer">summer</option>
               <option value="autumn">autumn</option>
@@ -82,11 +85,12 @@ function AddTripForm() {
         <div className="mb-15">
           <label>Start date:</label>
           <input
+            required
             type="date"
             name="startDate"
             value={startDate}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setStartDate(e.target.value)}
+            onChange={event => setStartDate(event.target.value)}
           />
         </div>
 

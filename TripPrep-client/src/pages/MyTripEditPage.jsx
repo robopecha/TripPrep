@@ -11,7 +11,7 @@ function MyTripEditPage() {
   const [country, setCountry] = useState("");
   const [season, setSeason] = useState("");
   const [startDate, setStartDate] = useState("");
-  
+   
   const { user } = useContext(AuthContext);
   const {trips} = useContext(TripContext);
   const {tripID} = useParams();
