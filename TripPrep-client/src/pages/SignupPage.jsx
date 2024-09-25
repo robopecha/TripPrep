@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -6,10 +6,16 @@ const API_URL = "http://127.0.0.1:5005";
 
 
 function SignupPage(props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState(undefined);
+
+  const id = React.useId();
+
+  const usernameId = `${id}-username`;
+  const emailId = `${id}-email`;
+  const passwordId = `${id}-password`;
 
   const navigate = useNavigate();
 
@@ -40,8 +46,9 @@ function SignupPage(props) {
 
       <form onSubmit={handleSignupSubmit}>
         <div className="mb-5">
-          <label>Username:</label>
+          <label htmlFor={usernameId}>Username:</label>
           <input
+            id={usernameId}
             type="text"
             name="name"
             value={name}
@@ -51,8 +58,9 @@ function SignupPage(props) {
         </div>
 
         <div className="mb-5">
-          <label>Email:</label>
+          <label htmlFor={emailId}>Email:</label>
           <input
+            id={emailId}
             type="email"
             name="email"
             value={email}
@@ -62,8 +70,9 @@ function SignupPage(props) {
         </div>
 
         <div className="mb-5">
-          <label>Password:</label>
+          <label htmlFor={passwordId}>Password:</label>
           <input
+            id={passwordId}
             type="password"
             name="password"
             value={password}

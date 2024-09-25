@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
@@ -6,11 +6,19 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = "http://localhost:5005";
 
 function AddTripForm() {
-  const [destination, setDestination] = useState("");
-  const [country, setCountry] = useState("");
-  const [season, setSeason] = useState('');
-  const [startDate, setStartDate] = useState("");
-  const { user } = useContext(AuthContext);
+  const [destination, setDestination] = React.useState("");
+  const [country, setCountry] = React.useState("");
+  const [season, setSeason] = React.useState('');
+  const [startDate, setStartDate] = React.useState("");
+
+  const { user } = React.useContext(AuthContext);
+
+  const id = React.useId();
+
+  const destinationId = `${id}-destination`;
+  const countryId = `${id}-country`;
+  const seasonId = `${id}-season`;
+  const startDateId = `${id}-startDate`;
 
   const navigate = useNavigate();
 
@@ -44,8 +52,9 @@ function AddTripForm() {
       <form onSubmit={handleSubmit}>
 
         <div className="mb-5">
-          <label>Destination:</label>
+          <label htmlFor={destinationId}>Destination:</label>
           <input
+            id={destinationId}
             required
             type="text"
             name="destination"
@@ -56,8 +65,9 @@ function AddTripForm() {
         </div>
 
         <div className="mb-5">
-          <label>Country:</label>
+          <label htmlFor={countryId}>Country:</label>
           <input
+            id={countryId}
             required
             type="text"
             name="country"
@@ -68,8 +78,9 @@ function AddTripForm() {
         </div>
 
         <div className="mb-5">
-          <label>Season:</label>
+          <label htmlFor={seasonId}>Season:</label>
           <select
+            id={seasonId}
             required
             value={season}
             onChange={event => setSeason(event.target.value)}
@@ -83,8 +94,9 @@ function AddTripForm() {
         </div>
 
         <div className="mb-15">
-          <label>Start date:</label>
+          <label htmlFor={startDateId}>Start date:</label>
           <input
+            id={startDateId}
             required
             type="date"
             name="startDate"

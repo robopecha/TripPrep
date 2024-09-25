@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
@@ -7,16 +7,23 @@ import TripContext from "../context/trip.context";
 const API_URL = "http://localhost:5005";
 
 function MyTripEditPage() {
-  const [destination, setDestination] = useState("");
-  const [country, setCountry] = useState("");
-  const [season, setSeason] = useState("");
-  const [startDate, setStartDate] = useState("");
-   
-  const { user } = useContext(AuthContext);
-  const {trips} = useContext(TripContext);
+  const [destination, setDestination] = React.useState("");
+  const [country, setCountry] = React.useState("");
+  const [season, setSeason] = React.useState("");
+  const [startDate, setStartDate] = React.useState("");
+
+  const { user } = React.useContext(AuthContext);
+  const {trips} = React.useContext(TripContext);
   const {tripID} = useParams();
 
   const theTrip = trips.filter(trip => trip._id === tripID);
+
+  const id = React.useId();
+
+  const destinationId = `${id}-destination`;
+  const countryId = `${id}-country`;
+  const seasonId = `${id}-season`;
+  const startDateId = `${id}-startDate`;
 
   const navigate = useNavigate();
 
@@ -51,32 +58,35 @@ function MyTripEditPage() {
       <form onSubmit={handleSubmit}>
 
         <div className="mb-5">
-          <label>Destination:</label>
+          <label htmlFor={destinationId}>Destination:</label>
           <input
+            id={destinationId}
             type="text"
             name="destination"
             value={destination}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setDestination(e.target.value)}
+            onChange={event => setDestination(event.target.value)}
           />
         </div>
 
         <div className="mb-5">
-          <label>Country:</label>
+          <label htmlFor={countryId}>Country:</label>
           <input
+            id={countryId}
             type="text"
             name="country"
             value={country}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={event => setCountry(event.target.value)}
           />
         </div>
 
         <div className="mb-5">
-          <label>Season:</label>
+          <label htmlFor={seasonId}>Season:</label>
           <select
+            id={seasonId}
             value={season}
-            onChange={(e) => setSeason(e.target.value)}
+            onChange={event => setSeason(event.target.value)}
             className="border border-black rounded-sm w-80 h-10">
               <option hidden selected>- pick one -</option>
               <option value="spring">spring</option>
@@ -87,13 +97,14 @@ function MyTripEditPage() {
         </div>
 
         <div className="mb-15">
-          <label>Start date:</label>
+          <label htmlFor={startDateId}>Start date:</label>
           <input
+            id={startDateId}
             type="date"
             name="startDate"
             value={startDate}
             className="border border-black rounded-sm w-80 h-10"
-            onChange={(e) => setStartDate(e.target.value)}
+            onChange={event => setStartDate(event.target.value)}
           />
         </div>
 

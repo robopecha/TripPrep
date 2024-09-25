@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
@@ -7,13 +7,18 @@ const API_URL = "http://127.0.0.1:5005";
 
 
 function LoginPage(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState(undefined);
+
+  const id = React.useId();
+
+  const emailId = `${id}-email`;
+  const passwordId = `${id}-password`;
 
   const navigate = useNavigate();
 
-  const { storeToken, authenticateUser } = useContext(AuthContext);
+  const { storeToken, authenticateUser } = React.useContext(AuthContext);
 
 
   const handleEmail = (e) => setEmail(e.target.value);
@@ -42,8 +47,9 @@ function LoginPage(props) {
 
       <form onSubmit={handleLoginSubmit}>
         <div className="mb-5">
-          <label>Email:</label>
+          <label htmlFor={emailId}>Email:</label>
           <input
+            id={emailId}
             type="email"
             name="email"
             value={email}
@@ -53,8 +59,9 @@ function LoginPage(props) {
         </div>
 
         <div className="mb-5">
-          <label>Password:</label>
+          <label htmlFor={passwordId}>Password:</label>
           <input
+            id={passwordId}
             type="password"
             name="password"
             value={password}
