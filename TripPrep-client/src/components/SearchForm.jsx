@@ -1,16 +1,22 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { createBrowserHistory } from 'history';
 
-const SearchForm = ({ handleSearch }) => {
+function SearchForm({ handleSearch }) {
   const history = createBrowserHistory();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = React.useState('');
 
-  const handleChange = (e) => {
-    setSearchQuery(e.target.value);
+  const inputRef = React.useRef();
+
+  React.useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const handleChange = event => {
+    setSearchQuery(event.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     handleSearch(searchQuery);
     history.push(`?q=${encodeURIComponent(searchQuery)}`);
   };
@@ -18,6 +24,7 @@ const SearchForm = ({ handleSearch }) => {
   return (
     <form onSubmit={handleSubmit} className='text-center'>
       <input
+        ref={inputRef}
         type="text"
         placeholder="Search by destination, country, or season..."
         value={searchQuery}

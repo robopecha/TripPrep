@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react"; <- kann weg?
 import { createRoot } from 'react-dom/client';
 import "./index.css";
 import App from "./App";
