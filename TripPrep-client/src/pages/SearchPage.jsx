@@ -42,7 +42,7 @@ const SearchPage = () => {
     }
   };
 
-  const handleSearch = (searchQuery) => {
+  function handleSearch(searchQuery) {
     const filtered = trips.filter((trip) => {
       return (
         trip.destination.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -51,7 +51,7 @@ const SearchPage = () => {
       );
     });
     setFilteredTrips(filtered);
-  };
+  }
 
   return (
     <div>

@@ -19,13 +19,20 @@ function SignupPage(props) {
 
   const navigate = useNavigate();
 
-  const handleName = (e) => setName(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
+  function handleName(event) {
+    setName(event.target.value);
+  }
 
+  function handleEmail(event) {
+    setEmail(event.target.value);
+  }
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
+  function handlePassword(event) {
+    setPassword(event.target.value);
+  }
+
+  function handleSignupSubmit(event) {
+    event.preventDefault();
 
     const requestBody = { name, email, password };
 
@@ -37,7 +44,7 @@ function SignupPage(props) {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
-  };
+  }
 
 
   return (

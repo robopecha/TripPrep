@@ -21,11 +21,16 @@ function LoginPage(props) {
   const { storeToken, authenticateUser } = React.useContext(AuthContext);
 
 
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
+  function handleEmail(event) {
+    setEmail(event.target.value)
+  }
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
+  function handlePassword(event) {
+    setPassword(event.target.value)
+  }
+
+  function handleLoginSubmit(event) {
+    event.preventDefault();
     const requestBody = { email, password };
 
     axios.post(`${API_URL}/auth/login`, requestBody)
@@ -39,7 +44,7 @@ function LoginPage(props) {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
-  };
+  }
 
   return (
     <div className="text-center">

@@ -22,7 +22,7 @@ function AddTripForm() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = event => {
+  function handleSubmit(event) {
     event.preventDefault();
     navigate('/trips');
 
@@ -43,7 +43,7 @@ function AddTripForm() {
         setStartDate("");
       })
       .catch((error) => console.log(error));
-  };
+  }
 
 
   return (

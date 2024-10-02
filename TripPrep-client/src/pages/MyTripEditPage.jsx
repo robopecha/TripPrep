@@ -28,8 +28,8 @@ function MyTripEditPage() {
   const navigate = useNavigate();
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     navigate('/trips');
 
     const storedToken = localStorage.getItem('authToken');
@@ -49,7 +49,7 @@ function MyTripEditPage() {
         setStartDate("");
       })
       .catch((error) => console.log(error));
-  };
+  }
 
 
   return (

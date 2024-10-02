@@ -11,13 +11,13 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
-  const storeToken = (token) => {
+  function storeToken(token) {
     localStorage.setItem('authToken', token);
   }
 
   const navigate = useNavigate();
 
-  const authenticateUser = () => {
+  function authenticateUser() {
     const storedToken = localStorage.getItem('authToken');
 
     if (storedToken) {
@@ -43,11 +43,11 @@ function AuthProviderWrapper(props) {
     }
   }
 
-  const removeToken = () => {
+  function removeToken() {
     localStorage.removeItem("authToken");
   }
 
-  const logOutUser = () => {
+  function logOutUser() {
     removeToken();
     authenticateUser();
     navigate('/');

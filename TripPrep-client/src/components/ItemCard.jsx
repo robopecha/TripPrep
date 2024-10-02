@@ -28,17 +28,15 @@ function ItemCard({ item, refreshItems }) {
 
   }, [itemDone, color]);
 
-  const toggleClick = () => {
+  function toggleClick() {
     setItemDone(!itemDone);
   }
 
-  const handleColorIconClick = () => {
+  function handleColorIconClick() {
     setShowColorPicker((prevState) => !prevState);
-  };
+  }
 
-
-  const deleteItem = () => {
-
+  function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
 
     axios
@@ -47,7 +45,7 @@ function ItemCard({ item, refreshItems }) {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => refreshItems());
-  };
+  }
 
 
   return (

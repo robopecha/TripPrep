@@ -16,6 +16,7 @@ function PackModeCard({ item, refreshItems }) {
   const [tripPacked, setTripPacked] = useState(theTrip.packed);
 
   const [itemDone, setItemDone] = useState(item.done);
+
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { done: itemDone };
@@ -32,9 +33,8 @@ function PackModeCard({ item, refreshItems }) {
 
   }, [itemDone]);
 
-  const toggleClick = () => {
+  function toggleClick() {
     setItemDone(!itemDone);
-
 
     useEffect(() => {
       const storedToken = localStorage.getItem('authToken');
@@ -51,12 +51,6 @@ function PackModeCard({ item, refreshItems }) {
         }).then(() => refreshItems());
 
     }, [tripPacked]);
-
-
-    
-
-
-
 
   }
 

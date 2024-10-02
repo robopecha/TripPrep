@@ -1,7 +1,7 @@
 import PackCard from "../components/PackCard";
 import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
@@ -10,9 +10,9 @@ const listType = "topack";
 
 function ListPackPage() {
   const {tripID} = useParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = React.useState([]);
 
-  const getAllItems = () => {
+  function getAllItems() {
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -22,9 +22,9 @@ function ListPackPage() {
     )
       .then((response) => setItems(response.data))
       .catch((error) => console.log(error));
-  };
+  }
 
-  useEffect(() => {
+  React.useEffect(() => {
     getAllItems();
   }, []);
 

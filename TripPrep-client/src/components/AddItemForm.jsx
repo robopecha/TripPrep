@@ -9,8 +9,8 @@ function AddItem(props) {
 
   const listType = props.listType
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     const storedToken = localStorage.getItem('authToken');
 
     const requestBody = { content, tripID, listType };
@@ -26,7 +26,7 @@ function AddItem(props) {
       })
       .catch((error) => {
         console.log("err", error)});
-  };
+  }
 
 
   return (

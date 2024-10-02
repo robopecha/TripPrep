@@ -5,15 +5,16 @@ const API_URL = "http://localhost:5005";
 
 function PackCard ({ item, refreshItems }) {
 
-  const deleteItem = () => {
+  function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
+    
     axios
       .delete(
         `${API_URL}/api/items/${item._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => refreshItems());
-  };
+  }
 
   return (
     <div className="flex justify-between border border-black rounded-sm mb-3 p-2 overflow-scroll bg-white hover:bg-gray-100 w-80">

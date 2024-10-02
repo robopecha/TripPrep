@@ -11,17 +11,17 @@ function ShowPackListPage() {
   const {tripID} = useParams();
   const [items, setItems] = useState([]);
 
-  const getAllItems = () => {
+  function getAllItems() {
     const storedToken = localStorage.getItem("authToken");
 
     axios
       .get(
       `${API_URL}/api/items`,
       { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
+      )
       .then((response) => setItems(response.data))
       .catch((error) => console.log(error));
-  };
+  }
 
   useEffect(() => {
     getAllItems();

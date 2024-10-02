@@ -1,7 +1,7 @@
 import ItemCard from "../components/ItemCard";
 import AddItemForm from "../components/AddItemForm";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
@@ -10,21 +10,21 @@ const listType = "tobuy";
 
 function ListBuyPage() {
   const {tripID} = useParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = React.useState([]);
 
-  const getAllItems = () => {
+  function getAllItems() {
     const storedToken = localStorage.getItem("authToken");
 
     axios
       .get(
       `${API_URL}/api/items`,
       { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
+      )
       .then((response) => setItems(response.data))
       .catch((error) => console.log(error));
-  };
+  }
 
-  useEffect(() => {
+  React.useEffect(() => {
     getAllItems();
   }, []);
 
