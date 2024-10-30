@@ -1,12 +1,5 @@
-// We reuse this import in order to have access to the `body` property in requests
 const express = require("express");
-
-// ℹ️ Responsible for the messages you see in the terminal as requests are coming in
-// https://www.npmjs.com/package/morgan
 const logger = require("morgan");
-
-// ℹ️ Needed when we deal with cookies (we will when dealing with authentication)
-// https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -16,12 +9,13 @@ module.exports = (app) => {
 
   app.use(
     cors({
-      origin: [process.env.ORIGIN]
+      origin: 'http://localhost:5173',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization']
     })
   );
 
   app.use(logger("dev"));
-
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());

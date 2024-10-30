@@ -19,7 +19,6 @@ export const TripContextProvider = (props) => {
       { headers: { Authorization: `Bearer ${storedToken}` } }
     )
       .then((response) => {
-        // console.log("the response", response.data)
         setTrips(response.data)})
       .catch((error) => console.log(error));
   }, []);

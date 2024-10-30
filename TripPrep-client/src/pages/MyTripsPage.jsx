@@ -8,6 +8,7 @@ import { AuthContext } from "../context/auth.context";
 function MyTripsPage() {
   const { user } = useContext(AuthContext);
   const {trips} = useContext(TripContext);
+  
   return (
     <div>
       <h3 className="text-4xl my-6">My Trips</h3>

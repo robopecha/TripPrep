@@ -9,7 +9,7 @@ import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
-const SearchPage = () => {
+function SearchPage() {
   const location = useLocation();
   const { user } = useContext(AuthContext);
   const [trips, setTrips] = useState([]);
@@ -30,17 +30,19 @@ const SearchPage = () => {
     }
   }, [location.search]);
 
-  const fetchAllTrips = async () => {
+  async function fetchAllTrips() {
     const storedToken = localStorage.getItem("authToken");
+
     try {
       const response = await axios.get(`${API_URL}/api/trips`, {
         headers: { Authorization: `Bearer ${storedToken}` }
       });
       setTrips(response.data);
+      
     } catch (error) {
       console.error('Error fetching trips:', error);
     }
-  };
+  }
 
   function handleSearch(searchQuery) {
     const filtered = trips.filter((trip) => {

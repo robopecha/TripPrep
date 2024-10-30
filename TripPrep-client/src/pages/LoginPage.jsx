@@ -6,7 +6,7 @@ import { AuthContext } from "../context/auth.context";
 const API_URL = "http://127.0.0.1:5005";
 
 
-function LoginPage(props) {
+function LoginPage() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState(undefined);
@@ -80,7 +80,7 @@ function LoginPage(props) {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p className="my-3">Don't have an account yet?</p>
-      <Link to={"/signup"} className="text-blue-600 p-2 rounded-sm hover:bg-blue-500 hover:text-black transition ease-in-out duration-200"> Sign Up</Link>
+      <Link to={"/signup"} className="text-blue-600 py-3 px-2 rounded-sm hover:bg-blue-500 hover:text-black transition ease-in-out duration-200"> Sign Up</Link>
     </div>
   )
 }

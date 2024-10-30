@@ -5,7 +5,7 @@ import axios from "axios";
 const API_URL = "http://127.0.0.1:5005";
 
 
-function SignupPage(props) {
+function SignupPage() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -94,7 +94,7 @@ function SignupPage(props) {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p className="my-3">Already have an account?</p>
-      <Link to={"/login"} className="text-blue-600 p-2 rounded-sm hover:bg-blue-500 hover:text-black transition ease-in-out duration-200"> Log in</Link>
+      <Link to={"/login"} className="text-blue-600 py-3 px-2 rounded-sm hover:bg-blue-500 hover:text-black transition ease-in-out duration-200"> Log in</Link>
     </div>
   )
 }
