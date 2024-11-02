@@ -13,16 +13,16 @@ const allRoutes = require("./routes/index.routes");
 app.use("/api", allRoutes);
 
 const tripRouter = require("./routes/trip.routes");
-app.use("/api", isAuthenticated, tripRouter);
+app.use("/api", tripRouter);
 
 const listRouter = require("./routes/list.routes");
-app.use("/api", isAuthenticated, listRouter);
+app.use("/api", listRouter);
 
 const itemRouter = require("./routes/item.routes");
-app.use("/api", isAuthenticated, itemRouter);
+app.use("/api", itemRouter);
 
 const searchRouter = require("./routes/search.routes");
-app.use("/api", isAuthenticated, searchRouter);
+app.use("/api", searchRouter);
 
 const authRouter = require("./routes/auth.routes");
 app.use("/auth", authRouter);

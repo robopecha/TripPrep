@@ -1,32 +1,28 @@
-import { createContext, useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
+import useSWR from 'swr';
 
-const TripContext = createContext(null);
+const TripContext = React.createContext();
 export default TripContext;
 
 const API_URL = "http://localhost:5005";
 
-export const TripContextProvider = (props) => {
+function fetcher(url) {
+  const storedToken = localStorage.getItem("authToken");
+  const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
+  
+  return axios
+    .get(url, config)
+    .then((response) => response.data);
+}
 
+export function TripContextProvider(props) {
 
-  const [trips, setTrips] = useState([]);
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .get(
-      `${API_URL}/api/trips`,
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
-      .then((response) => {
-        setTrips(response.data)})
-      .catch((error) => console.log(error));
-  }, []);
-
+  const { data: trips, isLoading, error } = useSWR(`${API_URL}/api/trips`, fetcher);
 
   return (
-   <TripContext.Provider value={{trips}}>
+   <TripContext.Provider value={{ trips, isLoading, error }}>
      {props.children}
    </TripContext.Provider>
   );
-};
+}

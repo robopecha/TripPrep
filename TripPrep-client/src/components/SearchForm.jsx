@@ -26,7 +26,7 @@ function SearchForm({ handleSearch }) {
       <input
         ref={inputRef}
         type="text"
-        placeholder="Search by destination, country, or season..."
+        placeholder="Search by destination, country or season..."
         value={searchQuery}
         className="border border-black rounded-sm w-11/12 h-10"
         onChange={handleChange}

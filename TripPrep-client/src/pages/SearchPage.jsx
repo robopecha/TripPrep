@@ -32,13 +32,12 @@ function SearchPage() {
 
   async function fetchAllTrips() {
     const storedToken = localStorage.getItem("authToken");
+    const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
 
     try {
-      const response = await axios.get(`${API_URL}/api/trips`, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      });
+      const response = await axios.get(`${API_URL}/api/trips`, config);
       setTrips(response.data);
-      
+
     } catch (error) {
       console.error('Error fetching trips:', error);
     }
@@ -61,7 +60,7 @@ function SearchPage() {
         <SearchForm handleSearch={handleSearch} />
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {filteredTrips.map(trip => trip.user === user._id ? <TripCard key={trip._id} {...trip} /> : <AllTripsCard key={trip._id} {...trip} />)}
+        {filteredTrips.map(trip => trip.user === user?._id ? <TripCard key={trip._id} {...trip} /> : <AllTripsCard key={trip._id} {...trip} />)}
       </div>
     </div>
   );

@@ -13,12 +13,10 @@ function ShowPackListPage() {
 
   function getAllItems() {
     const storedToken = localStorage.getItem("authToken");
+    const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
 
     axios
-      .get(
-      `${API_URL}/api/items`,
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
+      .get(`${API_URL}/api/items`, config)
       .then((response) => setItems(response.data))
       .catch((error) => console.log(error));
   }
