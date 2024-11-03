@@ -1,22 +1,21 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import AllTripsCard from '../components/AllTripsCard';
 import TripCard from "../components/TripCard";
 import SearchForm from '../components/SearchForm';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
 
 function SearchPage() {
   const location = useLocation();
-  const { user } = useContext(AuthContext);
-  const [trips, setTrips] = useState([]);
-  const [filteredTrips, setFilteredTrips] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const { user } = React.useContext(AuthContext);
+  const [trips, setTrips] = React.useState([]);
+  const [filteredTrips, setFilteredTrips] = React.useState([]);
+  const [searchQuery, setSearchQuery] = React.useState('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const query = params.get('q');
 

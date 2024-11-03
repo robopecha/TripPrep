@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -7,9 +7,9 @@ const API_URL = "http://localhost:5005";
 const AuthContext = React.createContext();
 
 function AuthProviderWrapper(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [user, setUser] = React.useState(null);
 
   function storeToken(token) {
     localStorage.setItem('authToken', token);
@@ -53,7 +53,7 @@ function AuthProviderWrapper(props) {
     navigate('/');
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     authenticateUser();
    }, []);
 

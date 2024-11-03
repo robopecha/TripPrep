@@ -1,18 +1,19 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { GithubPicker } from 'react-color';
+import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
-function ItemCard({ item, refreshItems }) {
+function ItemCard({ item }) {
 
-  const [itemDone, setItemDone] = useState(item.done);
-  const [color, setColor] = useState(item.backgroundColor);
-  const [showColorPicker, setShowColorPicker] = useState(false);
+  const [itemDone, setItemDone] = React.useState(item.done);
+  const [color, setColor] = React.useState(item.backgroundColor);
+  const [showColorPicker, setShowColorPicker] = React.useState(false);
 
 
 
-  useEffect(() => {
+  React.useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { done: itemDone, backgroundColor: color };
     axios
@@ -24,7 +25,9 @@ function ItemCard({ item, refreshItems }) {
       .then((response) => {
         console.log(response);
 
-      }).then(() => refreshItems());
+      });
+
+    mutate(`${API_URL}/api/items`);
 
   }, [itemDone, color]);
 
@@ -44,7 +47,8 @@ function ItemCard({ item, refreshItems }) {
         `${API_URL}/api/items/${item._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then(() => refreshItems());
+
+    mutate(`${API_URL}/api/items`);
   }
 
 

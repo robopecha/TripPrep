@@ -1,19 +1,21 @@
 import axios from "axios";
+import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
 
-function PackCard ({ item, refreshItems }) {
+function PackCard({ item }) {
 
   function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
-    
+
     axios
       .delete(
         `${API_URL}/api/items/${item._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then(() => refreshItems());
+
+    mutate(`${API_URL}/api/items`);
   }
 
   return (

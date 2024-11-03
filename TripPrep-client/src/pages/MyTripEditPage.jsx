@@ -3,20 +3,23 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import TripContext from "../context/trip.context";
+import { mutate } from "swr";
+
 
 const API_URL = "http://localhost:5005";
 
 function MyTripEditPage() {
-  const [destination, setDestination] = React.useState("");
-  const [country, setCountry] = React.useState("");
-  const [season, setSeason] = React.useState("");
-  const [startDate, setStartDate] = React.useState("");
 
+  const { tripID } = useParams();
   const { user } = React.useContext(AuthContext);
-  const {trips} = React.useContext(TripContext);
-  const {tripID} = useParams();
+  const { trips, error, isLoading } = React.useContext(TripContext);
 
   const theTrip = trips.filter(trip => trip._id === tripID);
+
+  const [destination, setDestination] = React.useState(theTrip.destination);
+  const [country, setCountry] = React.useState(theTrip.country);
+  const [season, setSeason] = React.useState(theTrip.season);
+  const [startDate, setStartDate] = React.useState(theTrip.startDate);
 
   const id = React.useId();
 
@@ -30,7 +33,7 @@ function MyTripEditPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate('/trips');
+    navigate(`/trips/${tripID}`);
 
     const storedToken = localStorage.getItem('authToken');
 
@@ -42,13 +45,9 @@ function MyTripEditPage() {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => {
-        setDestination("");
-        setCountry("");
-        setSeason("");
-        setStartDate("");
-      })
       .catch((error) => console.log(error));
+
+    mutate(`${API_URL}/api/trips`);
   }
 
 
@@ -56,7 +55,8 @@ function MyTripEditPage() {
     <div className="text-center">
       <h3 className="text-4xl mt-6 mb-12">Edit my trip</h3>
       <form onSubmit={handleSubmit}>
-
+        {isLoading && <p>Loading trip...</p>}
+        {error && <p>Failed to load trip.</p>}
         <div className="mb-5">
           <label htmlFor={destinationId}>Destination:</label>
           <input

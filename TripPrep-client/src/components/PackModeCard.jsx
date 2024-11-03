@@ -1,23 +1,25 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import TripContext from "../context/trip.context"
+import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
 
-function PackModeCard({ item, refreshItems }) {
-  const {tripID} = useParams();
-  const {trips} = useContext(TripContext);
-  const [items, setItems] = useState([]);
+function PackModeCard({ item }) {
+
+  const { tripID } = useParams();
+  const { trips, error, isLoading } = React.useContext(TripContext);
+
+  const [items, setItems] = React.useState([]);
 
   const theTrip = trips.filter(trip => trip._id === tripID)
-  const [tripPacked, setTripPacked] = useState(theTrip.packed);
+  const [tripPacked, setTripPacked] = React.useState(theTrip.packed);
 
-  const [itemDone, setItemDone] = useState(item.done);
+  const [itemDone, setItemDone] = React.useState(item.done);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { done: itemDone };
     axios
@@ -29,14 +31,14 @@ function PackModeCard({ item, refreshItems }) {
       .then((response) => {
         console.log(response);
 
-      }).then(() => refreshItems());
+    mutate(`${API_URL}/api/items`);
 
   }, [itemDone]);
 
   function toggleClick() {
     setItemDone(!itemDone);
 
-    useEffect(() => {
+    React.useEffect(() => {
       const storedToken = localStorage.getItem('authToken');
       const requestBody = { packed: tripPacked };
       axios
@@ -48,7 +50,7 @@ function PackModeCard({ item, refreshItems }) {
         .then((response) => {
           console.log(response);
 
-        }).then(() => refreshItems());
+      mutate(`${API_URL}/api/trips`);
 
     }, [tripPacked]);
 
@@ -56,6 +58,8 @@ function PackModeCard({ item, refreshItems }) {
 
   return (
     <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80" : "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
+      {isLoading && <p>Loading item...</p>}
+      {error && <p>Failed to load item.</p>}
       <h5 className="text-lg">{item.content}</h5>
     </div>
   );

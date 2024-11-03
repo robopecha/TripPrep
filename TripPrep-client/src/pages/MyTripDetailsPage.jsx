@@ -1,18 +1,20 @@
 import ListCard from "../components/ListCard";
 import { useParams, Link } from "react-router-dom";
-import { useContext} from "react";
+import React from "react";
 import TripContext from "../context/trip.context";
 // import { formatDate } from './date-helpers.js';     <- check this out!  <time dateTime="2024-01-01T00:00:00.000Z"> {formatDate(message.published)} </time>
 
 
 function MyTripDetailsPage() {
-  const {trips} = useContext(TripContext);
-  const {tripID} = useParams();
+  const { trips, error, isLoading } = React.useContext(TripContext);
+  const { tripID } = useParams();
 
   const theTrip = trips.filter(trip => trip._id === tripID);
 
   return (
     <div className="flex flex-col items-center">
+      {isLoading && <p>Loading trip...</p>}
+      {error && <p>Failed to load trip.</p>}
       <h3 className="text-4xl mt-10 mb-6 mt-15">{theTrip[0]?.destination}</h3>
       <h3 className="text-2xl my-6">{theTrip[0]?.country}</h3>
       <ListCard {...theTrip[0]}/>

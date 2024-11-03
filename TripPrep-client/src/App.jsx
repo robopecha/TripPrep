@@ -11,6 +11,7 @@ import MyTripsPage from "./pages/MyTripsPage";
 import MyTripDetailsPage from "./pages/MyTripDetailsPage"
 import MyTripEditPage from "./pages/MyTripEditPage"
 import { TripContextProvider } from "./context/trip.context";
+import { ItemContextProvider } from "./context/item.context";
 import ListDoPage from "./pages/ListDoPage";
 import ListBuyPage from "./pages/ListBuyPage";
 import ListPackPage from "./pages/ListPackPage";
@@ -25,6 +26,7 @@ function App() {
     <div className="font-ocr">
       <Navbar />
       <TripContextProvider>
+      <ItemContextProvider>
         <Routes>
           <Route path="/" element={<AllTripsPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -43,6 +45,7 @@ function App() {
           <Route path="/signup" element={<IsAnon><SignupPage /></IsAnon>} />
           <Route path="/login" element={<IsAnon><LoginPage /></IsAnon>} />
         </Routes>
+      </ItemContextProvider>
       </TripContextProvider>
     </div>
   );

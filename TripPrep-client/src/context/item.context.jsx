@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import useSWR from 'swr';
 
-const TripContext = React.createContext();
-export default TripContext;
+const ItemContext = React.createContext();
+export default ItemContext;
 
 const API_URL = "http://localhost:5005";
 
@@ -17,13 +17,13 @@ function fetcher(url) {
     .then((response) => response.data);
 }
 
-export function TripContextProvider(props) {
+export function ItemContextProvider(props) {
 
-  const { data: trips, isLoading, error } = useSWR(`${API_URL}/api/trips`, fetcher);
+  const { data: items, isLoading, error } = useSWR(`${API_URL}/api/items`, fetcher);
 
   return (
-   <TripContext.Provider value={{ trips, isLoading, error }}>
+   <ItemContext.Provider value={{ items, isLoading, error }}>
      {props.children}
-   </TripContext.Provider>
+   </ItemContext.Provider>
   );
 }

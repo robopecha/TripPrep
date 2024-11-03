@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
+import React from "react";
 import { AuthContext } from "../context/auth.context";
 import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlineInfoCircle } from 'react-icons/ai';
 import { PiSuitcase } from 'react-icons/pi';
 
 
 function Navbar() {
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { isLoggedIn, user } = React.useContext(AuthContext);
 
   return (
     <>
@@ -53,7 +53,6 @@ function Navbar() {
           )}
         </div>
       </nav>
-
 
 
       <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-red-500 text-3xl py-4">

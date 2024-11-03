@@ -1,6 +1,6 @@
 import ShowPackCard from "../components/ShowPackCard";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
 const API_URL = "http://localhost:5005";
@@ -9,7 +9,7 @@ const listType = "topack";
 
 function ShowPackListPage() {
   const {tripID} = useParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = React.useState([]);
 
   function getAllItems() {
     const storedToken = localStorage.getItem("authToken");
@@ -21,7 +21,7 @@ function ShowPackListPage() {
       .catch((error) => console.log(error));
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     getAllItems();
   }, []);
 
@@ -32,7 +32,7 @@ function ShowPackListPage() {
       </div>
         <div>
           { items && items.map((item) => {
-            if (tripID === item.trip && item.listType === 'topack') {
+            if (tripID === item.trip && item.listType === listType) {
               return <ShowPackCard key={item._id} item={item} refreshItems={getAllItems} />
             }
             return null;

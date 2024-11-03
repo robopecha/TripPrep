@@ -7,6 +7,7 @@ import { AuthContext } from "../context/auth.context";
 
 
 function AllTripsPage() {
+  
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { user } = React.useContext(AuthContext);
 

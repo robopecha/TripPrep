@@ -7,6 +7,7 @@ import { mutate } from "swr";
 const API_URL = "http://localhost:5005";
 
 function AddTripForm() {
+
   const [destination, setDestination] = React.useState("");
   const [country, setCountry] = React.useState("");
   const [season, setSeason] = React.useState('');
@@ -35,15 +36,9 @@ function AddTripForm() {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => {
-        setDestination("");
-        setCountry("");
-        setSeason("");
-        setStartDate("");
-      })
       .catch((error) => console.log(error));
 
-    mutate(`${API_URL}/api/trips`);   // makes swr revalidate data
+    mutate(`${API_URL}/api/trips`);
     navigate('/trips');
   }
 
