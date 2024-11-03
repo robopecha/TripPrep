@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
@@ -24,10 +25,8 @@ function AddTripForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate('/trips');
 
     const storedToken = localStorage.getItem('authToken');
-
     const requestBody = { destination, country, season, startDate, userID: user._id };
 
     axios
@@ -43,8 +42,10 @@ function AddTripForm() {
         setStartDate("");
       })
       .catch((error) => console.log(error));
-  }
 
+    mutate(`${API_URL}/api/trips`);   // makes swr revalidate data
+    navigate('/trips');
+  }
 
   return (
     <div>
