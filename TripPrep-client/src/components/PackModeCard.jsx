@@ -9,15 +9,11 @@ const API_URL = "http://localhost:5005";
 
 function PackModeCard({ item }) {
 
-  const { tripID } = useParams();
-  const { trips, error, isLoading } = React.useContext(TripContext);
-
-  const [items, setItems] = React.useState([]);
-
-  const theTrip = trips.filter(trip => trip._id === tripID)
-  const [tripPacked, setTripPacked] = React.useState(theTrip.packed);
-
   const [itemDone, setItemDone] = React.useState(item.done);
+
+  function toggleClick() {
+    setItemDone(!itemDone);
+  }
 
   React.useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -28,42 +24,47 @@ function PackModeCard({ item }) {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => {
-        console.log(response);
-
-    mutate(`${API_URL}/api/items`);
+      .then(() => {
+        mutate(`${API_URL}/api/items`);
+      })
+      .catch((error) => console.log(error));
 
   }, [itemDone]);
 
-  function toggleClick() {
-    setItemDone(!itemDone);
 
-    React.useEffect(() => {
-      const storedToken = localStorage.getItem('authToken');
-      const requestBody = { packed: tripPacked };
-      axios
-        .put(
-          `${API_URL}/api/trips/${tripID}`,
-          requestBody,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => {
-          console.log(response);
+  // const { trips, error, isLoading } = React.useContext(TripContext);
 
-      mutate(`${API_URL}/api/trips`);
+  // const { tripID } = useParams();
+  // const theTrip = trips.filter(trip => trip._id === tripID)
 
-    }, [tripPacked]);
+  // const [tripPacked, setTripPacked] = React.useState(theTrip.packed);
 
-  }
+
+  // React.useEffect(() => {
+  //   const storedToken = localStorage.getItem('authToken');
+  //   const requestBody = { packed: tripPacked };
+  //   axios
+  //     .put(
+  //       `${API_URL}/api/trips/${tripID}`,
+  //       requestBody,
+  //       { headers: { Authorization: `Bearer ${storedToken}` } }
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+
+  //   mutate(`${API_URL}/api/trips`);
+
+  // }, [tripPacked]);
+
+
 
   return (
-    <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80" : "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
-      {isLoading && <p>Loading item...</p>}
-      {error && <p>Failed to load item.</p>}
+    <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80"
+      : "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
       <h5 className="text-lg">{item.content}</h5>
     </div>
   );
-
 }
 
 export default PackModeCard;

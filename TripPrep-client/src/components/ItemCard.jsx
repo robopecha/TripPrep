@@ -5,13 +5,20 @@ import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
+
 function ItemCard({ item }) {
 
   const [itemDone, setItemDone] = React.useState(item.done);
   const [color, setColor] = React.useState(item.backgroundColor);
   const [showColorPicker, setShowColorPicker] = React.useState(false);
 
+  function toggleClick() {
+    setItemDone(!itemDone);
+  }
 
+  function handleColorIconClick() {
+    setShowColorPicker((prevState) => !prevState);
+  }
 
   React.useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -22,22 +29,13 @@ function ItemCard({ item }) {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => {
-        console.log(response);
-
-      });
-
-    mutate(`${API_URL}/api/items`);
+      .then(() => {
+        mutate(`${API_URL}/api/items`);
+      })
+      .catch((error) => console.log(error))
 
   }, [itemDone, color]);
 
-  function toggleClick() {
-    setItemDone(!itemDone);
-  }
-
-  function handleColorIconClick() {
-    setShowColorPicker((prevState) => !prevState);
-  }
 
   function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
@@ -47,8 +45,10 @@ function ItemCard({ item }) {
         `${API_URL}/api/items/${item._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-
-    mutate(`${API_URL}/api/items`);
+      .then(() => {
+        mutate(`${API_URL}/api/items`);
+      })
+      .catch((error) => console.log(error));
   }
 
 

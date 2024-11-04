@@ -24,7 +24,7 @@ function ListPackPage() {
       {error && <p>Failed to load list.</p>}
       <div className="mt-4">
         <div>
-          { items && items.map((item) => {
+          { items?.map((item) => {
             if (tripID === item.trip && item.listType === listType) {
               return <PackCard key={item._id} item={item} />
             }

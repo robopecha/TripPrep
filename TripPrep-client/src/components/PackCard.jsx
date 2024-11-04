@@ -14,8 +14,10 @@ function PackCard({ item }) {
         `${API_URL}/api/items/${item._id}`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-
-    mutate(`${API_URL}/api/items`);
+      .then(() => {
+        mutate(`${API_URL}/api/items`);
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
