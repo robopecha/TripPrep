@@ -1,19 +1,29 @@
 import React from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import TripContext from "../context/trip.context"
 import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
 
-function PackModeCard({ item }) {
+function PackModeCard({ item, packedCheck }) {
+
+  const { trips, error, isLoading } = React.useContext(TripContext);
+
+  const {tripID} = useParams();
+  const theTrip = trips.filter(trip => trip._id === tripID)
+  console.log('trip:', theTrip[0].packed);
 
   const [itemDone, setItemDone] = React.useState(item.done);
+  const [tripPacked, setTripPacked] = React.useState(theTrip[0].packed);
+  console.log({tripPacked})
 
   function toggleClick() {
     setItemDone(!itemDone);
   }
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -25,39 +35,30 @@ function PackModeCard({ item }) {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => {
+        setTripPacked(packedCheck());
         mutate(`${API_URL}/api/items`);
       })
       .catch((error) => console.log(error));
 
   }, [itemDone]);
 
+  React.useEffect(() => {
+    const storedToken = localStorage.getItem('authToken');
+    const requestBody = { packed: tripPacked };
+    axios
+      .put(
+        `${API_URL}/api/trips/${tripID}`,
+        requestBody,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then(() => {
+        mutate(`${API_URL}/api/trips`);
+      })
+      .catch((error) => console.log(error));
 
-  // const { trips, error, isLoading } = React.useContext(TripContext);
+    // if (tripPacked) navigate(`/trips/${tripID}/lists/success`);
 
-  // const { tripID } = useParams();
-  // const theTrip = trips.filter(trip => trip._id === tripID)
-
-  // const [tripPacked, setTripPacked] = React.useState(theTrip.packed);
-
-
-  // React.useEffect(() => {
-  //   const storedToken = localStorage.getItem('authToken');
-  //   const requestBody = { packed: tripPacked };
-  //   axios
-  //     .put(
-  //       `${API_URL}/api/trips/${tripID}`,
-  //       requestBody,
-  //       { headers: { Authorization: `Bearer ${storedToken}` } }
-  //     )
-  //     .then((response) => {
-  //       console.log(response);
-  //     });
-
-  //   mutate(`${API_URL}/api/trips`);
-
-  // }, [tripPacked]);
-
-
+  }, [tripPacked]);
 
   return (
     <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80"

@@ -5,6 +5,7 @@ import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
+
 function AddItemForm(props) {
 
   const [content, setContent] = React.useState("");
@@ -24,20 +25,18 @@ function AddItemForm(props) {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => {
+      .then(() => {
+        mutate(`${API_URL}/api/items`);
         setContent("");
       })
       .catch((error) => {
         console.log("error", error)});
-
-    mutate(`${API_URL}/api/items`);
   }
 
 
   return (
     <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit}>
-
         <input
           type="text"
           name="content"

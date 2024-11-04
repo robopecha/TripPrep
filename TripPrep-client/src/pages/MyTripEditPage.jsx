@@ -16,10 +16,10 @@ function MyTripEditPage() {
 
   const theTrip = trips.filter(trip => trip._id === tripID);
 
-  const [destination, setDestination] = React.useState(theTrip.destination);
-  const [country, setCountry] = React.useState(theTrip.country);
-  const [season, setSeason] = React.useState(theTrip.season);
-  const [startDate, setStartDate] = React.useState(theTrip.startDate);
+  const [destination, setDestination] = React.useState(theTrip[0].destination);
+  const [country, setCountry] = React.useState(theTrip[0].country);
+  const [season, setSeason] = React.useState(theTrip[0].season);
+  const [startDate, setStartDate] = React.useState(theTrip[0].startDate);
 
   const id = React.useId();
 
@@ -30,13 +30,10 @@ function MyTripEditPage() {
 
   const navigate = useNavigate();
 
-
   function handleSubmit(event) {
     event.preventDefault();
-    navigate(`/trips/${tripID}`);
 
     const storedToken = localStorage.getItem('authToken');
-
     const requestBody = { destination, country, season, startDate, userID: user._id };
 
     axios
@@ -44,12 +41,12 @@ function MyTripEditPage() {
         `${API_URL}/api/trips`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
+    )
       .catch((error) => console.log(error));
 
     mutate(`${API_URL}/api/trips`);
+    navigate(`/trips/${tripID}`);
   }
-
 
   return (
     <div className="text-center">

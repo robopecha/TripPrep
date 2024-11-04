@@ -7,7 +7,7 @@ import { AuthContext } from "../context/auth.context";
 
 
 function AllTripsPage() {
-  
+
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { user } = React.useContext(AuthContext);
 
@@ -27,4 +27,4 @@ function AllTripsPage() {
 export default AllTripsPage;
 
 
-// trip.packed === true && trip.public === true
+// trip.packed === true (&& trip.public === true)
