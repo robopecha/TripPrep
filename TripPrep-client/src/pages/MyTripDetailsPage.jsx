@@ -9,7 +9,7 @@ function MyTripDetailsPage() {
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { tripID } = useParams();
 
-  const theTrip = trips.filter(trip => trip._id === tripID);
+  const theTrip = trips?.filter(trip => trip._id === tripID);
 
   return (
     <div className="flex flex-col items-center">

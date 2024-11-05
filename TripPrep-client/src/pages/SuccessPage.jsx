@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 
 function SuccessPage() {
-  const {tripID} = useParams();
+  
+  const { tripID } = useParams();
 
   return (
     <div className="flex justify-center mt-40 text-center">

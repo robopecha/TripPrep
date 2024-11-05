@@ -14,7 +14,7 @@ function MyTripEditPage() {
   const { user } = React.useContext(AuthContext);
   const { trips, error, isLoading } = React.useContext(TripContext);
 
-  const theTrip = trips.filter(trip => trip._id === tripID);
+  const theTrip = trips?.filter(trip => trip._id === tripID);
 
   const [destination, setDestination] = React.useState(theTrip[0].destination);
   const [country, setCountry] = React.useState(theTrip[0].country);

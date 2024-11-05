@@ -15,11 +15,9 @@ function PackModePage() {
   console.log({theItems});  // √
 
   function packedCheck() {
-    //return theItems.every(item => item.done);
     let doneItems = theItems.filter((item) => item.done);
     console.log('items:', theItems.length, 'done:', doneItems.length);
     return doneItems.length === theItems.length;
-
   }
 
   return (
@@ -27,7 +25,7 @@ function PackModePage() {
       <h3 className="text-4xl my-8">Packing!</h3>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
-      {theItems.map((item) => <PackModeCard key={item._id} item={item} packedCheck={packedCheck} />)}
+      {theItems?.map((item) => <PackModeCard key={item._id} item={item} packedCheck={packedCheck} />)}
     </div>
   );
 }
@@ -35,3 +33,6 @@ function PackModePage() {
 export default PackModePage;
 
 // add back button
+
+
+//return theItems.every(item => item.done);

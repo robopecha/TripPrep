@@ -16,7 +16,6 @@ function AddTripForm() {
   const { user } = React.useContext(AuthContext);
 
   const id = React.useId();
-
   const destinationId = `${id}-destination`;
   const countryId = `${id}-country`;
   const seasonId = `${id}-season`;

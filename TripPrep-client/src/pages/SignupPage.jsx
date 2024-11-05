@@ -12,7 +12,6 @@ function SignupPage() {
   const [errorMessage, setErrorMessage] = React.useState(undefined);
 
   const id = React.useId();
-
   const usernameId = `${id}-username`;
   const emailId = `${id}-email`;
   const passwordId = `${id}-password`;
@@ -45,7 +44,6 @@ function SignupPage() {
         setErrorMessage(errorDescription);
       })
   }
-
 
   return (
     <div className="text-center">

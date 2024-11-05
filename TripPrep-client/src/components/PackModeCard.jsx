@@ -12,12 +12,12 @@ function PackModeCard({ item, packedCheck }) {
   const { trips, error, isLoading } = React.useContext(TripContext);
 
   const {tripID} = useParams();
-  const theTrip = trips.filter(trip => trip._id === tripID)
-  console.log('trip:', theTrip[0].packed);
+  const theTrip = trips?.filter(trip => trip._id === tripID)
+  console.log('theTrip[0].packed:', theTrip[0].packed);   // √
 
   const [itemDone, setItemDone] = React.useState(item.done);
   const [tripPacked, setTripPacked] = React.useState(theTrip[0].packed);
-  console.log({tripPacked})
+  console.log({tripPacked})    // √
 
   function toggleClick() {
     setItemDone(!itemDone);
@@ -35,8 +35,8 @@ function PackModeCard({ item, packedCheck }) {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => {
-        setTripPacked(packedCheck());
         mutate(`${API_URL}/api/items`);
+        if (packedCheck() !== tripPacked) {setTripPacked(packedCheck()); console.log('tripPacked changed!');}
       })
       .catch((error) => console.log(error));
 
@@ -53,6 +53,7 @@ function PackModeCard({ item, packedCheck }) {
       )
       .then(() => {
         mutate(`${API_URL}/api/trips`);
+        console.log("this trip is packed! let's go!");
       })
       .catch((error) => console.log(error));
 

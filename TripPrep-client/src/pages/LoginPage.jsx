@@ -12,7 +12,6 @@ function LoginPage() {
   const [errorMessage, setErrorMessage] = React.useState(undefined);
 
   const id = React.useId();
-
   const emailId = `${id}-email`;
   const passwordId = `${id}-password`;
 
