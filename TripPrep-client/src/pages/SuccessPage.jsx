@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 
 function SuccessPage() {
-  
+
   const { tripID } = useParams();
 
   return (
@@ -15,3 +15,6 @@ function SuccessPage() {
 }
 
 export default SuccessPage;
+
+
+// return to packing page button, resets success state to false
