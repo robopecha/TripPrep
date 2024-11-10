@@ -23,23 +23,29 @@ function PackModePage() {
 
   function handleItemClick(itemId) {
     const clickedItem = theItems.find((item) => item._id === itemId);
-    const initialDoneStatus = clickedItem.done;
-    const newDoneStatus = !initialDoneStatus;
 
-    const storedToken = localStorage.getItem('authToken');
-    const requestBody = { done: newDoneStatus };
-    axios
-      .put(
-        `${API_URL}/api/items/${itemId}`,
-        requestBody,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then(() => {
-        mutate(`${API_URL}/api/items`);
-      })
-      .catch((error) => console.log(error));
+    if (clickedItem) {
+      const initialDoneStatus = clickedItem.done;
+      const newDoneStatus = !initialDoneStatus;
 
-      // if items done packed success nav
+      const storedToken = localStorage.getItem('authToken');
+      const requestBody = { done: newDoneStatus };
+      axios
+        .put(
+          `${API_URL}/api/items/${itemId}`,
+          requestBody,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        )
+        .then(() => {
+          mutate(`${API_URL}/api/items`);
+          const allDone = theItems.every(item => item._id === itemId ? newDoneStatus : item.done);
+          setSuccess(allDone);
+          console.log('success:', success);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      console.error("Item not found");
+    }
   }
 
   return (
