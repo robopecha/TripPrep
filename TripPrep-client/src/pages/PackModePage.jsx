@@ -13,7 +13,6 @@ const listType = "topack";
 function PackModePage() {
 
   const [success, setSuccess] = React.useState(false);
-  const [itemDone, setItemDone] = React.useState();
 
   const { items, error, isLoading } = React.useContext(ItemContext);
 
@@ -23,16 +22,12 @@ function PackModePage() {
   const navigate = useNavigate();
 
   function handleItemClick(itemId) {
-    const clickedItem = theItems.filter((item) => item._id === itemId);
-    console.log(clickedItem[0]);
-    setItemDone(clickedItem[0].done);
-    setItemDone((currentValue) => {
-      return !currentValue;
-    });
-    console.log(itemDone);
+    const clickedItem = theItems.find((item) => item._id === itemId);
+    const initialDoneStatus = clickedItem.done;
+    const newDoneStatus = !initialDoneStatus;
 
     const storedToken = localStorage.getItem('authToken');
-    const requestBody = { done: itemDone };
+    const requestBody = { done: newDoneStatus };
     axios
       .put(
         `${API_URL}/api/items/${itemId}`,
