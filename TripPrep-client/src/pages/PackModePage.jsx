@@ -15,7 +15,6 @@ function PackModePage() {
   const [success, setSuccess] = React.useState(false);
 
   const { items, error, isLoading } = React.useContext(ItemContext);
-
   const { tripID } = useParams();
   const theItems = items?.filter((item) => item.trip === tripID && item.listType === listType);
 
@@ -25,11 +24,10 @@ function PackModePage() {
     const clickedItem = theItems.find((item) => item._id === itemId);
 
     if (clickedItem) {
-      const initialDoneStatus = clickedItem.done;
-      const newDoneStatus = !initialDoneStatus;
+      const toggledStatus = !clickedItem.done;
 
       const storedToken = localStorage.getItem('authToken');
-      const requestBody = { done: newDoneStatus };
+      const requestBody = { done: toggledStatus };
       axios
         .put(
           `${API_URL}/api/items/${itemId}`,
@@ -38,14 +36,14 @@ function PackModePage() {
         )
         .then(() => {
           mutate(`${API_URL}/api/items`);
-          const allDone = theItems.every(item => item._id === itemId ? newDoneStatus : item.done);
+          const allDone = theItems.every(item => item._id === itemId ? toggledStatus : item.done);
           setSuccess(allDone);
-          console.log('success:', success);
         })
         .catch((error) => console.log(error));
     } else {
       console.error("Item not found");
     }
+    console.log('success:', success);
   }
 
   return (
