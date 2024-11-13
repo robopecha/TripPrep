@@ -1,5 +1,5 @@
 import ItemCard from "../components/ItemCard";
-import AddItemForm from "../components/AddItemForm";
+import ItemForm from "../components/ItemForm";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ItemContext from "../context/item.context"
@@ -30,7 +30,7 @@ function ListBuyPage() {
             return null;
           })}
         </div>
-        <AddItemForm listType={listType} />
+        <ItemForm listType={listType} />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { mutate } from "swr";
 const API_URL = "http://localhost:5005";
 
 
-function AddItemForm(props) {
+function ItemForm(props) {
 
   const [content, setContent] = React.useState("");
   const {tripID} = useParams();
@@ -50,4 +50,4 @@ function AddItemForm(props) {
 }
 
 
-export default AddItemForm;
+export default ItemForm;

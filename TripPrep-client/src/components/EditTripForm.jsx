@@ -39,7 +39,7 @@ function EditTripForm() {
 
     axios
       .post(
-        `${API_URL}/api/trips`,
+        `${API_URL}/api/trips/${tripID}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )

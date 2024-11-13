@@ -5,7 +5,7 @@ import axios from "axios";
 const API_URL = "http://localhost:5005";
 
 
-function PackModeCard({ item, successCheck }) {
+function PackModeCard({ item }) {
 
   const [itemDone, setItemDone] = React.useState(item.done);
 
@@ -24,7 +24,6 @@ function PackModeCard({ item, successCheck }) {
     )
     .then(() => {
       mutate(`${API_URL}/api/items`);
-      successCheck();
     })
     .catch((error) => console.log(error));
 

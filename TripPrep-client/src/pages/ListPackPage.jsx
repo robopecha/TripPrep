@@ -1,5 +1,5 @@
 import PackCard from "../components/PackCard";
-import AddItemForm from "../components/AddItemForm";
+import ItemForm from "../components/ItemForm";
 import BlueButton from "../components/BlueButton";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
@@ -32,7 +32,7 @@ function ListPackPage() {
             return null;
           })}
         </div>
-        <AddItemForm listType={listType} />
+        <ItemForm listType={listType} />
       </div>
     </div>
   );
