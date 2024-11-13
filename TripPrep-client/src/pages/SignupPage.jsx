@@ -1,4 +1,5 @@
 import React from 'react';
+import BlueButton from "../components/BlueButton";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -86,7 +87,7 @@ function SignupPage() {
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 mb-10 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Sign Up</button>
+        <BlueButton type="submit" className="mb-10">Sign up</BlueButton>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }

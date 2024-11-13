@@ -1,4 +1,5 @@
-import ListCard from "../components/ListCard";
+import ListsCard from "../components/ListsCard";
+import BlueButton from "../components/BlueButton";
 import { useParams, Link } from "react-router-dom";
 import React from "react";
 import TripContext from "../context/trip.context";
@@ -17,15 +18,17 @@ function MyTripDetailsPage() {
       {error && <p>Failed to load trip.</p>}
       <h3 className="text-4xl mt-10 mb-6 mt-15">{theTrip[0]?.destination}</h3>
       <h3 className="text-2xl my-6">{theTrip[0]?.country}</h3>
-      <ListCard {...theTrip[0]}/>
+      <ListsCard {...theTrip[0]}/>
       <h3 className="text-2xl my-6">{theTrip[0]?.season}</h3>
       <h3 className="text-xl mt-8">starting on:</h3>
       <h3 className="text-2xl mt-3">{theTrip[0]?.startDate.slice(5, 7)}-{theTrip[0]?.startDate.slice(8, 10)}-{theTrip[0]?.startDate.slice(0, 4)}</h3>
-      <Link to={`/trips/${tripID}/edit`}><button className="text-lg bg-blue-500 p-2 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200 mt-10">Edit Trip</button></Link>
+      <Link to={`/trips/${tripID}/edit`}><BlueButton className="text-lg my-10">Edit trip</BlueButton></Link>
     </div>
   );
 }
 
-// add back button
 
 export default MyTripDetailsPage;
+
+
+// add back button

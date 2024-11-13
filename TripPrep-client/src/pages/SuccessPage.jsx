@@ -17,4 +17,4 @@ function SuccessPage() {
 export default SuccessPage;
 
 
-// return to packing page button, resets success state to false
+// return to packing list button, resets success state to false

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import BlueButton from "../components/BlueButton";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
@@ -74,7 +75,7 @@ function LoginPage() {
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 mb-10 p-2 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Log in</button>
+        <BlueButton type="submit" className="mb-10">Log in</BlueButton>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 

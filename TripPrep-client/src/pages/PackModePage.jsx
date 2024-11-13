@@ -31,7 +31,7 @@ function PackModePage() {
       <h3 className="text-4xl my-8">Packing!</h3>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
-      {theItems.map((item) => <PackModeCard key={item._id} item={item} successCheck={successCheck} />)}
+      {theItems?.map((item) => <PackModeCard key={item._id} item={item} successCheck={successCheck} />)}
     </div>
   );
 }

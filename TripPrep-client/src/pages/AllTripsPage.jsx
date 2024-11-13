@@ -1,5 +1,6 @@
 import AllTripsCard from "../components/AllTripsCard";
 import TripCard from "../components/TripCard";
+import BlueButton from "../components/BlueButton";
 import TripContext from "../context/trip.context"
 import { Link } from "react-router-dom";
 import React from "react";
@@ -14,7 +15,7 @@ function AllTripsPage() {
   return (
     <div>
       <h3 className="text-4xl my-6">All Trips</h3>
-      <Link to={`/new-trip`}><button className="bg-blue-500 p-2 mb-10 rounded-sm border-2 border-white hover:border-black transition ease-in-out duration-200">Add a Trip</button></Link>
+      <Link to={`/new-trip`}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">

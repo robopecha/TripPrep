@@ -1,20 +1,26 @@
 import React from "react";
 import BlueButton from "../components/BlueButton";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import TripContext from "../context/trip.context";
 import { mutate } from "swr";
 
 const API_URL = "http://localhost:5005";
 
-function AddTripForm() {
 
-  const [destination, setDestination] = React.useState("");
-  const [country, setCountry] = React.useState("");
-  const [season, setSeason] = React.useState('');
-  const [startDate, setStartDate] = React.useState("");
+function EditTripForm() {
 
+  const { tripID } = useParams();
   const { user } = React.useContext(AuthContext);
+  const { trips, error, isLoading } = React.useContext(TripContext);
+
+  const theTrip = trips?.filter(trip => trip._id === tripID);
+
+  const [destination, setDestination] = React.useState(theTrip[0].destination);
+  const [country, setCountry] = React.useState(theTrip[0].country);
+  const [season, setSeason] = React.useState(theTrip[0].season);
+  const [startDate, setStartDate] = React.useState(theTrip[0].startDate);
 
   const id = React.useId();
   const destinationId = `${id}-destination`;
@@ -25,6 +31,7 @@ function AddTripForm() {
   const navigate = useNavigate();
 
   function handleSubmit(event) {
+
     event.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
@@ -39,14 +46,15 @@ function AddTripForm() {
       .catch((error) => console.log(error));
 
     mutate(`${API_URL}/api/trips`);
-    navigate('/trips');
+    navigate(`/trips/${tripID}`);
   }
 
   return (
     <div>
 
       <form onSubmit={handleSubmit}>
-
+        {isLoading && <p>Loading trip...</p>}
+        {error && <p>Failed to load trip.</p>}
         <div className="mb-5">
           <label htmlFor={destinationId}>Destination:</label>
           <input
@@ -108,4 +116,4 @@ function AddTripForm() {
   );
 }
 
-export default AddTripForm;
+export default EditTripForm;

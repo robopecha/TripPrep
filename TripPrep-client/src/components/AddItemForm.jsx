@@ -33,7 +33,6 @@ function AddItemForm(props) {
         console.log("error", error)});
   }
 
-
   return (
     <div className="flex justify-center items-center">
       <form onSubmit={handleSubmit}>
@@ -49,5 +48,6 @@ function AddItemForm(props) {
     </div>
   );
 }
+
 
 export default AddItemForm;

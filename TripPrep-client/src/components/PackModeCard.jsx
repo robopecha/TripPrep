@@ -25,8 +25,8 @@ function PackModeCard({ item, successCheck }) {
     .then(() => {
       mutate(`${API_URL}/api/items`);
       successCheck();
-      })
-      .catch((error) => console.log(error))
+    })
+    .catch((error) => console.log(error));
 
   }, [itemDone]);
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-function ListCard(props) {
+function ListsCard(props) {
 
   return (
     <div className="text-center my-10">
@@ -22,4 +22,4 @@ function ListCard(props) {
   )
 }
 
-export default ListCard;
+export default ListsCard;
