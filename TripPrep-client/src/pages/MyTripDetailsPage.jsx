@@ -18,7 +18,7 @@ function MyTripDetailsPage() {
       {error && <p>Failed to load trip.</p>}
       <h3 className="text-4xl mt-10 mb-6 mt-15">{theTrip?.destination}</h3>
       <h3 className="text-2xl my-6">{theTrip?.country}</h3>
-      <ListsCard {...theTrip}/>
+      <ListsCard theTrip={theTrip} />
       <h3 className="text-2xl my-6">{theTrip?.season}</h3>
       <h3 className="text-xl mt-8">starting on:</h3>
       <h3 className="text-2xl mt-3">{theTrip?.startDate.slice(5, 7)}-{theTrip?.startDate.slice(8, 10)}-{theTrip?.startDate.slice(0, 4)}</h3>

@@ -53,9 +53,15 @@ function PackModePage() {
         {itemsError && <p>Failed to load list.</p>}
         {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
         <div className="relative inline-block">
-          <BlueButton className="mt-7 relative" onClick={handleToggle}>Everything is packed!</BlueButton>
+          <BlueButton
+            className={theTrip.packed ? "mt-7 relative bg-white border text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-black" : "mt-7"}
+            onClick={handleToggle}
+          >
+            Everything is packed!
+          </BlueButton>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor"
-            className={theTrip.packed ? 'absolute -top-20 left-48 w-44 visible' : 'invisible'}>
+            className={theTrip.packed ? 'absolute -top-20 left-48 w-44 visible' : 'absolute -top-20 left-48 w-44 invisible'}
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
