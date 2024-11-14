@@ -25,8 +25,8 @@ function PackModePage() {
   const theItems = items?.filter((item) => item.trip === tripID && item.listType === listType);
   console.log('the items:', theItems);
 
-  function handleClick() {
-    setTripPacked(true);
+  function handleToggle() {
+    setTripPacked(!tripPacked);
   }
 
   React.useEffect(() => {
@@ -34,7 +34,7 @@ function PackModePage() {
     const requestBody = { packed: tripPacked };
     axios
       .put(
-        `${API_URL}/api/trips/${theTrip._id}`,
+        `${API_URL}/api/trips/${tripID}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -52,8 +52,14 @@ function PackModePage() {
         {itemsLoading && <p>Loading list...</p>}
         {itemsError && <p>Failed to load list.</p>}
         {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
+        <div className="relative inline-block">
+          <BlueButton className="mt-7 relative" onClick={handleToggle}>Everything is packed!</BlueButton>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor"
+            className={theTrip.packed ? 'absolute -top-20 left-48 w-44 visible' : 'invisible'}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
       </div>
-      <BlueButton className="mb-8" onClick={handleClick}>Everything is packed!</BlueButton>
     </div>
   );
 }
@@ -61,5 +67,3 @@ function PackModePage() {
 export default PackModePage;
 
 // add back button
-
-// add packed everything button  -> set packed
