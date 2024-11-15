@@ -17,13 +17,11 @@ function PackModePage() {
   const { trips, error: tripsError, isLoading: tripsLoading } = React.useContext(TripContext);
   const { tripID } = useParams();
   const theTrip = trips?.find(trip => trip._id === tripID);
-  console.log('the trip:', theTrip);
 
   const [tripPacked, setTripPacked] = React.useState(theTrip?.packed);
 
   const { items, error: itemsError, isLoading: itemsLoading } = React.useContext(ItemContext);
   const theItems = items?.filter((item) => item.trip === tripID && item.listType === listType);
-  console.log('the items:', theItems);
 
   function handleToggle() {
     setTripPacked(!tripPacked);

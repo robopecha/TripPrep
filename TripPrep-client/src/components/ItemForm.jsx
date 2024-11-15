@@ -6,14 +6,13 @@ import { mutate } from "swr";
 const API_URL = "http://localhost:5005";
 
 
-function ItemForm(props) {
+function ItemForm({ listType }) {
 
   const [content, setContent] = React.useState("");
   const {tripID} = useParams();
 
-  const listType = props.listType
-
   function handleSubmit(event) {
+    
     event.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
