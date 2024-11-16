@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function BlueButton({ type, className = '', children, onClick }) {
+function BlueButton({ type, className = '', onClick, children }) {
 
   return (
     <button
