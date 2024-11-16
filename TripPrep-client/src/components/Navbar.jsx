@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom";
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlineInfoCircle } from 'react-icons/ai';
 import { PiSuitcase } from 'react-icons/pi';
+import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlineInfoCircle } from 'react-icons/ai';
 
 
 function Navbar() {
+  
   const { isLoggedIn, user } = React.useContext(AuthContext);
 
   return (
@@ -87,5 +88,6 @@ function Navbar() {
     </>
   );
 }
+
 
 export default Navbar;

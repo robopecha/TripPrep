@@ -1,4 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
 
 function TripCard ( { destination, country, season, _id } ) {
 
@@ -12,5 +14,6 @@ function TripCard ( { destination, country, season, _id } ) {
       </Link>
   );
 }
+
 
 export default TripCard;

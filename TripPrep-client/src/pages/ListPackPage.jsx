@@ -1,6 +1,7 @@
+import Header from "../components/Header";
+import BlueButton from "../components/BlueButton";
 import PackCard from "../components/PackCard";
 import ItemForm from "../components/ItemForm";
-import BlueButton from "../components/BlueButton";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ItemContext from "../context/item.context"
@@ -17,7 +18,7 @@ function ListPackPage() {
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
         <Link to={`/trips/${tripID}/lists/todo`} className="mr-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Do</Link>
-        <h3 className="text-4xl my-6 text-center mt-10">To Pack</h3>
+        <Header>To Pack</Header>
         <Link to={`/trips/${tripID}/lists/tobuy`} className="ml-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Buy</Link>
       </div>
       <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-8">Pack Mode</BlueButton></Link>
@@ -37,6 +38,7 @@ function ListPackPage() {
     </div>
   );
 }
+
 
 export default ListPackPage;
 

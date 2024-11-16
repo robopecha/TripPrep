@@ -1,14 +1,15 @@
 import React from "react";
-import axios from "axios";
 import useSWR from 'swr';
+import axios from "axios";
 
 const TripContext = React.createContext();
 export default TripContext;
 
 const API_URL = "http://localhost:5005";
 
+
 function fetcher(url) {
-  
+
   const storedToken = localStorage.getItem("authToken");
   const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
 
@@ -17,13 +18,13 @@ function fetcher(url) {
     .then((response) => response.data);
 }
 
-export function TripContextProvider(props) {
+export function TripContextProvider({ children }) {
 
   const { data: trips, isLoading, error } = useSWR(`${API_URL}/api/trips`, fetcher);
 
   return (
    <TripContext.Provider value={{ trips, isLoading, error }}>
-     {props.children}
+     {children}
    </TripContext.Provider>
   );
 }

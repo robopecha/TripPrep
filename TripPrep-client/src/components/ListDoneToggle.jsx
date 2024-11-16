@@ -1,5 +1,5 @@
-import React from "react";
 import BlueButton from "./BlueButton";
+import React from "react";
 import { useParams } from "react-router-dom";
 import TripContext from "../context/trip.context";
 import { mutate } from "swr";
@@ -13,8 +13,6 @@ function ListDoneToggle({ listType, className = '', children }) {
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { tripID } = useParams();
   const theTrip = trips?.find(trip => trip._id === tripID);
-
-
 
   const [listDone, setListDone] = React.useState(theTrip?.[`${listType}Done`]);
 
@@ -37,7 +35,6 @@ function ListDoneToggle({ listType, className = '', children }) {
       .catch((error) => console.log(error));
 
   }, [listDone]);
-
 
   return (
     <div className="relative inline-block">

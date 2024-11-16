@@ -1,18 +1,20 @@
-import TripCard from "../components/TripCard";
-import TripContext from "../context/trip.context"
+import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
-import { Link } from "react-router-dom";
+import TripCard from "../components/TripCard";
 import React from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import TripContext from "../context/trip.context"
 
 
 function MyTripsPage() {
+
   const { user } = React.useContext(AuthContext);
   const { trips, error, isLoading } = React.useContext(TripContext);
 
   return (
     <div>
-      <h3 className="text-4xl my-6">My Trips</h3>
+      <Header>My Trips</Header>
       <Link to={`/new-trip`}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
@@ -26,5 +28,6 @@ function MyTripsPage() {
     </div>
   );
 }
+
 
 export default MyTripsPage;

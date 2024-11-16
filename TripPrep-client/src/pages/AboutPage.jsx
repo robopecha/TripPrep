@@ -1,15 +1,18 @@
-import { useParams, Link } from "react-router-dom";
+import Header from "../components/Header";
+import React from "react";
+
 
 function AboutPage() {
 
   return (
     <>
-      <h3 className="text-4xl my-6">About</h3>
+      <Header>About TripPrep</Header>
       <span>
         bla bla bla
       </span>
     </>
   );
 }
+
 
 export default AboutPage;

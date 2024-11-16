@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 function AllTripsCard ( { destination, country, season, _id } ) {
 
   return (
@@ -12,5 +13,6 @@ function AllTripsCard ( { destination, country, season, _id } ) {
       </Link>
   );
 }
+
 
 export default AllTripsCard;

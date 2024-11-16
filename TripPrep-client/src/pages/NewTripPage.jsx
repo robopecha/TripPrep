@@ -1,14 +1,17 @@
+import Header from "../components/Header";
 import AddTripForm from "../components/AddTripForm";
+import React from "react";
 
 
 function NewTripPage() {
 
   return (
     <div className="text-center">
-     <h3 className="text-4xl my-6">Add a new trip</h3>
-     <AddTripForm />
+      <Header>Add a new Trip</Header>
+      <AddTripForm />
     </div>
   );
 }
+
 
 export default NewTripPage;

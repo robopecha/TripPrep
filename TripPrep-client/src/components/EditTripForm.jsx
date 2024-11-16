@@ -1,10 +1,10 @@
-import React from "react";
 import BlueButton from "../components/BlueButton";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import TripContext from "../context/trip.context";
 import { mutate } from "swr";
+import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
@@ -51,7 +51,6 @@ function EditTripForm() {
 
   return (
     <div>
-
       <form onSubmit={handleSubmit}>
         {isLoading && <p>Loading trip...</p>}
         {error && <p>Failed to load trip.</p>}
@@ -115,5 +114,6 @@ function EditTripForm() {
     </div>
   );
 }
+
 
 export default EditTripForm;

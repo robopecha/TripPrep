@@ -1,9 +1,9 @@
+import Header from "../components/Header";
 import ListsCard from "../components/ListsCard";
 import BlueButton from "../components/BlueButton";
-import { useParams, Link } from "react-router-dom";
 import React from "react";
+import { useParams, Link } from "react-router-dom";
 import TripContext from "../context/trip.context";
-// import { formatDate } from './date-helpers.js';     <- check this out!  <time dateTime="2024-01-01T00:00:00.000Z"> {formatDate(message.published)} </time>
 
 
 function MyTripDetailsPage() {
@@ -16,7 +16,7 @@ function MyTripDetailsPage() {
     <div className="flex flex-col items-center">
       {isLoading && <p>Loading trip...</p>}
       {error && <p>Failed to load trip.</p>}
-      <h3 className="text-4xl mt-10 mb-6">{theTrip?.destination}</h3>
+      <Header>{theTrip?.destination}</Header>
       <h3 className="text-2xl my-6">{theTrip?.country}</h3>
       <ListsCard theTrip={theTrip} />
       <h3 className="text-2xl my-6">{theTrip?.season}</h3>
@@ -32,3 +32,5 @@ export default MyTripDetailsPage;
 
 
 // add back button
+
+// import { formatDate } from './date-helpers.js';     <- check this out!  <time dateTime="2024-01-01T00:00:00.000Z"> {formatDate(message.published)} </time>

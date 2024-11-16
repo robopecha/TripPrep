@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { GithubPicker } from 'react-color';
 import { mutate } from "swr";
+import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
@@ -51,7 +51,6 @@ function ItemCard({ item }) {
       .catch((error) => console.log(error));
   }
 
-
   return (
     <>
       <div style={{background:item.backgroundColor}} className=" flex justify-between border border-black rounded-sm mb-3 p-2 overflow-scroll bg-white hover:bg-gray-100 w-80">
@@ -76,5 +75,6 @@ function ItemCard({ item }) {
     </>
   );
 }
+
 
 export default ItemCard;

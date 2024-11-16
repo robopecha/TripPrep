@@ -1,12 +1,14 @@
 import React from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
+
 const AuthContext = React.createContext();
 
-function AuthProviderWrapper(props) {
+function AuthProviderWrapper({ children }) {
+
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
   const [user, setUser] = React.useState(null);
@@ -69,9 +71,10 @@ function AuthProviderWrapper(props) {
         logOutUser
       }}
     >
-      {props.children}
+      {children}
     </AuthContext.Provider>
   )
 }
+
 
 export { AuthProviderWrapper, AuthContext };

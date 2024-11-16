@@ -1,14 +1,17 @@
-import React from 'react';
-import AllTripsCard from '../components/AllTripsCard';
-import TripCard from "../components/TripCard";
+import Header from "../components/Header";
 import SearchForm from '../components/SearchForm';
-import axios from 'axios';
+import TripCard from "../components/TripCard";
+import AllTripsCard from '../components/AllTripsCard';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from "../context/auth.context";
+import axios from 'axios';
 
 const API_URL = "http://localhost:5005";
 
+
 function SearchPage() {
+
   const location = useLocation();
   const { user } = React.useContext(AuthContext);
   const [trips, setTrips] = React.useState([]);
@@ -30,6 +33,7 @@ function SearchPage() {
   }, [location.search]);
 
   async function fetchAllTrips() {
+
     const storedToken = localStorage.getItem("authToken");
     const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
 
@@ -55,7 +59,8 @@ function SearchPage() {
 
   return (
     <div>
-      <div className="mt-10">
+      <Header>Search</Header>
+      <div>
         <SearchForm handleSearch={handleSearch} />
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
@@ -63,6 +68,7 @@ function SearchPage() {
       </div>
     </div>
   );
-};
+}
+
 
 export default SearchPage;

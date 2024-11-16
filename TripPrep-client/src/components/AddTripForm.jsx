@@ -1,12 +1,12 @@
-import React from "react";
 import BlueButton from "../components/BlueButton";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { mutate } from "swr";
-
+import axios from "axios";
 
 const API_URL = "http://localhost:5005";
+
 
 function AddTripForm() {
 
@@ -26,6 +26,7 @@ function AddTripForm() {
   const navigate = useNavigate();
 
   function handleSubmit(event) {
+
     event.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
@@ -108,5 +109,6 @@ function AddTripForm() {
     </div>
   );
 }
+
 
 export default AddTripForm;

@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import PackModeCard from "../components/PackModeCard";
 import ListDoneToggle from "../components/ListDoneToggle";
 import React from "react";
@@ -16,7 +17,7 @@ function PackModePage() {
   return (
     <div>
       <div className="flex flex-col items-center">
-        <h3 className="text-4xl my-8">Packing!</h3>
+        <Header>Packing!</Header>
         {itemsLoading && <p>Loading list...</p>}
         {itemsError && <p>Failed to load list.</p>}
         {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
@@ -25,6 +26,7 @@ function PackModePage() {
     </div>
   );
 }
+
 
 export default PackModePage;
 

@@ -1,5 +1,6 @@
-import React from 'react';
+import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
+import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -7,6 +8,7 @@ const API_URL = "http://127.0.0.1:5005";
 
 
 function SignupPage() {
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -32,6 +34,7 @@ function SignupPage() {
   }
 
   function handleSignupSubmit(event) {
+
     event.preventDefault();
 
     const requestBody = { name, email, password };
@@ -43,13 +46,12 @@ function SignupPage() {
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-      })
+      });
   }
 
   return (
     <div className="text-center">
-      <h1 className="text-4xl my-6">Sign Up</h1>
-
+      <Header>Sign up</Header>
       <form onSubmit={handleSignupSubmit}>
         <div className="mb-5">
           <label htmlFor={usernameId}>Username:</label>
@@ -97,5 +99,6 @@ function SignupPage() {
     </div>
   )
 }
+
 
 export default SignupPage;

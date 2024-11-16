@@ -1,26 +1,28 @@
-import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
-import IsPrivate from "./components/IsPrivate";
-import IsAnon from "./components/IsAnon";
-import NewTripPage from "./pages/NewTripPage";
+import { TripContextProvider } from "./context/trip.context";
+import { ItemContextProvider } from "./context/item.context";
+import { Routes, Route } from "react-router-dom";
 import AllTripsPage from "./pages/AllTripsPage";
+import AboutPage from "./pages/AboutPage";
 import ShowPackListPage from "./pages/ShowPackListPage"
+import SearchPage from "./pages/SearchPage";
+import NewTripPage from "./pages/NewTripPage";
 import MyTripsPage from "./pages/MyTripsPage";
 import MyTripDetailsPage from "./pages/MyTripDetailsPage"
 import MyTripEditPage from "./pages/MyTripEditPage"
-import { TripContextProvider } from "./context/trip.context";
-import { ItemContextProvider } from "./context/item.context";
 import ListDoPage from "./pages/ListDoPage";
 import ListBuyPage from "./pages/ListBuyPage";
 import ListPackPage from "./pages/ListPackPage";
 import PackModePage from "./pages/PackModePage";
-import SearchPage from "./pages/SearchPage";
-import AboutPage from "./pages/AboutPage";
 import SettingsPage from "./pages/SettingsPage";
+import IsAnon from "./components/IsAnon";
+import IsPrivate from "./components/IsPrivate";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+
 
 function App() {
+
   return (
     <div className="font-ocr">
       <Navbar />
@@ -48,5 +50,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

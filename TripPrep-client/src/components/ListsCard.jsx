@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import React from "react";
 import ListButton from "./ListButton";
+import React from "react";
 
 
 function ListsCard({ theTrip }) {
@@ -13,5 +12,6 @@ function ListsCard({ theTrip }) {
     </div>
   );
 }
+
 
 export default ListsCard;

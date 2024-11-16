@@ -1,10 +1,11 @@
-import AllTripsCard from "../components/AllTripsCard";
-import TripCard from "../components/TripCard";
+import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
-import TripContext from "../context/trip.context"
-import { Link } from "react-router-dom";
+import TripCard from "../components/TripCard";
+import AllTripsCard from "../components/AllTripsCard";
 import React from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import TripContext from "../context/trip.context"
 
 
 function AllTripsPage() {
@@ -14,7 +15,7 @@ function AllTripsPage() {
 
   return (
     <div>
-      <h3 className="text-4xl my-6">All Trips</h3>
+      <Header>All Trips</Header>
       <Link to={`/new-trip`}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
@@ -24,6 +25,7 @@ function AllTripsPage() {
     </div>
   );
 }
+
 
 export default AllTripsPage;
 

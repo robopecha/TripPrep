@@ -1,6 +1,7 @@
 import React from "react";
-import { AuthContext } from "../context/auth.context";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+
 
 function IsAnon( { children } ) {
 
@@ -14,5 +15,6 @@ function IsAnon( { children } ) {
     return children;
   }
 }
+
 
 export default IsAnon;

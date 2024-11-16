@@ -1,13 +1,15 @@
-import React from "react";
-import axios from "axios";
+import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import axios from "axios";
 
 const API_URL = "http://127.0.0.1:5005";
 
 
 function LoginPage() {
+
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState(undefined);
@@ -20,7 +22,6 @@ function LoginPage() {
 
   const { storeToken, authenticateUser } = React.useContext(AuthContext);
 
-
   function handleEmail(event) {
     setEmail(event.target.value)
   }
@@ -30,6 +31,7 @@ function LoginPage() {
   }
 
   function handleLoginSubmit(event) {
+
     event.preventDefault();
     const requestBody = { email, password };
 
@@ -43,13 +45,12 @@ function LoginPage() {
       .catch((error) => {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-      })
+      });
   }
 
   return (
     <div className="text-center">
-      <h1 className="text-4xl my-6">Log in</h1>
-
+      <Header>Log in</Header>
       <form onSubmit={handleLoginSubmit}>
         <div className="mb-5">
           <label htmlFor={emailId}>Email:</label>
@@ -84,5 +85,6 @@ function LoginPage() {
     </div>
   )
 }
+
 
 export default LoginPage;

@@ -1,9 +1,10 @@
-import React from 'react';
 import BlueButton from "../components/BlueButton";
+import React from 'react';
 import { createBrowserHistory } from 'history';
 
 
 function SearchForm({ handleSearch }) {
+  
   const history = createBrowserHistory();
   const [searchQuery, setSearchQuery] = React.useState('');
 

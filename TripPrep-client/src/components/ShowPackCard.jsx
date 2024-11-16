@@ -1,3 +1,5 @@
+import React from "react";
+
 
 function ShowPackCard ({ item }) {
 
@@ -7,5 +9,6 @@ function ShowPackCard ({ item }) {
     </div>
   );
 }
+
 
 export default ShowPackCard;

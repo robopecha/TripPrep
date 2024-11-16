@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import ShowPackCard from "../components/ShowPackCard";
 import React from "react";
 import { useParams } from "react-router-dom";
@@ -14,7 +15,7 @@ function ShowPackListPage() {
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
-        <h3 className="text-2xl my-6 text-center mt-10">Look at this pack list!</h3>
+      <Header>Trip info here</Header>
       </div>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
@@ -35,3 +36,5 @@ export default ShowPackListPage;
 
 
 // add back button
+
+// add trip info, user name

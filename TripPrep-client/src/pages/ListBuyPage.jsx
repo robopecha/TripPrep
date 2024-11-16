@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import ItemCard from "../components/ItemCard";
 import ItemForm from "../components/ItemForm";
 import ListDoneToggle from "../components/ListDoneToggle";
@@ -17,7 +18,7 @@ function ListBuyPage() {
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
         <Link to={`/trips/${tripID}/lists/todo`} className="mr-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Do</Link>
-        <h3 className="text-4xl my-6 text-center mt-10">To Buy</h3>
+        <Header>To Buy</Header>
         <Link to={`/trips/${tripID}/lists/topack`} className="ml-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Pack</Link>
       </div>
       {isLoading && <p>Loading list...</p>}
@@ -37,6 +38,7 @@ function ListBuyPage() {
     </div>
   );
 }
+
 
 export default ListBuyPage;
 
