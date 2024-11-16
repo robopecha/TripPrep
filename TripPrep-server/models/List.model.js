@@ -6,7 +6,6 @@ const listSchema = new Schema({
   tobuy: [{ type: Schema.Types.ObjectId, ref: "Item" }],
   topack: [{ type: Schema.Types.ObjectId, ref: "Item" }],
   trip: { type: Schema.Types.ObjectId, ref: "Trip" },
-  done: { type: Boolean, default: false }
 });
 
 module.exports = model("List", listSchema);

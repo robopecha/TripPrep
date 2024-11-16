@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import ItemContext from "../context/item.context"
 
 
-const listType = "topack";
+const listType = "pack";
 
 function ListPackPage() {
 

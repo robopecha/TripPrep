@@ -1,11 +1,12 @@
 import ItemCard from "../components/ItemCard";
 import ItemForm from "../components/ItemForm";
+import ListDoneToggle from "../components/ListDoneToggle";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ItemContext from "../context/item.context"
 
 
-const listType = "tobuy";
+const listType = "buy";
 
 function ListBuyPage() {
 
@@ -32,6 +33,7 @@ function ListBuyPage() {
         </div>
         <ItemForm listType={listType} />
       </div>
+      <ListDoneToggle listType={listType}>Everything is done!</ListDoneToggle>
     </div>
   );
 }

@@ -7,7 +7,9 @@ const tripSchema = new Schema({
   season: { type: String, required: true },
   startDate: { type: Date, required: true },
   lists: [{ type: Schema.Types.ObjectId, ref: "List" }],
-  packed: { type: Boolean, default: false },
+  packDone: { type: Boolean, default: false },
+  doDone: { type: Boolean, default: false },
+  buyDone: { type: Boolean, default: false },
   public: { type: Boolean, default: false },
   user: { type: Schema.Types.ObjectId, ref: "User" }
 });
