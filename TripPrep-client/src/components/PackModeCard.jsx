@@ -38,5 +38,3 @@ function PackModeCard({ item }) {
 }
 
 export default PackModeCard;
-
-

@@ -33,7 +33,7 @@ function ListDoPage() {
         </div>
         <ItemForm listType={listType} />
       </div>
-      <ListDoneToggle listType={listType}>Everything is done!</ListDoneToggle>
+      <ListDoneToggle listType={listType} className='px-5'>Everything is done!</ListDoneToggle>
     </div>
   );
 }

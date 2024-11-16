@@ -8,7 +8,7 @@ import axios from "axios";
 const API_URL = "http://localhost:5005";
 
 
-function ListDoneToggle({ listType, children }) {
+function ListDoneToggle({ listType, className = '', children }) {
 
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { tripID } = useParams();
@@ -42,7 +42,7 @@ function ListDoneToggle({ listType, children }) {
   return (
     <div className="relative inline-block">
       <BlueButton
-        className={theTrip?.[`${listType}Done`] ? "mt-7 relative bg-white border text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-black" : "mt-7"}
+        className={theTrip?.[`${listType}Done`] ? `mt-7 relative bg-white border text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-black ${className}` : `mt-7 ${className}`}
         onClick={handleToggle}
       >
         {children}

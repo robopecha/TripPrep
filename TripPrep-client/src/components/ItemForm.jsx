@@ -12,7 +12,7 @@ function ItemForm({ listType }) {
   const {tripID} = useParams();
 
   function handleSubmit(event) {
-    
+
     event.preventDefault();
 
     const storedToken = localStorage.getItem('authToken');
@@ -33,7 +33,7 @@ function ItemForm({ listType }) {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="mb-4 flex justify-center items-center">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
