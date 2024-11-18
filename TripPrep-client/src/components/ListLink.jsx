@@ -6,7 +6,7 @@ function ListLink({ tripID, linkType, children }) {
 
   return (
     <Link to={`/trips/${tripID}/lists/to${linkType}`}
-      className="mx-12 mt-10 text-xl text-yellow-400 hover:text-black transition ease-in-out duration-200"
+      className="mx-12 mt-9 text-xl text-yellow-400 hover:text-black transition ease-in-out duration-200"
     >
       {children}
     </Link>

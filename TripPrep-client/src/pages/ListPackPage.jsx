@@ -1,3 +1,4 @@
+import TripInfo from "../components/TripInfo";
 import Header from "../components/Header";
 import ListLink from "../components/ListLink";
 import BlueButton from "../components/BlueButton";
@@ -18,6 +19,7 @@ function ListPackPage() {
 
   return (
     <div className="flex flex-col items-center">
+      <TripInfo tripID={tripID} />
       <div className="flex justify-around">
         <ListLink tripID={tripID} linkType={'do'}>To Do</ListLink>
         <Header>To Pack</Header>

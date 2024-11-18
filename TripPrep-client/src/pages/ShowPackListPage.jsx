@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import ShowPackCard from "../components/ShowPackCard";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
 import ItemContext from "../context/item.context"
 import TripContext from "../context/trip.context";
 
@@ -11,7 +10,6 @@ const listType = "pack";
 
 function ShowPackListPage() {
 
-  const { user } = React.useContext(AuthContext);
   const { tripID } = useParams();
   const { items, error: itemsError, isLoading: itemsLoading } = React.useContext(ItemContext);
   const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
@@ -28,8 +26,8 @@ function ShowPackListPage() {
       {itemsError && <p>Failed to load list.</p>}
       <div>
         {theItems?.map((item) => <ShowPackCard key={item?._id} item={item} />)}
+        {theItems?.length === 0 && <p className={'text-sm mt-7'}>This packing list is empty now.</p>}
       </div>
-      {theItems?.length !== 0 ? <p className={'text-sm mt-7'}>Packing list by {user?.name}</p> : <p className={'text-sm mt-7'}>This packing list has no items anymore.</p>}
     </div>
   );
 }
@@ -40,4 +38,4 @@ export default ShowPackListPage;
 
 // add back button
 
-// add trip info, user name
+// {theItems?.length !== 0 ? <p className={'text-sm mt-7'}>Packing list by {user?.name}</p> : <p className={'text-sm mt-7'}>This packing list has no items anymore.</p>}

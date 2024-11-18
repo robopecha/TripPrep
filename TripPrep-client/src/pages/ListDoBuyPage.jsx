@@ -1,3 +1,4 @@
+import TripInfo from "../components/TripInfo";
 import Header from "../components/Header";
 import ListLink from "../components/ListLink";
 import ItemCard from "../components/ItemCard";
@@ -20,6 +21,7 @@ function ListDoBuyPage({ listType }) {
 
   return (
     <div className="flex flex-col items-center">
+      <TripInfo tripID={tripID} />
       <div className="flex justify-around">
         <ListLink tripID={tripID} linkType={linkType}>{link}</ListLink>
         <Header>{header}</Header>
