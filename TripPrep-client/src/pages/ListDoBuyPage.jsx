@@ -1,25 +1,28 @@
 import Header from "../components/Header";
+import ListLink from "../components/ListLink";
 import ItemCard from "../components/ItemCard";
 import ItemForm from "../components/ItemForm";
 import ListDoneToggle from "../components/ListDoneToggle";
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ItemContext from "../context/item.context"
 
 
-const listType = "do";
-
-function ListDoPage() {
+function ListDoBuyPage({ listType }) {
 
   const { items, error, isLoading } = React.useContext(ItemContext);
   const { tripID } = useParams();
 
+  const linkType = listType === 'do' ? 'buy' : 'do';
+  const link = listType === 'do' ? 'To Buy' : 'To Do';
+  const header = listType === 'do' ? 'To Do' : 'To Buy';
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
-        <Link to={`/trips/${tripID}/lists/tobuy`} className="mr-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Buy</Link>
-        <Header>To Do</Header>
-        <Link to={`/trips/${tripID}/lists/topack`} className="ml-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Pack</Link>
+        <ListLink tripID={tripID} linkType={linkType}>{link}</ListLink>
+        <Header>{header}</Header>
+        <ListLink tripID={tripID} linkType={'pack'}>To Pack</ListLink>
       </div>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
@@ -40,6 +43,6 @@ function ListDoPage() {
 }
 
 
-export default ListDoPage;
+export default ListDoBuyPage;
 
 // add back button

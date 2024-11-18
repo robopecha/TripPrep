@@ -26,12 +26,9 @@ function AddTripForm() {
   const navigate = useNavigate();
 
   function handleSubmit(event) {
-
     event.preventDefault();
-
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { destination, country, season, startDate, userID: user._id };
-
     axios
       .post(
         `${API_URL}/api/trips`,

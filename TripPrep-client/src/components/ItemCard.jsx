@@ -32,14 +32,13 @@ function ItemCard({ item }) {
       .then(() => {
         mutate(`${API_URL}/api/items`);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
 
   }, [itemDone, color]);
 
 
   function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
-
     axios
       .delete(
         `${API_URL}/api/items/${item._id}`,

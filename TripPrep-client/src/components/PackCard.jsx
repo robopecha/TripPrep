@@ -8,7 +8,6 @@ function PackCard({ item }) {
 
   function deleteItem() {
     const storedToken = localStorage.getItem('authToken');
-
     axios
       .delete(
         `${API_URL}/api/items/${item._id}`,

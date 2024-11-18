@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import ListLink from "../components/ListLink";
 import BlueButton from "../components/BlueButton";
 import PackCard from "../components/PackCard";
 import ItemForm from "../components/ItemForm";
@@ -17,9 +18,9 @@ function ListPackPage() {
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
-        <Link to={`/trips/${tripID}/lists/todo`} className="mr-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Do</Link>
+        <ListLink tripID={tripID} linkType={'do'}>To Do</ListLink>
         <Header>To Pack</Header>
-        <Link to={`/trips/${tripID}/lists/tobuy`} className="ml-20 text-xl mt-12 text-yellow-400 hover:text-black transition ease-in-out duration-200">To Buy</Link>
+        <ListLink tripID={tripID} linkType={'buy'}>To Buy</ListLink>
       </div>
       <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-8">Pack Mode</BlueButton></Link>
       {isLoading && <p>Loading list...</p>}

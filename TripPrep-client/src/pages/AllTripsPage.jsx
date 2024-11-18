@@ -10,8 +10,9 @@ import TripContext from "../context/trip.context"
 
 function AllTripsPage() {
 
-  const { trips, error, isLoading } = React.useContext(TripContext);
   const { user } = React.useContext(AuthContext);
+  const { trips, error, isLoading } = React.useContext(TripContext);
+  const theTrips = trips?.filter(trip => trip.public && trip.packDone);
 
   return (
     <div>
@@ -20,7 +21,7 @@ function AllTripsPage() {
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {trips?.map(trip => trip.user === user?._id ? <TripCard key={trip._id} {...trip} /> : <AllTripsCard key={trip._id} {...trip} />)}
+        {theTrips.map(trip => trip.user === user?._id ? <TripCard key={trip._id} trip={trip} /> : <AllTripsCard key={trip._id} trip={trip} />)}
       </div>
     </div>
   );
@@ -28,6 +29,3 @@ function AllTripsPage() {
 
 
 export default AllTripsPage;
-
-
-// trip.packed === true (&& trip.public === true)

@@ -2,11 +2,11 @@ import React from "react";
 import useSWR from 'swr';
 import axios from "axios";
 
-const TripContext = React.createContext();
-export default TripContext;
-
 const API_URL = "http://localhost:5005";
 
+
+const TripContext = React.createContext();
+export default TripContext;
 
 function fetcher(url) {
 

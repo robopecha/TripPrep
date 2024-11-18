@@ -21,7 +21,7 @@ function MyTripsPage() {
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {trips?.map((trip) => {
           if (trip.user === user._id) {
-            return <TripCard key={trip._id} {...trip} />;
+            return <TripCard key={trip._id} trip={trip} />;
           }
         })}
       </div>

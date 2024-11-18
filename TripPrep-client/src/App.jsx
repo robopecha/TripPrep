@@ -10,8 +10,7 @@ import NewTripPage from "./pages/NewTripPage";
 import MyTripsPage from "./pages/MyTripsPage";
 import MyTripDetailsPage from "./pages/MyTripDetailsPage"
 import MyTripEditPage from "./pages/MyTripEditPage"
-import ListDoPage from "./pages/ListDoPage";
-import ListBuyPage from "./pages/ListBuyPage";
+import ListDoBuyPage from "./pages/ListDoBuyPage";
 import ListPackPage from "./pages/ListPackPage";
 import PackModePage from "./pages/PackModePage";
 import SettingsPage from "./pages/SettingsPage";
@@ -37,8 +36,8 @@ function App() {
           <Route path="/trips" element={<IsPrivate><MyTripsPage /></IsPrivate>} />
           <Route path="/trips/:tripID" element={<IsPrivate><MyTripDetailsPage /></IsPrivate>} />
           <Route path="/trips/:tripID/edit" element={<IsPrivate><MyTripEditPage /></IsPrivate>} />
-          <Route path="/trips/:tripID/lists/todo" element={<IsPrivate><ListDoPage /></IsPrivate>} />
-          <Route path="/trips/:tripID/lists/tobuy" element={<IsPrivate><ListBuyPage /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/todo" element={<IsPrivate><ListDoBuyPage listType={'do'} /></IsPrivate>} />
+          <Route path="/trips/:tripID/lists/tobuy" element={<IsPrivate><ListDoBuyPage listType={'buy'} /></IsPrivate>} />
           <Route path="/trips/:tripID/lists/topack" element={<IsPrivate><ListPackPage /></IsPrivate>} />
           <Route path="/trips/:tripID/lists/packmode" element={<IsPrivate><PackModePage /></IsPrivate>} />
           <Route path="/:userID/settings" element={<IsPrivate><SettingsPage /></IsPrivate>} />

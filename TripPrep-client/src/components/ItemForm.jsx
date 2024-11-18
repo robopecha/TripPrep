@@ -12,12 +12,9 @@ function ItemForm({ listType }) {
   const {tripID} = useParams();
 
   function handleSubmit(event) {
-
     event.preventDefault();
-
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { content, tripID, listType };
-
     axios
       .post(
         `${API_URL}/api/items`,
@@ -28,8 +25,7 @@ function ItemForm({ listType }) {
         mutate(`${API_URL}/api/items`);
         setContent("");
       })
-      .catch((error) => {
-        console.log("error", error)});
+      .catch((error) => console.log(error));
   }
 
   return (
