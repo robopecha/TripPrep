@@ -10,8 +10,9 @@ import ItemContext from "../context/item.context"
 
 function ListDoBuyPage({ listType }) {
 
-  const { items, error, isLoading } = React.useContext(ItemContext);
   const { tripID } = useParams();
+  const { items, error, isLoading } = React.useContext(ItemContext);
+  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
 
   const linkType = listType === 'do' ? 'buy' : 'do';
   const link = listType === 'do' ? 'To Buy' : 'To Do';
@@ -28,12 +29,7 @@ function ListDoBuyPage({ listType }) {
       {error && <p>Failed to load list.</p>}
       <div className="mt-4">
         <div>
-          { items?.map((item) => {
-            if (tripID === item.trip && item.listType === listType) {
-              return <ItemCard key={item._id} item={item} />
-            }
-            return null;
-          })}
+          {theItems?.map((item) => <ItemCard key={item?._id} item={item} />)}
         </div>
         <ItemForm listType={listType} />
       </div>

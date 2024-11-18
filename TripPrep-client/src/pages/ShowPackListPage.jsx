@@ -2,31 +2,34 @@ import Header from "../components/Header";
 import ShowPackCard from "../components/ShowPackCard";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import ItemContext from "../context/item.context"
+import TripContext from "../context/trip.context";
 
 
-const listType = "topack";
+const listType = "pack";
 
 function ShowPackListPage() {
 
+  const { user } = React.useContext(AuthContext);
   const { tripID } = useParams();
-  const { items, error, isLoading } = React.useContext(ItemContext);
+  const { items, error: itemsError, isLoading: itemsLoading } = React.useContext(ItemContext);
+  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
+
+  const { trips, error: tripsError, isLoading: tripsLoading } = React.useContext(TripContext);
+  const theTrip = trips?.find(trip => trip._id === tripID);
 
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around">
-      <Header>Trip info here</Header>
+      <Header>{theTrip?.destination}, {theTrip?.country} in {theTrip?.season}</Header>
       </div>
-      {isLoading && <p>Loading list...</p>}
-      {error && <p>Failed to load list.</p>}
+      {itemsLoading && <p>Loading list...</p>}
+      {itemsError && <p>Failed to load list.</p>}
       <div>
-        {items?.map((item) => {
-          if (tripID === item.trip && item.listType === listType) {
-            return <ShowPackCard key={item._id} item={item} />
-          }
-          return null;
-        })}
+        {theItems?.map((item) => <ShowPackCard key={item?._id} item={item} />)}
       </div>
+      {theItems?.length !== 0 ? <p className={'text-sm mt-7'}>Packing list by {user?.name}</p> : <p className={'text-sm mt-7'}>This packing list has no items anymore.</p>}
     </div>
   );
 }

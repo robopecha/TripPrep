@@ -10,7 +10,7 @@ const listType = "pack";
 
 function PackModePage() {
 
-  const { items, error: itemsError, isLoading: itemsLoading } = React.useContext(ItemContext);
+  const { items, error, isLoading } = React.useContext(ItemContext);
   const { tripID } = useParams();
   const theItems = items?.filter((item) => item.trip === tripID && item.listType === listType);
 
@@ -18,8 +18,8 @@ function PackModePage() {
     <div>
       <div className="flex flex-col items-center">
         <Header>Packing!</Header>
-        {itemsLoading && <p>Loading list...</p>}
-        {itemsError && <p>Failed to load list.</p>}
+        {isLoading && <p>Loading list...</p>}
+        {error && <p>Failed to load list.</p>}
         {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
         <ListDoneToggle listType={listType}>Everything is packed!</ListDoneToggle>
       </div>

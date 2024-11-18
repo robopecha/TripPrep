@@ -12,8 +12,9 @@ const listType = "pack";
 
 function ListPackPage() {
 
-  const { items, error, isLoading } = React.useContext(ItemContext);
   const { tripID } = useParams();
+  const { items, error, isLoading } = React.useContext(ItemContext);
+  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
 
   return (
     <div className="flex flex-col items-center">
@@ -27,12 +28,7 @@ function ListPackPage() {
       {error && <p>Failed to load list.</p>}
       <div className="mt-4">
         <div>
-          { items?.map((item) => {
-            if (tripID === item.trip && item.listType === listType) {
-              return <PackCard key={item._id} item={item} />
-            }
-            return null;
-          })}
+          {theItems?.map((item) => <PackCard key={item?._id} item={item} />)}
         </div>
         <ItemForm listType={listType} />
       </div>
