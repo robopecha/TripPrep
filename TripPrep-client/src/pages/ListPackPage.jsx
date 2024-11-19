@@ -15,7 +15,7 @@ function ListPackPage() {
 
   const { tripID } = useParams();
   const { items, error, isLoading } = React.useContext(ItemContext);
-  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
+  const theItems = items?.filter((item) => tripID === item.trip && item.listType === listType);
 
   return (
     <div className="flex flex-col items-center">

@@ -16,10 +16,10 @@ function EditTripForm() {
   const { trips, error, isLoading } = React.useContext(TripContext);
   const theTrip = trips?.find(trip => trip._id === tripID);
 
-  const [destination, setDestination] = React.useState(theTrip.destination);
-  const [country, setCountry] = React.useState(theTrip.country);
-  const [season, setSeason] = React.useState(theTrip.season);
-  const [startDate, setStartDate] = React.useState(theTrip.startDate);
+  const [destination, setDestination] = React.useState(theTrip?.destination);
+  const [country, setCountry] = React.useState(theTrip?.country);
+  const [season, setSeason] = React.useState(theTrip?.season);
+  const [startDate, setStartDate] = React.useState(theTrip?.startDate);
 
   const id = React.useId();
   const destinationId = `${id}-destination`;
@@ -32,16 +32,18 @@ function EditTripForm() {
   function handleSubmit(event) {
     event.preventDefault();
     const storedToken = localStorage.getItem('authToken');
-    const requestBody = { destination, country, season, startDate, userID: user._id };
+    const requestBody = { destination, country, season, startDate };
     axios
       .put(
         `${API_URL}/api/trips/${tripID}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
+      .then(() => {
+        mutate(`${API_URL}/api/trips`);
+      })
       .catch((error) => console.log(error));
 
-    mutate(`${API_URL}/api/trips`);
     navigate(`/trips/${tripID}`);
   }
 

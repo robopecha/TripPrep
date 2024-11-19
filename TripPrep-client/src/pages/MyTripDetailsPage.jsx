@@ -10,7 +10,7 @@ function MyTripDetailsPage() {
 
   const { trips, error, isLoading } = React.useContext(TripContext);
   const { tripID } = useParams();
-  const theTrip = trips?.find(trip => trip._id === tripID);
+  const theTrip = trips?.find((trip) => trip._id === tripID);
 
   const formattedDate = new Intl.DateTimeFormat(navigator.language, {
     dateStyle: "long",

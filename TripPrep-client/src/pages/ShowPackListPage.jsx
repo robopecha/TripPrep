@@ -12,10 +12,10 @@ function ShowPackListPage() {
 
   const { tripID } = useParams();
   const { items, error: itemsError, isLoading: itemsLoading } = React.useContext(ItemContext);
-  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
+  const theItems = items?.filter((item) => tripID === item.trip && item.listType === listType);
 
   const { trips, error: tripsError, isLoading: tripsLoading } = React.useContext(TripContext);
-  const theTrip = trips?.find(trip => trip._id === tripID);
+  const theTrip = trips?.find((trip) => trip._id === tripID);
 
   return (
     <div className="flex flex-col items-center">

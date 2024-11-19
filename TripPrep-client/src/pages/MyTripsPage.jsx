@@ -11,6 +11,7 @@ function MyTripsPage() {
 
   const { user } = React.useContext(AuthContext);
   const { trips, error, isLoading } = React.useContext(TripContext);
+  const myTrips = trips?.filter((trip) => trip.user === user._id);
 
   return (
     <div>
@@ -19,11 +20,7 @@ function MyTripsPage() {
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {trips?.map((trip) => {
-          if (trip.user === user._id) {
-            return <TripCard key={trip._id} trip={trip} />;
-          }
-        })}
+        {myTrips?.map((trip) => <TripCard key={trip._id} trip={trip} />)}
       </div>
     </div>
   );

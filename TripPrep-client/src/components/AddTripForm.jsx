@@ -10,12 +10,12 @@ const API_URL = "http://localhost:5005";
 
 function AddTripForm() {
 
+  const { user } = React.useContext(AuthContext);
+
   const [destination, setDestination] = React.useState("");
   const [country, setCountry] = React.useState("");
   const [season, setSeason] = React.useState('');
   const [startDate, setStartDate] = React.useState("");
-
-  const { user } = React.useContext(AuthContext);
 
   const id = React.useId();
   const destinationId = `${id}-destination`;
@@ -39,15 +39,13 @@ function AddTripForm() {
         mutate(`${API_URL}/api/trips`);
       })
       .catch((error) => console.log(error));
-      
+
     navigate('/trips');
   }
 
   return (
     <div>
-
       <form onSubmit={handleSubmit}>
-
         <div className="mb-5">
           <label htmlFor={destinationId}>Destination:</label>
           <input

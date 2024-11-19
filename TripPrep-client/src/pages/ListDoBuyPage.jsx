@@ -13,7 +13,7 @@ function ListDoBuyPage({ listType }) {
 
   const { tripID } = useParams();
   const { items, error, isLoading } = React.useContext(ItemContext);
-  const theItems = items?.filter(item => tripID === item.trip && item.listType === listType);
+  const theItems = items?.filter((item) => tripID === item.trip && item.listType === listType);
 
   const linkType = listType === 'do' ? 'buy' : 'do';
   const link = listType === 'do' ? 'To Buy' : 'To Do';
