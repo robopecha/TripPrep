@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 
-const API_URL = "https://tripprep.fly.dev/" || "http://localhost:3000";
+const API_URL = "https://tripprep.fly.dev/" || "http://localhost:5005";
 
 
 function LoginPage() {
