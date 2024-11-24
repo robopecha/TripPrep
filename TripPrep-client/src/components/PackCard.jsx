@@ -1,7 +1,7 @@
 import { mutate } from "swr";
 import axios from "axios";
 
-const API_URL = "https://tripprep.fly.dev/" || "http://localhost:5005";
+const API_URL = "https://tripprep.fly.dev/" || "http://localhost:3000";
 
 
 function PackCard({ item }) {
