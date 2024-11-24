@@ -35,7 +35,5 @@ function ShowPackListPage() {
 
 export default ShowPackListPage;
 
-
-// add back button
-
+// add user:
 // {theItems?.length !== 0 ? <p className={'text-sm mt-7'}>Packing list by {user?.name}</p> : <p className={'text-sm mt-7'}>This packing list has no items anymore.</p>}
