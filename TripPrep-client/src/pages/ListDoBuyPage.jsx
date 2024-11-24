@@ -43,4 +43,3 @@ function ListDoBuyPage({ listType }) {
 
 export default ListDoBuyPage;
 
-// add back button

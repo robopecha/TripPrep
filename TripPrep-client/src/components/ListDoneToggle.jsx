@@ -39,13 +39,13 @@ function ListDoneToggle({ listType, className = '', children }) {
   return (
     <div className="relative inline-block">
       <BlueButton
-        className={theTrip?.[`${listType}Done`] ? `mt-7 relative bg-white border text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-black ${className}` : `mt-7 ${className}`}
+        className={theTrip?.[`${listType}Done`] ? `mt-7 relative bg-yellow-400 text-black border-blue-500 hover:text-black ${className}` : `mt-7 relative ${className}`}
         onClick={handleToggle}
       >
         {children}
       </BlueButton>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor"
-        className={theTrip?.[`${listType}Done`] ? 'absolute -top-20 left-48 w-44 visible' : 'absolute -top-20 left-48 w-44 invisible'}
+        className={theTrip?.[`${listType}Done`] ? 'absolute -top-4 left-52 w-24 visible' : 'absolute -top-20 left-48 w-44 invisible'}
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
       </svg>
