@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://tripprep.fly.dev/" || "http://localhost:5005";
 
 
 const AuthContext = React.createContext();
