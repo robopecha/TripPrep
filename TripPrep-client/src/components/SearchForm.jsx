@@ -4,10 +4,11 @@ import { createBrowserHistory } from 'history';
 
 
 function SearchForm({ handleSearch }) {
-  
+
   const history = createBrowserHistory();
   const [searchQuery, setSearchQuery] = React.useState('');
 
+  const id = React.useId();
   const inputRef = React.useRef();
 
   React.useEffect(() => {
@@ -27,6 +28,7 @@ function SearchForm({ handleSearch }) {
   return (
     <form onSubmit={handleSubmit} className='text-center'>
       <input
+        id={id}
         ref={inputRef}
         type="text"
         placeholder="Search by destination, country or season..."
