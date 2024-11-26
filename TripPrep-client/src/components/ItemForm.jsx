@@ -10,6 +10,7 @@ function ItemForm({ listType }) {
 
   const [content, setContent] = React.useState("");
   const {tripID} = useParams();
+  const id = React.useId();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -32,6 +33,7 @@ function ItemForm({ listType }) {
     <div className="mb-4 flex justify-center items-center">
       <form onSubmit={handleSubmit}>
         <input
+          id={id}
           type="text"
           name="content"
           value={content}
