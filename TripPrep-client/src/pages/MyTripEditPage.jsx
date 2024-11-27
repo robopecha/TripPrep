@@ -4,6 +4,7 @@ import PublicToggle from "../components/PublicToggle";
 import RedButton from "../components/RedButton";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import TripContext from "../context/trip.context";
 import { mutate } from "swr";
 import axios from "axios";
 
@@ -13,6 +14,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 function MyTripEditPage() {
 
   const { tripID } = useParams();
+  const { trips, error, isLoading } = React.useContext(TripContext);
+  const theTrip = trips?.find(trip => trip._id === tripID);
 
   const navigate = useNavigate();
 
@@ -33,9 +36,9 @@ function MyTripEditPage() {
   return (
     <div className="text-center">
       <Header>Edit my Trip</Header>
-      <EditTripForm />
-      <PublicToggle tripID={tripID} />
-      <RedButton className="mt-10 text-sm" onClick={deleteTrip}>Delete trip</RedButton>
+      <EditTripForm trip={theTrip} />
+      {/* <PublicToggle trip={theTrip} /> */}
+      {/* <RedButton className="mt-10 text-sm" onClick={deleteTrip}>Delete trip</RedButton> */}
     </div>
   );
 }

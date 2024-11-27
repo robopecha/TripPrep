@@ -1,25 +1,19 @@
 import BlueButton from "../components/BlueButton";
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import TripContext from "../context/trip.context";
+import { useNavigate } from "react-router-dom";
 import { mutate } from "swr";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 
-function EditTripForm() {
+function EditTripForm({ trip }) {
 
-  const { user } = React.useContext(AuthContext);
-  const { tripID } = useParams();
-  const { trips, error, isLoading } = React.useContext(TripContext);
-  const theTrip = trips?.find(trip => trip._id === tripID);
-
-  const [destination, setDestination] = React.useState(theTrip?.destination);
-  const [country, setCountry] = React.useState(theTrip?.country);
-  const [season, setSeason] = React.useState(theTrip?.season);
-  const [startDate, setStartDate] = React.useState(theTrip?.startDate);
+  console.log('the trnnljnlnlnlknlkklip:');
+  const [destination, setDestination] = React.useState(trip?.destination);
+  const [country, setCountry] = React.useState(trip?.country);
+  const [season, setSeason] = React.useState(trip?.season);
+  const [startDate, setStartDate] = React.useState(trip?.startDate);
 
   const id = React.useId();
   const destinationId = `${id}-destination`;
@@ -35,7 +29,7 @@ function EditTripForm() {
     const requestBody = { destination, country, season, startDate };
     axios
       .put(
-        `${API_URL}/api/trips/${tripID}`,
+        `${API_URL}/api/trips/${trip?._id}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -44,14 +38,12 @@ function EditTripForm() {
       })
       .catch((error) => console.log(error));
 
-    navigate(`/trips/${tripID}`);
+    navigate(`/trips/${trip?._id}`);
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {isLoading && <p>Loading trip...</p>}
-        {error && <p>Failed to load trip.</p>}
         <div className="mb-5">
           <label htmlFor={destinationId}>Destination:</label>
           <input
@@ -115,6 +107,3 @@ function EditTripForm() {
 
 
 export default EditTripForm;
-
-
-// make it work

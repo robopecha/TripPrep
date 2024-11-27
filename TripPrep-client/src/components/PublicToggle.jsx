@@ -1,18 +1,14 @@
 import React from "react";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
-import TripContext from "../context/trip.context";
 import { mutate } from "swr";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 
-function PublicToggle({ tripID }) {
+function PublicToggle({ trip }) {
 
-  const { trips, error, isLoading } = React.useContext(TripContext);
-  const theTrip = trips?.find(trip => trip._id === tripID);
-
-  const [unlocked, setUnlocked] = React.useState(theTrip?.public);
+  const [unlocked, setUnlocked] = React.useState(trip?.public);
 
   function toggleClick() {
     setUnlocked(!unlocked);
@@ -23,7 +19,7 @@ function PublicToggle({ tripID }) {
     const requestBody = { public: unlocked };
     axios
       .put(
-        `${API_URL}/api/trips/${tripID}`,
+        `${API_URL}/api/trips/${trip?._id}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -37,7 +33,7 @@ function PublicToggle({ tripID }) {
   return (
     <>
       <div className='flex justify-center'>
-        {theTrip?.public ?
+        {trip?.public ?
           <AiOutlineUnlock
             className='text-5xl mt-12 border-2 rounded-sm p-2 mb-3 bg-yellow-400 cursor-pointer border-white hover:border-black'
             onClick={toggleClick}
@@ -48,7 +44,7 @@ function PublicToggle({ tripID }) {
           />
         }
       </div>
-      <p className="text-center">This trip is {theTrip?.public ? 'public' : 'private'}.</p>
+      <p className="text-center">This trip is {trip?.public ? 'public' : 'private'}.</p>
     </>
   )
 }
