@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import EditTripForm from "../components/AddTripForm";
+import EditTripForm from "../components/EditTripForm";
 import PublicToggle from "../components/PublicToggle";
 import RedButton from "../components/RedButton";
 import React from "react";
@@ -36,9 +36,17 @@ function MyTripEditPage() {
   return (
     <div className="text-center">
       <Header>Edit my Trip</Header>
-      <EditTripForm trip={theTrip} />
-      {/* <PublicToggle trip={theTrip} /> */}
-      {/* <RedButton className="mt-10 text-sm" onClick={deleteTrip}>Delete trip</RedButton> */}
+      {isLoading && <p>Loading trip...</p>}
+      {error && <p>Error loading trip data.</p>}
+      {!isLoading && !error && !theTrip && <p>Trip not found.</p>}
+
+      {!isLoading && !error && theTrip && (
+        <>
+          <EditTripForm trip={theTrip} />
+          <PublicToggle trip={theTrip} />
+          <RedButton className="mt-10 text-sm" onClick={deleteTrip}>Delete trip</RedButton>
+        </>
+      )}
     </div>
   );
 }

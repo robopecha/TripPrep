@@ -9,7 +9,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function EditTripForm({ trip }) {
 
-  console.log('the trnnljnlnlnlknlkklip:');
   const [destination, setDestination] = React.useState(trip?.destination);
   const [country, setCountry] = React.useState(trip?.country);
   const [season, setSeason] = React.useState(trip?.season);
