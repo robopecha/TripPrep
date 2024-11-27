@@ -12,7 +12,13 @@ function EditTripForm({ trip }) {
   const [destination, setDestination] = React.useState(trip?.destination);
   const [country, setCountry] = React.useState(trip?.country);
   const [season, setSeason] = React.useState(trip?.season);
-  const [startDate, setStartDate] = React.useState(trip?.startDate);
+  const [startDate, setStartDate] = React.useState(formatDate(trip?.startDate));
+
+  function formatDate(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toISOString().split("T")[0];
+  }
 
   const id = React.useId();
   const destinationId = `${id}-destination`;
