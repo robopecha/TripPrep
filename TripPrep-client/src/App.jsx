@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "./components/Navbar";
 import { TripContextProvider } from "./context/trip.context";
 import { ItemContextProvider } from "./context/item.context";
