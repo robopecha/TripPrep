@@ -15,4 +15,4 @@ function BlueButton({ type, className = '', onClick, children }) {
 }
 
 
-export default BlueButton;
+export default React.memo(BlueButton);

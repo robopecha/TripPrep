@@ -21,4 +21,4 @@ function ListButton({ to, done, children }) {
 }
 
 
-export default ListButton;
+export default React.memo(ListButton);

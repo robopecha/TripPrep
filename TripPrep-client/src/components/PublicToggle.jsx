@@ -50,4 +50,4 @@ function PublicToggle({ trip }) {
 }
 
 
-export default PublicToggle;
+export default React.memo(PublicToggle);

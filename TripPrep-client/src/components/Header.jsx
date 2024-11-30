@@ -9,5 +9,4 @@ function Header({ className = '', children }) {
 }
 
 
-export default Header;
-
+export default React.memo(Header);

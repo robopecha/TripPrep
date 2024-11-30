@@ -26,7 +26,7 @@ function ShowPackListPage() {
       {itemsError && <p>Failed to load list.</p>}
       <div>
         {theItems?.map((item) => <ShowPackCard key={item?._id} item={item} />)}
-        {theItems?.length === 0 && <p className={'text-sm mt-7'}>This packing list is empty now.</p>}
+        {theItems?.length === 0 && <p className={'text-sm mt-7'}>This packing list is empty right now.</p>}
       </div>
     </div>
   );

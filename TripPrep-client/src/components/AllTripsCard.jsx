@@ -16,4 +16,4 @@ function AllTripsCard ({ trip }) {
 }
 
 
-export default AllTripsCard;
+export default React.memo(AllTripsCard);

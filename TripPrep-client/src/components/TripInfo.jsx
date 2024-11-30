@@ -14,4 +14,4 @@ function TripInfo({ tripID }) {
 }
 
 
-export default TripInfo;
+export default React.memo(TripInfo);

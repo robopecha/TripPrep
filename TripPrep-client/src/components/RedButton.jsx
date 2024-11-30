@@ -14,4 +14,4 @@ function RedButton({ className = '', onClick, children }) {
 }
 
 
-export default RedButton;
+export default React.memo(RedButton);

@@ -38,4 +38,4 @@ function PackModeCard({ item }) {
 }
 
 
-export default PackModeCard;
+export default React.memo(PackModeCard);
