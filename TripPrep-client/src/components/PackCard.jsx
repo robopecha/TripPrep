@@ -31,4 +31,4 @@ function PackCard({ item }) {
 }
 
 
-export default React.memo(PackCard);
+export default PackCard;

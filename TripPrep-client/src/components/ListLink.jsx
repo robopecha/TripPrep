@@ -14,4 +14,4 @@ function ListLink({ tripID, linkType, children }) {
 }
 
 
-export default React.memo(ListLink);
+export default ListLink;

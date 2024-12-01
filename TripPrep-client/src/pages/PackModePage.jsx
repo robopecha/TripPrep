@@ -19,9 +19,11 @@ function PackModePage() {
     <div className="flex flex-col items-center">
       <TripInfo tripID={tripID} />
       <Header>Packing!</Header>
-      {isLoading && <p>Loading list...</p>}
-      {error && <p>Failed to load list.</p>}
-      {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
+      <div className='grid md:grid-cols-2 md:gap-4'>
+        {isLoading && <p>Loading list...</p>}
+        {error && <p>Failed to load list.</p>}
+        {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
+      </div>
       {theItems?.length === 0 && <p className={'text-sm mt-7'}>There is nothing to pack right now!</p>}
       <ListDoneToggle listType={listType}>Everything is packed!</ListDoneToggle>
     </div>

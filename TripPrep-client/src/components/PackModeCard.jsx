@@ -30,12 +30,12 @@ function PackModeCard({ item }) {
   }, [itemDone]);
 
   return (
-    <div className={item.done ? "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80"
-      : "border-2 border-black rounded-sm mb-4 p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
+    <div className={item.done ? "border-2 border-black rounded-sm p-3 overflow-scroll bg-green-400 hover:bg-green-500 w-80"
+      : "border-2 border-black rounded-sm p-3 overflow-scroll bg-white hover:bg-gray-100 w-80"} onClick={toggleClick}>
       <h5 className="text-lg">{item.content}</h5>
     </div>
   );
 }
 
 
-export default React.memo(PackModeCard);
+export default PackModeCard;

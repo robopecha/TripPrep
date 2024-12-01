@@ -11,4 +11,4 @@ function ShowPackCard ({ item }) {
 }
 
 
-export default React.memo(ShowPackCard);
+export default ShowPackCard;
