@@ -16,4 +16,4 @@ function TripCard ({ trip }) {
 }
 
 
-export default React.memo(TripCard);
+export default TripCard;

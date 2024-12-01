@@ -25,7 +25,7 @@ function ListPackPage() {
         <Header>To Pack</Header>
         <ListLink tripID={tripID} linkType={'buy'}>To Buy</ListLink>
       </div>
-      <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-8">Pack Mode</BlueButton></Link>
+      <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-8 text-green-400 bg-white border-green-400 hover:bg-green-400 hover:text-black hover:border-white">Pack Mode</BlueButton></Link>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
       <div className="mt-4">
@@ -40,5 +40,3 @@ function ListPackPage() {
 
 
 export default ListPackPage;
-
-

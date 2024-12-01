@@ -22,6 +22,7 @@ function PackModePage() {
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
       {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}
+      {theItems?.length === 0 && <p className={'text-sm mt-7'}>There is nothing to pack right now!</p>}
       <ListDoneToggle listType={listType}>Everything is packed!</ListDoneToggle>
     </div>
   );
@@ -29,4 +30,3 @@ function PackModePage() {
 
 
 export default PackModePage;
-

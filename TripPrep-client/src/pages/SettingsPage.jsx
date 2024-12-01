@@ -11,7 +11,7 @@ function SettingsPage() {
   return (
     <>
       <Header>Settings</Header>
-      <RedButton className="ml-0.5 my-5" onClick={logOutUser}>Log out</RedButton>
+      <RedButton className="ml-0.5" onClick={logOutUser}>Log out</RedButton>
     </>
   );
 }
