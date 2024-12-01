@@ -19,7 +19,7 @@ function PackModePage() {
     <div className="flex flex-col items-center">
       <TripInfo tripID={tripID} />
       <Header>Packing!</Header>
-      <div className='grid md:grid-cols-2 md:gap-4'>
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
         {isLoading && <p>Loading list...</p>}
         {error && <p>Failed to load list.</p>}
         {theItems?.map((item) => <PackModeCard key={item._id} item={item} />)}

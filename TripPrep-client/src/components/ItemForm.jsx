@@ -30,7 +30,7 @@ function ItemForm({ listType }) {
   }
 
   return (
-    <div className="mb-20 flex justify-center items-center">
+    <div className="mb-4 flex justify-center items-center">
       <form onSubmit={handleSubmit}>
         <input
           id={id}
