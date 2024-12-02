@@ -6,7 +6,7 @@ import { AiOutlineHome, AiOutlineSearch, AiOutlineUser, AiOutlineLogin, AiOutlin
 
 
 function Navbar() {
-  
+
   const { isLoggedIn, user } = React.useContext(AuthContext);
 
   return (
@@ -56,7 +56,7 @@ function Navbar() {
       </nav>
 
 
-      <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-red-500 text-3xl py-4">
+      <nav className="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center bg-red-500 text-3xl py-4 z-50">
 
         <NavLink to="/" className={({ isActive }) => isActive ? "text-white" : "hover:text-yellow-300 transition ease-in-out duration-100"}>
           <AiOutlineHome />

@@ -7,9 +7,9 @@ function AboutPage() {
   return (
     <>
       <Header>About TripPrep</Header>
-      <span>
+      <p>
         bla bla bla
-      </span>
+      </p>
     </>
   );
 }
