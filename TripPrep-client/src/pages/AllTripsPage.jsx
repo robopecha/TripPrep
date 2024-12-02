@@ -16,7 +16,7 @@ function AllTripsPage() {
 
   return (
     <div>
-      <Header>All Trips</Header>
+      <Header>All the Trips</Header>
       <Link to={'/new-trip'}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
