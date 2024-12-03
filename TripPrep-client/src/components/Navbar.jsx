@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full flex justify-between items-center bg-red-500 text-lg py-3">
+      <nav className="fixed top-0 left-0 w-full flex justify-between items-center bg-red-500 text-lg py-3 z-50">
 
           <NavLink to="/">
             <div className="flex flex-row items-center">
