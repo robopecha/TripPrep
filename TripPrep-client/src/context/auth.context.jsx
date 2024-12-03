@@ -52,7 +52,7 @@ function AuthProviderWrapper({ children }) {
   function logOutUser() {
     removeToken();
     authenticateUser();
-    navigate('/');
+    navigate('/main');
   }
 
   React.useEffect(() => {
