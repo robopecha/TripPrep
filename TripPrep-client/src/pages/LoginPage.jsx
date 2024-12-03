@@ -39,7 +39,7 @@ function LoginPage() {
         console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate('/main');
+        navigate('/');
       })
       .catch((error) => {
         setErrorMessage(error.response.data.message);
