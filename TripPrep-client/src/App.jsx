@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { TripContextProvider } from "./context/trip.context";
 import { ItemContextProvider } from "./context/item.context";
 import { Routes, Route } from "react-router-dom";
+import StartPage from "./pages/StartPage";
 import AllTripsPage from "./pages/AllTripsPage";
 import AboutPage from "./pages/AboutPage";
 import ShowPackListPage from "./pages/ShowPackListPage"
@@ -29,6 +30,7 @@ function App() {
       <TripContextProvider>
       <ItemContextProvider>
         <Routes>
+          <Route path="/start" element={<StartPage />} />
           <Route path="/" element={<AllTripsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/trips/:tripID/packlist" element={<ShowPackListPage />} />
