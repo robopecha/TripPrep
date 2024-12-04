@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-import StartPage from "./pages/StartPage";
+import Navbar from "./components/Navbar";
 import AllTripsPage from "./pages/AllTripsPage";
+import StartPage from "./pages/StartPage";
 import AboutPage from "./pages/AboutPage";
 import ShowPackListPage from "./pages/ShowPackListPage"
 import SearchPage from "./pages/SearchPage";
@@ -26,8 +26,8 @@ function App() {
     <div className="font-ocr">
       <Navbar />
         <Routes>
-          <Route path="/start" element={<StartPage />} />
           <Route path="/" element={<AllTripsPage />} />
+          <Route path="/start" element={<StartPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/trips/:tripID/packlist" element={<ShowPackListPage />} />
           <Route path="/search" element={<SearchPage />} />
