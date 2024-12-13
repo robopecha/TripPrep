@@ -31,12 +31,16 @@ function AboutPage() {
         Only your To Pack list will be seen by others. Nobody will see your To Do and To Buy lists.
       </p>
       <div>
-        <p className='inline-block'>
+        <p className='xl:inline-block'>
           I am still improving this app.<br />
           If something is not working perfectly, I am probably just working on it.<br />
           I recommend using it in Chrome on desktop.
         </p>
-        <Link to={'/new-trip'}><BlueButton className='inline-block ml-10 text-6xl p-8 -mt-10 border-4 -rotate-2 hover:rotate-0'>Start here</BlueButton></Link>
+        <Link to={'/new-trip'}>
+          <BlueButton className='xl:inline-block md:ml-0.5 xl:ml-10 text-6xl p-8 my-10 xl:-mt-10 xl:mb-0 border-4 -rotate-2 hover:rotate-0'>
+            Start here
+          </BlueButton>
+        </Link>
       </div>
     </>
   );
