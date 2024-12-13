@@ -39,7 +39,7 @@ function ListDoneToggle({ listType, className = '', children }) {
   return (
     <div className="relative inline-block mt-5">
       <BlueButton
-        className={theTrip?.[`${listType}Done`] ? `mt-7 relative bg-yellow-400 text-black border-white hover:bg-blue-500 hover:border-white ${className}` : `mt-7 relative bg-white text-blue-500 !border-blue-500 hover:bg-blue-500 hover:text-black hover:!border-white ${className}`}
+        className={theTrip?.[`${listType}Done`] ? `mt-7 mb-14 relative bg-yellow-400 text-black border-white hover:bg-blue-500 hover:border-white ${className}` : `mt-7 mb-14 relative bg-white text-blue-500 !border-blue-500 hover:bg-blue-500 hover:text-black hover:!border-white ${className}`}
         onClick={handleToggle}
       >
         {children}
