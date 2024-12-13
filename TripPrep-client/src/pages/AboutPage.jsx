@@ -1,5 +1,7 @@
 import Header from "../components/Header";
+import BlueButton from "../components/BlueButton";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function AboutPage() {
@@ -7,36 +9,35 @@ function AboutPage() {
   return (
     <>
       <Header>About TripPrep</Header>
-      <p>
-        TripPrep is an app based on my personal travel prep system,
-        that allows me to keep track of everything that happens before my trip,
-        so that I can leave the house relaxed, knowing that everything is done and I forgot nothing.
+      <p className='mb-12'>
+        TripPrep is an app based on my personal travel prep system,<br />
+        that allows me to keep track of everything that happens before my trip.<br />
+        This way I can leave the house relaxed, knowing that everything is done and I forgot nothing.
       </p>
-      <br />
-      <p>
-        I am using three sheets of paper:
-        One for everything that needs to be done before the trip,
-        one for everything I need to buy,
+      <p className='mb-12'>
+        I am using three sheets of paper:<br />
+        One for everything that needs to be done before the trip,<br />
+        one for everything I need to buy,<br />
         and one for all the things I am going to pack.
       </p>
-      <br />
-      <p>
-        A digital version of this system is not only convenient because you can add things on the go,
-        it also adds more possibilities:
-        A packing mode, that allows you to simply check off the packing list items while packing.
-        The option to share your packing list with other users and to look at others' packing lists for inspiration.
+      <p className='mb-12'>
+        A digital version of this system is not only convenient, because you can add things on the go,<br />
+        it also adds more possibilities:<br />
+        A packing mode that allows you to simply check off the packing list items while packing.<br />
+        And the option to share your packing list with other users and to look at others' packing lists for inspiration.
       </p>
-      <br />
-      <p>
-        Your list will only be shared publicly after you marked it as "Everything is packed!" and set your trip to public.
-        And then only your To Pack list will be seen by others, nobody will see your To Do and To Buy lists.
+      <p className='mb-12'>
+        Your list will only be shared publicly after you mark it as "Everything is packed!" and set your trip to public.<br />
+        Only your To Pack list will be seen by others. Nobody will see your To Do and To Buy lists.
       </p>
-      <br />
-      <p>
-        Right now this app is still under construction.
-        If something is not working perfectly, I am probably just working on it.
-        I recommend using it on desktop in Chrome.
-      </p>
+      <div>
+        <p className='inline-block'>
+          I am still improving this app.<br />
+          If something is not working perfectly, I am probably just working on it.<br />
+          I recommend using it in Chrome on desktop.
+        </p>
+        <Link to={'/new-trip'}><BlueButton className='inline-block ml-10 text-6xl p-8 -mt-10 border-4 -rotate-2 hover:rotate-0'>Start here</BlueButton></Link>
+      </div>
     </>
   );
 }
