@@ -36,7 +36,7 @@ function AboutPage() {
           If something is not working perfectly, I am probably just working on it.<br />
           I recommend using it in Chrome on desktop.
         </p>
-        <Link to={'/new-trip'}><BlueButton className='inline-block ml-10 text-6xl p-8 -mt-10 border-4 -rotate-2 hover:rotate-0'>Start here</BlueButton></Link>
+        <Link to={'/new-trip'}><BlueButton className='inline-block ml-16 text-6xl p-8 -mt-10 border-4 -rotate-2 hover:rotate-0'>Start here</BlueButton></Link>
       </div>
     </>
   );
