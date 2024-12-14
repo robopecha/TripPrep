@@ -16,18 +16,18 @@ function AboutPage() {
       </p>
       <p className='mb-12'>
         I am using three sheets of paper:<br />
-        <span className='bg-yellow-100'>One for everything that needs to be done before the trip,<br />
+        <span className='bg-yellow-200'>One for everything that needs to be done before the trip,<br />
         one for everything I need to buy,<br />
         and one for all the things I am going to pack.</span>
       </p>
       <p className='mb-12'>
         A digital version of this system is not only convenient, because you can add things on the go,<br />
         it also adds more possibilities:<br />
-        <span className='bg-green-100'>A packing mode that allows you to simply check off the packing list items while packing.</span><br />
+        <span className='bg-green-200'>A packing mode that allows you to simply check off the packing list items while packing.</span><br />
         And the option to share your packing list with other users and to look at others' packing lists for inspiration.
       </p>
       <p className='mb-12'>
-        <span className='bg-red-100'>Your list will only be shared publicly after you mark it as "Everything is packed!" and set your trip to public.<br />
+        <span className='bg-red-200'>Your list will only be shared publicly after you mark it as "Everything is packed!" and set your trip to public.<br />
         Only your To Pack list will be seen by others. Nobody will see your To Do and To Buy lists.</span>
       </p>
       <div>
@@ -47,4 +47,4 @@ function AboutPage() {
 }
 
 
-export default AboutPage;
+export default React.memo(AboutPage);
