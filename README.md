@@ -1,6 +1,6 @@
 # TripPrep
 
-TripPrep is an app based on my personal travel prep system,<br />
+TripPrep is an app based on my personal pen & paper travel prep system,<br />
 that allows me to keep track of everything that happens before my trip.<br />
 This way I can leave the house relaxed, knowing that everything is done and I forgot nothing.
 
