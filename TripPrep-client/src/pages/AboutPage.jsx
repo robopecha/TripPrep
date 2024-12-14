@@ -14,21 +14,21 @@ function AboutPage() {
         that allows me to keep track of everything that happens before my trip.<br />
         This way I can leave the house relaxed, knowing that everything is done and I forgot nothing.
       </p>
-      <p className='mb-12 text-yellow-500'>
+      <p className='mb-12'>
         I am using three sheets of paper:<br />
-        One for everything that needs to be done before the trip,<br />
+        <span className='bg-yellow-100'>One for everything that needs to be done before the trip,<br />
         one for everything I need to buy,<br />
-        and one for all the things I am going to pack.
+        and one for all the things I am going to pack.</span>
       </p>
       <p className='mb-12'>
         A digital version of this system is not only convenient, because you can add things on the go,<br />
         it also adds more possibilities:<br />
-        A packing mode that allows you to simply check off the packing list items while packing.<br />
+        <span className='bg-green-100'>A packing mode that allows you to simply check off the packing list items while packing.</span><br />
         And the option to share your packing list with other users and to look at others' packing lists for inspiration.
       </p>
-      <p className='mb-12 text-red-500'>
-        Your list will only be shared publicly after you mark it as "Everything is packed!" and set your trip to public.<br />
-        Only your To Pack list will be seen by others. Nobody will see your To Do and To Buy lists.
+      <p className='mb-12'>
+        <span className='bg-red-100'>Your list will only be shared publicly after you mark it as "Everything is packed!" and set your trip to public.<br />
+        Only your To Pack list will be seen by others. Nobody will see your To Do and To Buy lists.</span>
       </p>
       <div>
         <p className='xl:inline-block'>
