@@ -12,9 +12,12 @@ function MyTripDetailsPage() {
   const { tripID } = useParams();
   const theTrip = trips?.find((trip) => trip._id === tripID);
 
-  const formattedDate = new Intl.DateTimeFormat(navigator.language, {
-    dateStyle: "long",
-  }).format(new Date(theTrip.startDate));
+  const formattedDate =
+  theTrip && theTrip.startDate
+    ? new Intl.DateTimeFormat(navigator.language, {
+        dateStyle: "long",
+      }).format(new Date(theTrip.startDate))
+    : null;
 
   return (
     <div className="flex flex-col items-center">
