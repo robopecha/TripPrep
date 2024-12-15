@@ -14,23 +14,28 @@ function MyTripDetailsPage() {
 
   const formattedDate = new Intl.DateTimeFormat(navigator.language, {
     dateStyle: "long",
-  }).format(new Date(theTrip?.startDate));
+  }).format(new Date(theTrip.startDate));
 
   return (
     <div className="flex flex-col items-center">
       {isLoading && <p>Loading trip...</p>}
       {error && <p>Failed to load trip.</p>}
-      <Header>{theTrip?.destination}</Header>
-      <h3 className="text-2xl">{theTrip?.country}</h3>
-      <ListsCard theTrip={theTrip} />
-      <h3 className="text-2xl">{theTrip?.season}</h3>
-      <h3 className="text-xl mt-12">starting on:</h3>
-      <h3 className="text-2xl mt-4">{formattedDate}</h3>
-      <Link to={`/trips/${tripID}/edit`}>
-        <BlueButton className="bg-white !border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-black hover:border-white mt-12">
-          Edit trip
-        </BlueButton>
-      </Link>
+      {!isLoading && !error && !theTrip && <p>Trip not found.</p>}
+      {!isLoading && !error && theTrip && (
+        <>
+          <Header>{theTrip.destination}</Header>
+          <h3 className="text-2xl">{theTrip.country}</h3>
+          <ListsCard trip={theTrip} />
+          <h3 className="text-2xl">{theTrip.season}</h3>
+          <h3 className="text-xl mt-12">starting on:</h3>
+          <h3 className="text-2xl mt-4">{formattedDate}</h3>
+          <Link to={`/trips/${tripID}/edit`}>
+            <BlueButton className="bg-white !border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-black hover:border-white mt-12">
+              Edit trip
+            </BlueButton>
+          </Link>
+        </>
+      )}
     </div>
   );
 }

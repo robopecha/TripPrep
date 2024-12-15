@@ -28,12 +28,15 @@ function ListPackPage() {
       <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-5 text-green-400 bg-white !border-green-400 hover:bg-green-400 hover:text-black hover:border-white">Pack Mode</BlueButton></Link>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
-      <div className="mt-4">
-        <div>
-          {theItems?.map((item) => <PackCard key={item?._id} item={item} />)}
+      {!isLoading && !error && !theItems && <p>List not found.</p>}
+      {!isLoading && !error && theItems && (
+        <div className="mt-4">
+          <div>
+            {theItems.map((item) => <PackCard key={item._id} item={item} />)}
+          </div>
+          <ItemForm listType={listType} />
         </div>
-        <ItemForm listType={listType} />
-      </div>
+      )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function PublicToggle({ trip }) {
 
-  const [unlocked, setUnlocked] = React.useState(trip?.public);
+  const [unlocked, setUnlocked] = React.useState(trip.public);
 
   function toggleClick() {
     setUnlocked(!unlocked);
@@ -19,7 +19,7 @@ function PublicToggle({ trip }) {
     const requestBody = { public: unlocked };
     axios
       .put(
-        `${API_URL}/api/trips/${trip?._id}`,
+        `${API_URL}/api/trips/${trip._id}`,
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -33,7 +33,7 @@ function PublicToggle({ trip }) {
   return (
     <>
       <div className='flex justify-center'>
-        {trip?.public ?
+        {trip.public ?
           <AiOutlineUnlock
             className='text-5xl mt-12 border-2 rounded-sm p-2 mb-3 bg-yellow-400 cursor-pointer border-white hover:border-black'
             onClick={toggleClick}
@@ -44,7 +44,7 @@ function PublicToggle({ trip }) {
           />
         }
       </div>
-      <p className="text-center">This trip is {trip?.public ? 'public' : 'private'}.</p>
+      <p className="text-center">This trip is {trip.public ? 'public' : 'private'}.</p>
     </>
   )
 }

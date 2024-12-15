@@ -37,9 +37,8 @@ function MyTripEditPage() {
     <div className="text-center">
       <Header>Edit my Trip</Header>
       {isLoading && <p>Loading trip...</p>}
-      {error && <p>Error loading trip data.</p>}
+      {error && <p>Failed to load trip.</p>}
       {!isLoading && !error && !theTrip && <p>Trip not found.</p>}
-
       {!isLoading && !error && theTrip && (
         <>
           <EditTripForm trip={theTrip} />

@@ -29,17 +29,21 @@ function ListDoBuyPage({ listType }) {
       </div>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
-      <div className="mt-4">
-        <div>
-          {theItems?.map((item) => <ItemCard key={item?._id} item={item} />)}
-        </div>
-        <ItemForm listType={listType} />
-      </div>
-      <ListDoneToggle listType={listType} className='px-5'>Everything is done!</ListDoneToggle>
+      {!isLoading && !error && !theItems && <p>List not found.</p>}
+      {!isLoading && !error && theItems && (
+        <>
+          <div className="mt-4">
+            <div>
+              {theItems.map((item) => <ItemCard key={item._id} item={item} />)}
+            </div>
+            <ItemForm listType={listType} />
+          </div>
+          <ListDoneToggle listType={listType} className='px-5'>Everything is done!</ListDoneToggle>
+        </>
+      )}
     </div>
   );
 }
 
 
 export default ListDoBuyPage;
-

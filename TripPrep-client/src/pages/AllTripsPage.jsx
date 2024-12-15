@@ -20,9 +20,12 @@ function AllTripsPage() {
       <Link to={'/new-trip'}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {theTrips?.map((trip) => trip.user === user?._id ? <TripCard key={trip._id} trip={trip} /> : <AllTripsCard key={trip._id} trip={trip} />)}
-      </div>
+      {!isLoading && !error && !theTrips && <p>Trips not found.</p>}
+      {!isLoading && !error && theTrips && (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          {theTrips.map((trip) => trip.user === user?._id ? <TripCard key={trip._id} trip={trip} /> : <AllTripsCard key={trip._id} trip={trip} />)}
+        </div>
+      )}
     </div>
   );
 }
