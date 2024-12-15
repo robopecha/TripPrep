@@ -35,11 +35,9 @@ function AddTripForm() {
         requestBody,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then(() => {
-        mutate(`${API_URL}/api/trips`);
-      })
       .catch((error) => console.log(error));
 
+    mutate(`${API_URL}/api/trips`);
     navigate('/trips');
   }
 
