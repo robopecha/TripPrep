@@ -6,7 +6,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 
 const ItemContext = React.createContext();
-export default ItemContext;
 
 function fetcher(url) {
 
@@ -18,7 +17,7 @@ function fetcher(url) {
     .then((response) => response.data);
 }
 
-export function ItemContextProvider({ children }) {
+function ItemProvider({ children }) {
 
   const { data: items, isLoading, error } = useSWR(`${API_URL}/api/items`, fetcher);
 
@@ -28,3 +27,6 @@ export function ItemContextProvider({ children }) {
    </ItemContext.Provider>
   )
 }
+
+
+export { ItemContext, ItemProvider };

@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const AuthContext = React.createContext();
 
-function AuthProviderWrapper({ children }) {
+function AuthProvider({ children }) {
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -77,4 +77,4 @@ function AuthProviderWrapper({ children }) {
 }
 
 
-export { AuthProviderWrapper, AuthContext };
+export { AuthContext, AuthProvider };

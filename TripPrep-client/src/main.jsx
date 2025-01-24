@@ -3,20 +3,20 @@ import { createRoot } from 'react-dom/client';
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProviderWrapper } from "./context/auth.context";
-import { TripContextProvider } from "./context/trip.context";
-import { ItemContextProvider } from "./context/item.context";
+import { AuthProvider } from "./context/auth.context";
+import { TripProvider } from "./context/trip.context";
+import { ItemProvider } from "./context/item.context";
 
 const root = createRoot(document.querySelector('#root'));
 
 root.render(
     <Router>
-      <AuthProviderWrapper>
-        <TripContextProvider>
-          <ItemContextProvider>
+      <AuthProvider>
+        <TripProvider>
+          <ItemProvider>
            <App />
-          </ItemContextProvider>
-       </TripContextProvider>
-      </AuthProviderWrapper>
+          </ItemProvider>
+       </TripProvider>
+      </AuthProvider>
     </Router>
 );

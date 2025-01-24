@@ -4,7 +4,7 @@ import PublicToggle from "../components/PublicToggle";
 import RedButton from "../components/RedButton";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import TripContext from "../context/trip.context";
+import { TripContext } from "../context/trip.context";
 import { mutate } from "swr";
 import axios from "axios";
 

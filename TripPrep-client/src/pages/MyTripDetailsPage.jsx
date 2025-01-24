@@ -3,7 +3,7 @@ import ListsCard from "../components/ListsCard";
 import BlueButton from "../components/BlueButton";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import TripContext from "../context/trip.context";
+import { TripContext } from "../context/trip.context";
 
 
 function MyTripDetailsPage() {

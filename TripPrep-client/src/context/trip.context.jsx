@@ -6,10 +6,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 
 const TripContext = React.createContext();
-export default TripContext;
 
 function fetcher(url) {
-
   const storedToken = localStorage.getItem("authToken");
   const config = storedToken ? { headers: { Authorization: `Bearer ${storedToken}` } } : {};
 
@@ -18,7 +16,7 @@ function fetcher(url) {
     .then((response) => response.data);
 }
 
-export function TripContextProvider({ children }) {
+function TripProvider({ children }) {
 
   const { data: trips, isLoading, error } = useSWR(`${API_URL}/api/trips`, fetcher);
 
@@ -28,3 +26,6 @@ export function TripContextProvider({ children }) {
    </TripContext.Provider>
   );
 }
+
+
+export { TripContext, TripProvider };
