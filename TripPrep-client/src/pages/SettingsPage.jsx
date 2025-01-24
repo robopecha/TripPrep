@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import RedButton from "../components/RedButton";
 import React from "react";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/AuthProvider";
 
 
 function SettingsPage() {

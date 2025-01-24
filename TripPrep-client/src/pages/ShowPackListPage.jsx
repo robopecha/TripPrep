@@ -2,8 +2,8 @@ import Header from "../components/Header";
 import ShowPackCard from "../components/ShowPackCard";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { TripContext } from "../context/trip.context";
-import { ItemContext } from "../context/item.context"
+import { TripContext } from "../context/TripProvider";
+import { ItemContext } from "../context/ItemProvider"
 
 
 const listType = "pack";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TripContext } from "../context/trip.context";
+import { TripContext } from "../context/TripProvider";
 
 
 function TripInfo({ tripID }) {

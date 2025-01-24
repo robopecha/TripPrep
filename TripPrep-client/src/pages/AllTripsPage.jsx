@@ -4,8 +4,8 @@ import TripCard from "../components/TripCard";
 import AllTripsCard from "../components/AllTripsCard";
 import React from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import { TripContext } from "../context/trip.context"
+import { AuthContext } from "../context/AuthProvider";
+import { TripContext } from "../context/TripProvider"
 
 
 function AllTripsPage() {

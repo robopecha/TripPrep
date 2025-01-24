@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import BlueButton from "../components/BlueButton";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;

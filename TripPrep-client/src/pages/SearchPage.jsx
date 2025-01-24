@@ -4,7 +4,7 @@ import TripCard from "../components/TripCard";
 import AllTripsCard from '../components/AllTripsCard';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/AuthProvider";
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;

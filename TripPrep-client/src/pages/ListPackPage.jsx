@@ -6,7 +6,7 @@ import PackCard from "../components/PackCard";
 import ItemForm from "../components/ItemForm";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { ItemContext } from "../context/item.context"
+import { ItemContext } from "../context/ItemProvider"
 
 
 const listType = "pack";

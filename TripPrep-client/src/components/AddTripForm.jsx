@@ -1,7 +1,7 @@
 import BlueButton from "../components/BlueButton";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/AuthProvider";
 import { mutate } from "swr";
 import axios from "axios";
 

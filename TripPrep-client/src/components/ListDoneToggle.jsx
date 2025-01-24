@@ -1,7 +1,7 @@
 import BlueButton from "./BlueButton";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { TripContext } from "../context/trip.context";
+import { TripContext } from "../context/TripProvider";
 import { mutate } from "swr";
 import axios from "axios";
 
