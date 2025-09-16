@@ -1,4 +1,4 @@
-import BlueButton from "./BlueButton";
+import Button from "./Button";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { TripContext } from "../context/TripProvider";
@@ -43,12 +43,12 @@ function ListDoneToggle({ listType, className = '', children }) {
       {!isLoading && !error && !theTrip && <p>Data for Finished-button not found.</p>}
       {!isLoading && !error && theTrip && (
         <div className="relative inline-block mt-5">
-          <BlueButton
-            className={theTrip[`${listType}Done`] ? `mt-7 mb-14 relative bg-yellow-400 text-black border-white hover:bg-blue-500 hover:border-white ${className}` : `mt-7 mb-14 relative bg-white text-blue-500 !border-blue-500 hover:bg-blue-500 hover:text-black hover:!border-white ${className}`}
+          <Button
+            className={theTrip[`${listType}Done`] ? `blue-button mt-7 mb-14 relative !bg-yellow-400 border-white hover:!bg-blue-500 hover:border-white ${className}` : `blue-white-button mt-7 mb-14 relative ${className}`}
             onClick={handleToggle}
           >
             {children}
-          </BlueButton>
+          </Button>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor"
             className={theTrip[`${listType}Done`] ? 'absolute -top-4 left-52 w-24 visible' : 'absolute -top-4 left-52 w-24 invisible'}
           >

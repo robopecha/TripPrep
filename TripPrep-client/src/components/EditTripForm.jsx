@@ -1,4 +1,4 @@
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { mutate } from "swr";
@@ -104,7 +104,7 @@ function EditTripForm({ trip }) {
           />
         </div>
 
-        <BlueButton type={'submit'} className="mt-8">Submit</BlueButton>
+        <Button type={'submit'} className="blue-button mt-8">Submit</Button>
       </form>
     </div>
   );

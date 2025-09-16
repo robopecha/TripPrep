@@ -1,7 +1,7 @@
 import TripInfo from "../components/TripInfo";
 import Header from "../components/Header";
 import ListLink from "../components/ListLink";
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import PackCard from "../components/PackCard";
 import ItemForm from "../components/ItemForm";
 import React from "react";
@@ -25,7 +25,7 @@ function ListPackPage() {
         <Header>To Pack</Header>
         <ListLink tripID={tripID} linkType={'buy'}>To Buy</ListLink>
       </div>
-      <Link to={`/trips/${tripID}/lists/packmode`}><BlueButton className="mb-5 text-green-400 bg-white !border-green-400 hover:bg-green-400 hover:text-black hover:border-white">Pack Mode</BlueButton></Link>
+      <Link to={`/trips/${tripID}/lists/packmode`}><Button className="blue-white-button mb-5 !text-green-400 !border-green-400 hover:bg-green-400 hover:!text-black hover:!border-white">Pack Mode</Button></Link>
       {isLoading && <p>Loading list...</p>}
       {error && <p>Failed to load list.</p>}
       {!isLoading && !error && !theItems && <p>List not found.</p>}

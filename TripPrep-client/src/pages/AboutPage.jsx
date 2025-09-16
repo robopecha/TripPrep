@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -37,9 +37,9 @@ function AboutPage() {
           I recommend using it in Chrome on desktop.
         </p>
         <Link to={'/new-trip'}>
-          <BlueButton className='xl:inline-block md:ml-0.5 xl:ml-10 text-6xl p-8 my-10 xl:-mt-10 xl:mb-0 border-4 -rotate-2 hover:rotate-0'>
+          <Button className='blue-button xl:inline-block md:ml-0.5 xl:ml-10 text-6xl p-8 my-10 xl:-mt-10 xl:mb-0 !border-4 -rotate-2 hover:rotate-0'>
             Start here
-          </BlueButton>
+          </Button>
         </Link>
       </div>
     </>

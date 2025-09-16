@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import RedButton from "../components/RedButton";
+import Button from "../components/Button";
 import React from "react";
 import { AuthContext } from "../context/AuthProvider";
 
@@ -11,7 +11,7 @@ function SettingsPage() {
   return (
     <>
       <Header>Settings</Header>
-      <RedButton className="ml-0.5" onClick={logOutUser}>Log out</RedButton>
+      <Button className="red-button ml-0.5" onClick={logOutUser}>Log out</Button>
     </>
   );
 }

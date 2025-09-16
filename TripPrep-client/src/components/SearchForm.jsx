@@ -1,4 +1,4 @@
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import React from 'react';
 import { createBrowserHistory } from 'history';
 
@@ -36,7 +36,7 @@ function SearchForm({ handleSearch }) {
         className="border border-black rounded-sm w-11/12 h-10"
         onChange={handleChange}
       />
-      <BlueButton type="submit" className="mb-10 ml-1">Search</BlueButton>
+      <Button type="submit" className="blue-button mb-10 ml-1">Search</Button>
     </form>
   );
 }

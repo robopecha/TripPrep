@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import TripCard from "../components/TripCard";
 import AllTripsCard from "../components/AllTripsCard";
 import React from "react";
@@ -17,7 +17,7 @@ function AllTripsPage() {
   return (
     <div>
       <Header>Trips</Header>
-      <Link to={'/new-trip'}><BlueButton className="mb-10">Add a trip</BlueButton></Link>
+      <Link to={'/new-trip'}><Button className="blue-button mb-10">Add a trip</Button></Link>
       {isLoading && <p>Loading trips...</p>}
       {error && <p>Failed to load trips.</p>}
       {!isLoading && !error && !theTrips && <p>Trips not found.</p>}

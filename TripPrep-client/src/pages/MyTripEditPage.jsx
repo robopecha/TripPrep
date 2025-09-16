@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import EditTripForm from "../components/EditTripForm";
 import PublicToggle from "../components/PublicToggle";
-import RedButton from "../components/RedButton";
+import Button from "../components/Button";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { TripContext } from "../context/TripProvider";
@@ -43,7 +43,7 @@ function MyTripEditPage() {
         <>
           <EditTripForm trip={theTrip} />
           <PublicToggle trip={theTrip} />
-          <RedButton className="mt-10 text-sm" onClick={deleteTrip}>Delete trip</RedButton>
+          <Button className="red-button mt-10 text-sm" onClick={deleteTrip}>Delete trip</Button>
         </>
       )}
     </div>

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import ListsCard from "../components/ListsCard";
-import BlueButton from "../components/BlueButton";
+import Button from "../components/Button";
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { TripContext } from "../context/TripProvider";
@@ -33,9 +33,9 @@ function MyTripDetailsPage() {
           <h3 className="text-xl mt-12">starting on:</h3>
           <h3 className="text-2xl mt-4">{formattedDate}</h3>
           <Link to={`/trips/${tripID}/edit`}>
-            <BlueButton className="bg-white !border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-black hover:border-white mt-12">
+            <Button className="blue-white-button mt-12">
               Edit trip
-            </BlueButton>
+            </Button>
           </Link>
         </>
       )}

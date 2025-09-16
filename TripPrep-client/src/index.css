@@ -9,6 +9,18 @@
   font-style: normal;
 }
 
+.blue-button {
+  @apply bg-blue-500 text-black border-white p-2 border-2 rounded-sm hover:border-black transition ease-in-out duration-200;
+}
+
+.blue-white-button {
+  @apply bg-white text-blue-500 border-blue-500 p-2 border-2 rounded-sm hover:bg-blue-500 hover:text-black hover:border-white transition ease-in-out duration-200;
+}
+
+.red-button {
+  @apply bg-white text-red-500 border-red-500 p-2 border-2 rounded-sm hover:bg-red-500 hover:text-black hover:border-black transition ease-in-out duration-200;
+}
+
 html {
   box-sizing: border-box;
 }
