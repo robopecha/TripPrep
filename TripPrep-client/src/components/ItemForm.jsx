@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button";
 import { useParams } from "react-router-dom";
 import { mutate } from "swr";
 import axios from "axios";
@@ -40,7 +41,7 @@ function ItemForm({ listType }) {
           className="border border-black rounded-sm w-64 h-10 text-sm"
           onChange={(event) => setContent(event.target.value)}
         />
-        <button type="submit" className="bg-blue-500 py-2 px-6 rounded-sm ml-1 hover:bg-blue-600 hover:text-gray-100 transition ease-in-out duration-200">+</button>
+        <Button type="submit" className="form-button">+</Button>
       </form>
     </div>
   );
