@@ -10,7 +10,7 @@
 }
 
 .blue-button {
-  @apply bg-blue-500 text-black border-white p-2 border-2 rounded-sm hover:border-black transition ease-in-out duration-200;
+  @apply bg-blue-500 border-white p-2 border-2 rounded-sm hover:border-black transition ease-in-out duration-200;
 }
 
 .blue-white-button {
