@@ -22,7 +22,7 @@ function MyTripsPage() {
       {!isLoading && !error && !myTrips && <p>Trips not found.</p>}
       {!isLoading && !error && myTrips && (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {myTrips.map((trip) => <TripCard key={trip._id} trip={trip} />)}
+          {myTrips.map((trip) => <TripCard key={trip._id} trip={trip} to={`/trips/${trip._id}`} />)}
         </div>
       )}
     </div>

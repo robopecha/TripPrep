@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
 import TripCard from "../components/TripCard";
-import AllTripsCard from "../components/AllTripsCard";
 import React from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
@@ -23,7 +22,7 @@ function AllTripsPage() {
       {!isLoading && !error && !theTrips && <p>Trips not found.</p>}
       {!isLoading && !error && theTrips && (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {theTrips.map((trip) => trip.user === user?._id ? <TripCard key={trip._id} trip={trip} /> : <AllTripsCard key={trip._id} trip={trip} />)}
+          {theTrips.map((trip) => trip.user === user?._id ? <TripCard key={trip._id} trip={trip} to={`/trips/${trip._id}`} /> : <TripCard key={trip._id} trip={trip} to={`/trips/${trip._id}/packlist`} />)}
         </div>
       )}
     </div>
