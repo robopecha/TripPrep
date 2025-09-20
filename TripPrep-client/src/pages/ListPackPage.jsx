@@ -31,7 +31,7 @@ function ListPackPage() {
       {!isLoading && !error && !theItems && <p>List not found.</p>}
       {!isLoading && !error && theItems && (
         <div className="mt-4">
-          <div>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-2'>
             {theItems.map((item) => <PackCard key={item._id} item={item} />)}
           </div>
           <ItemForm listType={listType} />

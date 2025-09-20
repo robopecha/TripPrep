@@ -24,7 +24,7 @@ function PackModePage() {
       {!isLoading && !error && !theItems && <p>List not found.</p>}
       {!isLoading && !error && theItems && (
         <>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-2'>
             {theItems.map((item) => <PackModeCard key={item._id} item={item} />)}
           </div>
           {theItems.length === 0 && <p className={'text-sm mt-7'}>There is nothing to pack right now!</p>}
