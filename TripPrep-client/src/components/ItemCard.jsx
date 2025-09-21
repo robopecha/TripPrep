@@ -59,7 +59,7 @@ function ItemCard({ item }) {
           </svg>
           <h5 className={item.done ? "inline ml-3 opacity-40 text-sm" : "inline ml-3 text-sm"}>{item.content}</h5>
         </div>
-        <div className="">
+        <div>
           <div title='delete'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 text-gray-200 hover:text-gray-800 cursor-pointer" onClick={deleteItem}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -73,7 +73,7 @@ function ItemCard({ item }) {
         </div>
       </div>
       {showColorPicker && (
-        <div className="flex justify-end -mt-2">
+        <div className="flex justify-end -mt-3">
           <GithubPicker onChange={(e) => setColor(e.hex)} colors={['#fecaca', '#fef08a', '#bbf7d0', '#bfdbfe', '#e9d5ff', "#FFF"]} triangle={'top-right'} width={'165px'} />
         </div>
       )}
