@@ -33,7 +33,7 @@ function ListDoBuyPage({ listType }) {
       {!isLoading && !error && theItems && (
         <>
           <div className="mt-4">
-            <div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
               {theItems.map((item) => <ItemCard key={item._id} item={item} />)}
             </div>
             <ItemForm listType={listType} />

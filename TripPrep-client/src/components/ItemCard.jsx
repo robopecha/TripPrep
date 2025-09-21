@@ -51,8 +51,8 @@ function ItemCard({ item }) {
   }
 
   return (
-    <>
-      <div style={{background:item.backgroundColor}} className=" flex justify-between border border-black rounded-sm mb-3 p-2 overflow-scroll bg-white hover:bg-gray-100 w-80">
+    <div>
+      <div style={{background:item.backgroundColor}} className="flex justify-between border border-black rounded-sm mb-3 p-2 overflow-scroll bg-white hover:bg-gray-100 w-80">
         <div onClick={toggleClick} className="cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={item.done ? 'w-7 inline ml-1 visible' : 'w-7 inline ml-1 invisible'}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -72,10 +72,12 @@ function ItemCard({ item }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
-        {showColorPicker && (<GithubPicker onChange={(e) => setColor(e.hex)} colors={['#fecaca', '#fef08a', '#bbf7d0', '#bfdbfe', '#e9d5ff', "#FFF"]} triangle={'top-right'} width={'165px'} className="-mt-2"/>)}
-      </div>
-    </>
+      {showColorPicker && (
+        <div className="flex justify-end -mt-2">
+          <GithubPicker onChange={(e) => setColor(e.hex)} colors={['#fecaca', '#fef08a', '#bbf7d0', '#bfdbfe', '#e9d5ff', "#FFF"]} triangle={'top-right'} width={'165px'} />
+        </div>
+      )}
+    </div>
   );
 }
 
